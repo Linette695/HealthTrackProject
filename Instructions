@@ -8,3 +8,8 @@ mysql> CREATE DATABASE testdb;
 mysql> USE testdb;
 mysql> source testdb.sql;
 mysql> quit;
+
+//Connector error
+In Eclipse:
+	Project > Build Path > Configure Build Path
+	In "Libraries" tab press "Add External Jar" and select mysql-connector-java-5.1.49.jar
