@@ -1,3 +1,5 @@
+//This code is based off of https://www.tutorialspoint.com/jdbc/jdbc-sample-code.htm
+
 //STEP 1. Import required packages
 import java.sql.*;
 
