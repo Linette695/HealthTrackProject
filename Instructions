@@ -1,0 +1,10 @@
+//Starting the service
+$ sudo service mysql status
+$ sudo service mysql start
+
+//Set up
+$ mysql -u root -p
+mysql> CREATE DATABASE testdb;
+mysql> USE testdb;
+mysql> source testdb.sql;
+mysql> quit;

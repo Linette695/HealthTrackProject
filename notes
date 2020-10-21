@@ -1,5 +1,0 @@
-sudo /etc/init.d/mysql start //dont use this one
-mysql -u root -p
-
-sudo service mysql status
-sudo service mysql start
