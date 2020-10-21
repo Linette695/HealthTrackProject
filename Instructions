@@ -1,13 +1,17 @@
-//Starting the service
+//Install mysql
+$ sudo apt-get update
+$ sudo apt-get install mysql-server
+
+//Starting the service and checking status
 $ sudo service mysql status
 $ sudo service mysql start
 
-//Set up
+//Set up loading testdb.sql
 $ mysql -u root -p
 mysql> CREATE DATABASE testdb;
 mysql> USE testdb;
-mysql> source testdb.sql;
-mysql> quit;
+mysql> SOURCE testdb.sql;
+mysql> QUIT;
 
 //Connector error
 In Eclipse:
