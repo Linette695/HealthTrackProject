@@ -145,9 +145,9 @@ public class InitialClass implements ActionListener {
 			System.out.printf(passwordInputed + "\n");	//For Debug
 			
 			boolean userVerify = userVerify(userNameInputed, passwordInputed);		//Calls method that will check if the inputed user info is correct
+			System.out.println("Login result: "+userVerify);			//For Debug
 			if(userVerify) {
 				//TODO advance to the specific dash-board of the user, according to their user type 
-				System.out.println("UI is automatically 'loging in' to a default dashboard ");			//For Debug
 			}
 			else {
 				//TODO display error message window and let user input info again

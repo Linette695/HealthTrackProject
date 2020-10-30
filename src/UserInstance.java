@@ -43,11 +43,11 @@ public class UserInstance {
 	      return true;
 	   }catch(SQLException se){
 	      //Handle errors for JDBC
-	      se.printStackTrace();
+	      //se.printStackTrace();
 	      return false;
 	   }catch(Exception e){
 	      //Handle errors for Class.forName
-	      e.printStackTrace();
+	      //e.printStackTrace();
 	      return false;
 	   }finally{
 	      //finally block used to close resources
@@ -55,7 +55,7 @@ public class UserInstance {
 	         if(conn!=null)
 	            conn.close();
 	      }catch(SQLException se){
-	         se.printStackTrace();
+	         //se.printStackTrace();
 	      }//end finally try
 	   }//end try
 	   //System.out.println("Goodbye!"); 
