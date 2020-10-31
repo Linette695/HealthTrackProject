@@ -6,7 +6,7 @@ import java.sql.*;
 public class UserInstance {
    // JDBC driver name and database URL
    static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";  
-   static final String DB_URL = "jdbc:mysql://localhost/testdb";
+   static final String DB_URL = "jdbc:mysql://localhost/cs532"; //change depending on database
 
    //  Database credentials
    //static final String USER = "root";
