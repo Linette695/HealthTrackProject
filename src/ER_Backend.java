@@ -12,18 +12,23 @@ public class ER_Backend {
    static final String USER = "root";
    static final String PASS = "root";
 
+   //Using main only for isolated testing, comment out when using with UI
    public static void main (String[] args) {
 	   showPatients();
+   }
+   
+   public ER_Backend() {
+	   
    }
    
    public static void showPatients() {
    Connection conn = null;
    Statement stmt = null;
    try{
-//STEP 2: Register JDBC driver
-      Class.forName("com.mysql.jdbc.Driver");
+	   //STEP 2: Register JDBC driver
+	   Class.forName("com.mysql.jdbc.Driver");
 
-      //STEP 3: Open a connection
+	   //STEP 3: Open a connection
       System.out.println("Connecting to database...");
       conn = DriverManager.getConnection(DB_URL,USER,PASS);
 
@@ -31,7 +36,6 @@ public class ER_Backend {
       System.out.println("Creating statement...");
       stmt = conn.createStatement();
       String sql;
-      //sql = "SELECT id, first, last, age FROM Employees";
       sql = "SELECT pid, pfirstname, plastname FROM Patients";
       ResultSet rs = stmt.executeQuery(sql);
 
