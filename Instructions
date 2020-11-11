@@ -8,9 +8,9 @@ $ sudo service mysql start
 
 //Set up loading testdb.sql
 $ mysql -u root -p
-mysql> CREATE DATABASE testdb;
-mysql> USE testdb;
-mysql> SOURCE testdb.sql;
+mysql> CREATE DATABASE cs532;
+mysql> USE cs532;
+mysql> SOURCE cs532.sql;
 mysql> QUIT;
 
 //Connector error
