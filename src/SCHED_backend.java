@@ -215,6 +215,20 @@ public class SCHED_backend {
 		comboBox_4.setBounds(0, 20, 150, 20);
 		panelPhysician.add(comboBox_4);
 		
+		JPanel panelType = new JPanel();
+		panelType.setLayout(null);
+		panelType.setBounds(210, 100, 200, 50);
+		panelPhysicianSchedule.add(panelType);
+		
+		JLabel lblNewLabel_2_2 = new JLabel("Pick appointment type");
+		lblNewLabel_2_2.setBounds(0, 0, 200, 20);
+		panelType.add(lblNewLabel_2_2);
+		
+		JComboBox comboBox_4_1 = new JComboBox();
+		comboBox_4_1.setEditable(true);
+		comboBox_4_1.setModel(new DefaultComboBoxModel(new String[] {"Vacation", "Conference", "Other"}));
+		comboBox_4_1.setBounds(0, 20, 150, 20);
+		panelType.add(comboBox_4_1);
 		
 		int selectedPhysician = 0;
 		JButton btnNewButton = new JButton("Book appointment");
@@ -229,8 +243,10 @@ public class SCHED_backend {
 		panelButton.add(btnNewButton);
 		btnNewButton.addActionListener(new ActionListener(){  
 			public void actionPerformed(ActionEvent e){  
-				final int selectedPhysician = comboBox_4.getSelectedIndex();        
-				System.out.println(selectedPhysician);  
+				final int selectedPhysician = comboBox_4.getSelectedIndex() + 1;
+				final int testpatientid = 0;
+				final String selectedtype = comboBox_4_1.getItemAt(comboBox_4_1.getSelectedIndex()).toString();
+				System.out.println(testpatientid + ", " + selectedPhysician + ", " + selectedtype);  
 			}  
 		});  
 		
@@ -262,21 +278,6 @@ public class SCHED_backend {
 		spinner_3.setModel(new SpinnerNumberModel(1, 1, 31, 1));
 		spinner_3.setBounds(110, 20, 50, 20);
 		panelEndDate.add(spinner_3);
-		
-		JPanel panelType = new JPanel();
-		panelType.setLayout(null);
-		panelType.setBounds(210, 100, 200, 50);
-		panelPhysicianSchedule.add(panelType);
-		
-		JLabel lblNewLabel_2_2 = new JLabel("Pick appointment type");
-		lblNewLabel_2_2.setBounds(0, 0, 200, 20);
-		panelType.add(lblNewLabel_2_2);
-		
-		JComboBox comboBox_4_1 = new JComboBox();
-		comboBox_4_1.setEditable(true);
-		comboBox_4_1.setModel(new DefaultComboBoxModel(new String[] {"Vacation", "Conference", "Other"}));
-		comboBox_4_1.setBounds(0, 20, 150, 20);
-		panelType.add(comboBox_4_1);
 		
 		JPanel panelPatientSchedule = new JPanel();
 		panelPatientSchedule.setLayout(null);
