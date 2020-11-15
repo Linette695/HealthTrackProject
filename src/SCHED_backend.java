@@ -1,6 +1,4 @@
 import java.awt.EventQueue;
-
-
 import javax.swing.JFrame;
 import javax.swing.JComboBox;
 import javax.swing.JTable;
@@ -19,6 +17,8 @@ import javax.swing.JTextField;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.awt.event.*;  
+import javax.swing.*; 
 
 public class SCHED_backend {
 
@@ -42,8 +42,7 @@ public class SCHED_backend {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					SCHED_backend window = new SCHED_backend();
-					window.frmPhysicianScheduler.setVisible(true);
+				
 					
 					Scanner scnr = new Scanner(System.in);
 					Connection conn = null;
@@ -73,9 +72,6 @@ public class SCHED_backend {
 					         
 					 
 					      }
-					      for (int i = 0; i < physicians.size(); i++) {
-					        	 System.out.println(physicians.get(i));
-					         }
 					      //STEP 6: Clean-up environment
 					      rs.close();
 					      stmt.close();
@@ -100,7 +96,9 @@ public class SCHED_backend {
 					         se.printStackTrace();
 					      }
 					   }
-					   System.out.println("Goodbye!");
+					   
+					   SCHED_backend window = new SCHED_backend();
+						window.frmPhysicianScheduler.setVisible(true);
 				
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -217,14 +215,24 @@ public class SCHED_backend {
 		comboBox_4.setBounds(0, 20, 150, 20);
 		panelPhysician.add(comboBox_4);
 		
+		
+		int selectedPhysician = 0;
+		JButton btnNewButton = new JButton("Book appointment");
+		
 		JPanel panelButton = new JPanel();
 		panelButton.setBounds(210, 150, 200, 50);
 		panelPhysicianSchedule.add(panelButton);
 		panelButton.setLayout(null);
 		
-		JButton btnNewButton = new JButton("Book appointment");
+		
 		btnNewButton.setBounds(0, 0, 200, 20);
 		panelButton.add(btnNewButton);
+		btnNewButton.addActionListener(new ActionListener(){  
+			public void actionPerformed(ActionEvent e){  
+				final int selectedPhysician = comboBox_4.getSelectedIndex();        
+				System.out.println(selectedPhysician);  
+			}  
+		});  
 		
 		txtNone = new JTextField();
 		txtNone.setText("none");
