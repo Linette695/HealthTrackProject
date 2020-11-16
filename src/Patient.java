@@ -1,15 +1,15 @@
 import java.sql.*;
 
 public class Patient {
-	int pid;
-	String pfirstname;
-	String plastname;
-	int tnumber;
-	String address;
-	int iid;
-	Date dob;
-	String gender;
-	int pcp;
+	public int pid;
+	public String pfirstname;
+	public String plastname;
+	public int tnumber;
+	public String address;
+	public int iid;
+	public Date dob;
+	public String gender;
+	public int pcp;
 	
 	public void printInfo() {
 		System.out.print("pid: "+pid);

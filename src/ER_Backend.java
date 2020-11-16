@@ -29,6 +29,18 @@ public class ER_Backend {
 
 	}
 
+	public boolean createPatient(Patient p) {
+		return false;
+	}
+	
+	public boolean createMedicalEncounter(MedicalEncounter me) {
+		return false;
+	}
+	
+	public boolean createLabOrder(LabOrder lo) {
+		return false;
+	}
+	
 	public static Patient returnPatient(int id) {
 		Connection conn = null;
 		Statement stmt = null;
