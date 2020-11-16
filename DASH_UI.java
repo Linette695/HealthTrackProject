@@ -71,9 +71,9 @@ public class DASH_UI {
 		ERtabbedPane.addTab("ER", null, panel, null);
 		GridBagLayout gbl_panel = new GridBagLayout();
 		gbl_panel.columnWidths = new int[]{155, 121, 0};
-		gbl_panel.rowHeights = new int[]{21, 0, 0};
+		gbl_panel.rowHeights = new int[]{21, 0, 0, 0};
 		gbl_panel.columnWeights = new double[]{0.0, 0.0, Double.MIN_VALUE};
-		gbl_panel.rowWeights = new double[]{0.0, 0.0, Double.MIN_VALUE};
+		gbl_panel.rowWeights = new double[]{0.0, 0.0, 0.0, Double.MIN_VALUE};
 		panel.setLayout(gbl_panel);
 		
 		JButton btnCreateNewPatient = new JButton("Create New Patient");
@@ -99,10 +99,23 @@ public class DASH_UI {
 			}
 		});
 		GridBagConstraints gbc_btnEnterNewMedical = new GridBagConstraints();
-		gbc_btnEnterNewMedical.insets = new Insets(0, 0, 0, 5);
+		gbc_btnEnterNewMedical.insets = new Insets(0, 0, 5, 5);
 		gbc_btnEnterNewMedical.gridx = 0;
 		gbc_btnEnterNewMedical.gridy = 1;
 		panel.add(btnEnterNewMedical, gbc_btnEnterNewMedical);
+		
+		JButton btnGeneratePatientReport = new JButton("Generate Patient Report");
+		btnGeneratePatientReport.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				erSubsystem.ERCreateNewPatientReport();
+			}
+		});
+		GridBagConstraints gbc_btnGeneratePatientReport = new GridBagConstraints();
+		gbc_btnGeneratePatientReport.anchor = GridBagConstraints.WEST;
+		gbc_btnGeneratePatientReport.insets = new Insets(0, 0, 0, 5);
+		gbc_btnGeneratePatientReport.gridx = 0;
+		gbc_btnGeneratePatientReport.gridy = 2;
+		panel.add(btnGeneratePatientReport, gbc_btnGeneratePatientReport);
 		
 		final JTabbedPane SCHEDtabbedPane_1 = new JTabbedPane(JTabbedPane.TOP);
 		DASHframe.getContentPane().add(SCHEDtabbedPane_1, "name_2453437677515500");

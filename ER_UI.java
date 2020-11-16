@@ -51,6 +51,7 @@ public class ER_UI {
 	private JTextField txtEnterEmployeeId;
 	private JTextField txtEnterServiceId;
 	private JTextField txtEnterPhysicianId_1;
+	private JTextField txtEnterId;
 
 
 	/**
@@ -77,23 +78,41 @@ public class ER_UI {
 	}
 	
 	/*METHODS*/
+	/*NOTES: The index for each tab are  
+	 *		Create New Patient tab   == 0
+	 *		Create New Medical Encounter == 1
+	 *		Generate Patient Report  == 2
+	 *		Patient List   == 3
+	 */
 	//Method invoked when user wants to create new Patient
 		public void ERCreateNewPatient() {
 			frmCreateNewPatient.setVisible(true);
 			CreateNewPatienttabbedPane.setEnabledAt(0,true);			//Make sure the new patient tab is enabled
 			CreateNewPatienttabbedPane.setSelectedIndex(0); 			//Make sure the new patient tab is the visible tab
 			CreateNewPatienttabbedPane.setEnabledAt(1, false);			//Make sure the new medical encounter tab is disabled
+			CreateNewPatienttabbedPane.setEnabledAt(2, false);			//Make sure the Generate patient report tab is disabled
+			CreateNewPatienttabbedPane.setEnabledAt(3, false);			//Make sure the patient list tab is disabled
+			
 		}//End of ERCreateNEwPatient 
 		
-		//Method invoked when user want to create a new medical encounter
+		//Method invoked when user wants to create a new medical encounter
 		public void ERCreateNewMedicalEncounter() {
 			frmCreateNewPatient.setVisible(true);
 			CreateNewPatienttabbedPane.setEnabledAt(1, true);			//Make sure the new medical encounter is enabled
 			CreateNewPatienttabbedPane.setSelectedIndex(1);				//MAke sure the new medical encounter is the visible tab
 			CreateNewPatienttabbedPane.setEnabledAt(0, false);			//Make sure the new patient tab is disabled
-		
+			CreateNewPatienttabbedPane.setEnabledAt(2, false);			//Make sure the Generate patient report tab is disabled
+			
 		}//End of ERCreateNewMedicalEncounter
 	
+		//Method invoked when user wants to Generate a specific patient report
+		public void ERCreateNewPatientReport() {
+			frmCreateNewPatient.setVisible(true);
+			CreateNewPatienttabbedPane.setEnabledAt(2, true);			//Make sure the generate patient report tab is enabled
+			CreateNewPatienttabbedPane.setSelectedIndex(2);				//Make sure the generate patient report is the visible tab
+			CreateNewPatienttabbedPane.setEnabledAt(0, false);			//Make sure the new patient tab is disabled
+			CreateNewPatienttabbedPane.setEnabledAt(1, false);			//Make sure the create new medical encounter tab is disabled
+		}//End of ERCreateNewPatientReport
 	
 	
 	
@@ -486,9 +505,39 @@ public class ER_UI {
 		);
 		EnterNewMedicalEncouterpanel.setLayout(gl_EnterNewMedicalEncouterpanel);
 		
+		JPanel patientReportPanel = new JPanel();
+		CreateNewPatienttabbedPane.addTab("Generate Patient Report", null, patientReportPanel, null);
+		patientReportPanel.setLayout(null);
+		
+		JLabel lblEnterPatientsId_1 = new JLabel("Enter patient's ID # :");
+		lblEnterPatientsId_1.setBounds(0, 3, 126, 13);
+		patientReportPanel.add(lblEnterPatientsId_1);
+		
+		txtEnterId = new JTextField();
+		txtEnterId.setBounds(123, 0, 96, 19);
+		txtEnterId.setText("Enter ID");
+		txtEnterId.setHorizontalAlignment(SwingConstants.LEFT);
+		patientReportPanel.add(txtEnterId);
+		txtEnterId.setColumns(10);
+		
+		JButton btnGeneratePatientReport = new JButton("Generate Patient Report");
+		btnGeneratePatientReport.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			//TODO Display the information of the patient indicated by the given ID #
+				/*use txtEnterID to obtain the inputed ID #, and display information on the patientInfoScrollPane_1 */
+			
+			}
+		});
+		btnGeneratePatientReport.setBounds(143, 273, 227, 21);
+		patientReportPanel.add(btnGeneratePatientReport);
+		
+		JScrollPane patientInfoScrollPane_1 = new JScrollPane();
+		patientInfoScrollPane_1.setBounds(28, 29, 452, 234);
+		patientReportPanel.add(patientInfoScrollPane_1);
+		
 		JPanel ReportPanel = new JPanel();
 		CreateNewPatienttabbedPane.addTab("Patient List", null, ReportPanel, null);
-		CreateNewPatienttabbedPane.setEnabledAt(2, true);
+		CreateNewPatienttabbedPane.setEnabledAt(3, true);
 		ReportPanel.setLayout(null);
 
 		JScrollPane scrollPane = new JScrollPane();
@@ -541,6 +590,5 @@ public class ER_UI {
 		
 		
 	}//End of initialize method
-
 }//End of ER_UI class
 
