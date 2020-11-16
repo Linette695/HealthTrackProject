@@ -284,4 +284,17 @@ public class ER_Backend {
 		System.out.println("Goodbye!");
 		return patientList;
 	}
+
+	public int getMaxID() {
+		List<Patient> patientList = returnPatientInfoAll();
+		int id = -1;
+		for (int i=0; i<patientList.size(); i++)
+		{
+			if (patientList.get(i).pid > id) {
+				id = patientList.get(i).pid;
+			}
+		}
+		return id;
+	}
+
 }//end ER_Backend

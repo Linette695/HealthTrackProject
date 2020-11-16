@@ -193,7 +193,7 @@ public class ER_UI {
 		btnSaveNewPatient.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Patient p = new Patient();
-				p.pid = ER_BE.returnPatientInfoAll().size()+1;
+				p.pid = ER_BE.getMaxID() + 1;
 				p.pfirstname = txtEnterName.getText();
 				p.plastname = txtEnterLastName.getText();
 				p.tnumber = Integer.parseInt(textTNumber.getText());
