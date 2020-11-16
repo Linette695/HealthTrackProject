@@ -26,6 +26,7 @@ import javax.swing.SpinnerNumberModel;
 import javax.swing.JRadioButton;
 import javax.swing.SwingConstants;
 import java.awt.event.ActionListener;
+import java.sql.Date;
 import java.awt.event.ActionEvent;
 import javax.swing.JList;
 import javax.swing.JScrollBar;
@@ -45,7 +46,7 @@ public class ER_UI {
 	private JFrame frmCreateNewPatient;
 	private JTextField txtEnterName;
 	private JTextField txtEnterLastName;
-	private JTextField textField;
+	private JTextField textTNumber;
 	private JTextField txtEnterAddress;
 	private JTextField txtEnterCarrierId;
 	private JTextField txtEnterPhysicianId;
@@ -142,9 +143,9 @@ public class ER_UI {
 
 		JLabel lblEnterPatientsPhone = new JLabel("Enter patient's phone number (with no spaces/symbols, ex: 6192661486):");
 
-		textField = new JTextField();
-		textField.setText("##########");
-		textField.setColumns(10);
+		textTNumber = new JTextField();
+		textTNumber.setText("##########");
+		textTNumber.setColumns(10);
 
 		JLabel lblEnterPatientsAddress = new JLabel("Enter patient's address:");
 
@@ -172,9 +173,9 @@ public class ER_UI {
 
 		JLabel lblPatientsGender = new JLabel("Patient's gender:");
 
-		JComboBox comboBox_1 = new JComboBox();
-		comboBox_1.setMaximumRowCount(3);
-		comboBox_1.setModel(new DefaultComboBoxModel(new String[] {"Female", "Male", "Other"}));
+		JComboBox comboBoxGender = new JComboBox();
+		comboBoxGender.setMaximumRowCount(3);
+		comboBoxGender.setModel(new DefaultComboBoxModel(new String[] {"Female", "Male", "Other"}));
 
 		JLabel lblInsuranceCarrierid = new JLabel("Insurance carrier (ID of carrier):");
 
@@ -191,7 +192,18 @@ public class ER_UI {
 		JButton btnSaveNewPatient = new JButton("SAVE NEW PATIENT");
 		btnSaveNewPatient.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-
+				Patient p = new Patient();
+				p.pid = ER_BE.returnPatientInfoAll().size()+1;
+				p.pfirstname = txtEnterName.getText();
+				p.plastname = txtEnterLastName.getText();
+				p.tnumber = Integer.parseInt(textTNumber.getText());
+				p.address = txtEnterAddress.getText();
+				p.iid = Integer.parseInt(txtEnterCarrierId.getText());
+				p.dob = null;
+				p.gender = (String) comboBoxGender.getSelectedItem();
+				p.pcp = Integer.parseInt(txtEnterPhysicianId.getText());
+				
+				ER_BE.createPatient(p);
 			}
 		});
 		GroupLayout gl_CreateNewPatientPanel = new GroupLayout(CreateNewPatientPanel);
@@ -216,7 +228,7 @@ public class ER_UI {
 										.addComponent(lblEnterPatientsPhone))
 								.addGroup(gl_CreateNewPatientPanel.createSequentialGroup()
 										.addGap(142)
-										.addComponent(textField, GroupLayout.PREFERRED_SIZE, 117, GroupLayout.PREFERRED_SIZE))
+										.addComponent(textTNumber, GroupLayout.PREFERRED_SIZE, 117, GroupLayout.PREFERRED_SIZE))
 								.addGroup(Alignment.TRAILING, gl_CreateNewPatientPanel.createSequentialGroup()
 										.addContainerGap()
 										.addComponent(lblEnterPatientsAddress, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -238,7 +250,7 @@ public class ER_UI {
 																		.addComponent(lblMonth, GroupLayout.PREFERRED_SIZE, 43, GroupLayout.PREFERRED_SIZE)))
 														.addPreferredGap(ComponentPlacement.RELATED)
 														.addGroup(gl_CreateNewPatientPanel.createParallelGroup(Alignment.LEADING)
-																.addComponent(comboBox_1, GroupLayout.PREFERRED_SIZE, 97, GroupLayout.PREFERRED_SIZE)
+																.addComponent(comboBoxGender, GroupLayout.PREFERRED_SIZE, 97, GroupLayout.PREFERRED_SIZE)
 																.addComponent(comboBox, 0, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
 										.addPreferredGap(ComponentPlacement.UNRELATED)
 										.addComponent(lblDay, GroupLayout.PREFERRED_SIZE, 37, GroupLayout.PREFERRED_SIZE)
@@ -281,7 +293,7 @@ public class ER_UI {
 						.addPreferredGap(ComponentPlacement.RELATED)
 						.addComponent(lblEnterPatientsPhone)
 						.addPreferredGap(ComponentPlacement.RELATED)
-						.addComponent(textField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+						.addComponent(textTNumber, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 						.addPreferredGap(ComponentPlacement.RELATED)
 						.addGroup(gl_CreateNewPatientPanel.createParallelGroup(Alignment.BASELINE)
 								.addComponent(lblEnterPatientsAddress)
@@ -299,7 +311,7 @@ public class ER_UI {
 						.addPreferredGap(ComponentPlacement.RELATED)
 						.addGroup(gl_CreateNewPatientPanel.createParallelGroup(Alignment.BASELINE)
 								.addComponent(lblPatientsGender)
-								.addComponent(comboBox_1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+								.addComponent(comboBoxGender, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
 						.addPreferredGap(ComponentPlacement.RELATED)
 						.addGroup(gl_CreateNewPatientPanel.createParallelGroup(Alignment.BASELINE)
 								.addComponent(lblInsuranceCarrierid)
