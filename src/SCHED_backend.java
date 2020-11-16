@@ -230,6 +230,21 @@ public class SCHED_backend {
 		comboBox_4_1.setBounds(0, 20, 150, 20);
 		panelType.add(comboBox_4_1);
 		
+		JPanel panelEndDate = new JPanel();
+		panelEndDate.setLayout(null);
+		panelEndDate.setBounds(210, 0, 200, 50);
+		panelPhysicianSchedule.add(panelEndDate);
+		
+		JComboBox comboBox_3 = new JComboBox();
+		comboBox_3.setModel(new DefaultComboBoxModel(new String[] {"January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"}));
+		comboBox_3.setBounds(0, 20, 100, 20);
+		panelEndDate.add(comboBox_3);
+		
+		JSpinner spinner_3 = new JSpinner();
+		spinner_3.setModel(new SpinnerNumberModel(1, 1, 31, 1));
+		spinner_3.setBounds(110, 20, 50, 20);
+		panelEndDate.add(spinner_3);
+		
 		int selectedPhysician = 0;
 		JButton btnNewButton = new JButton("Book appointment");
 		
@@ -246,7 +261,27 @@ public class SCHED_backend {
 				final int selectedPhysician = comboBox_4.getSelectedIndex() + 1;
 				final int testpatientid = 0;
 				final String selectedtype = comboBox_4_1.getItemAt(comboBox_4_1.getSelectedIndex()).toString();
-				System.out.println(testpatientid + ", " + selectedPhysician + ", " + selectedtype);  
+				final int selectedstartmonth = comboBox.getSelectedIndex() + 1;
+				final int selectedstartday = (int) spinner.getValue();
+				final int selectedstartyear = 2020;
+				final int selectedstarthour = (int) spinner_1.getValue();
+				int selectedstartminute = 22;
+				if (comboBox_1.getSelectedIndex() == 0) {
+					selectedstartminute = 0;
+				}else {
+					selectedstartminute = 30;
+				}
+				final int selectedendmonth = comboBox_3.getSelectedIndex() + 1;
+				final int selectedendday = (int) spinner_3.getValue();
+				final int selectedendyear = 2020;
+				final int selectedendhour = (int) spinner_1_1.getValue();
+				int selectedendminute = 22;
+				if (comboBox_1_1.getSelectedIndex() == 0) {
+					selectedendminute = 0;
+				}else {
+					selectedendminute = 30;
+				}
+				System.out.println(testpatientid + ", " + selectedPhysician + ", " + selectedtype + ", " + selectedstartyear+ "-" + selectedstartmonth + "-" + selectedstartday + " " + selectedstarthour + ":" + selectedstartminute + ", " + selectedendyear + "-" + selectedendmonth + "-" + selectedendday + " " + selectedendhour + ":" + selectedendminute);  
 			}  
 		});  
 		
@@ -260,24 +295,9 @@ public class SCHED_backend {
 		lblNewLabel_3.setBounds(0, 20, 100, 20);
 		panelButton.add(lblNewLabel_3);
 		
-		JPanel panelEndDate = new JPanel();
-		panelEndDate.setLayout(null);
-		panelEndDate.setBounds(210, 0, 200, 50);
-		panelPhysicianSchedule.add(panelEndDate);
-		
 		JLabel lblPickEndMonth = new JLabel("Pick end month and day:");
 		lblPickEndMonth.setBounds(0, 0, 170, 20);
 		panelEndDate.add(lblPickEndMonth);
-		
-		JComboBox comboBox_3 = new JComboBox();
-		comboBox_3.setModel(new DefaultComboBoxModel(new String[] {"January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"}));
-		comboBox_3.setBounds(0, 20, 100, 20);
-		panelEndDate.add(comboBox_3);
-		
-		JSpinner spinner_3 = new JSpinner();
-		spinner_3.setModel(new SpinnerNumberModel(1, 1, 31, 1));
-		spinner_3.setBounds(110, 20, 50, 20);
-		panelEndDate.add(spinner_3);
 		
 		JPanel panelPatientSchedule = new JPanel();
 		panelPatientSchedule.setLayout(null);
