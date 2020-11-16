@@ -72,6 +72,10 @@ public class SCHED_backend {
 					         
 					 
 					      }
+					      
+					      stmt.executeUpdate("INSERT INTO events(patientid, doctorid, eventtype, start, end) VALUES (" + testpatientid + "," + selectedPhysician + ", '" + selectedtype + "', '" + selectedstartyear+ "-" + selectedstartmonth + "-" + selectedstartday + " " + selectedstarthour + ":" + selectedstartminute + "', '" + selectedendyear + "-" + selectedendmonth + "-" + selectedendday + " " + selectedendhour + ":" + selectedendminute + "');");		
+					  
+					      
 					      //STEP 6: Clean-up environment
 					      rs.close();
 					      stmt.close();
@@ -282,7 +286,8 @@ public class SCHED_backend {
 					selectedendminute = 30;
 				}
 				System.out.println(testpatientid + ", " + selectedPhysician + ", " + selectedtype + ", " + selectedstartyear+ "-" + selectedstartmonth + "-" + selectedstartday + " " + selectedstarthour + ":" + selectedstartminute + ", " + selectedendyear + "-" + selectedendmonth + "-" + selectedendday + " " + selectedendhour + ":" + selectedendminute);  
-			}  
+				
+				
 		});  
 		
 		txtNone = new JTextField();
