@@ -20,6 +20,7 @@ import javax.swing.LayoutStyle.ComponentPlacement;
 import java.awt.List;
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.DefaultListModel;
 import javax.swing.JSpinner;
 import javax.swing.SpinnerNumberModel;
 import javax.swing.JRadioButton;
@@ -28,10 +29,13 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JList;
 import javax.swing.JScrollBar;
+import javax.swing.JScrollPane;
 
-
+import java.util.*;
 public class ER_UI {
-
+	private ER_Backend ER_BE = new ER_Backend();
+	
+	
 	/*GUI Variables*/
 	static JPanel EnterNewMedicalEncouterpanel;
 	static JTabbedPane CreateNewPatienttabbedPane;
@@ -490,9 +494,17 @@ public class ER_UI {
 		CreateNewPatienttabbedPane.setEnabledAt(2, true);
 		ReportPanel.setLayout(null);
 		
-		JList list = new JList();
-		list.setBounds(0, 0, 400, 200);
-		ReportPanel.add(list);
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(0, 0, 400, 200);
+		
+		DefaultListModel listModel = new DefaultListModel();
+		JList list = new JList(listModel);
+		//list.setBounds(0, 0, 400, 200);
+		
+		scrollPane.setViewportView(list);
+		ReportPanel.add(scrollPane);
+		
+		
 		
 		JButton btnDeletePatient = new JButton("Delete patient");
 		btnDeletePatient.setBounds(20, 250, 200, 21);
@@ -501,11 +513,18 @@ public class ER_UI {
 		JButton btnRefresh = new JButton("Refresh List");
 		btnRefresh.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				listModel.clear();
 				
+				java.util.List<Patient> patientList = ER_BE.returnPatientInfoAll();
+				for (int i=0; i<patientList.size(); i++) {
+					listModel.addElement(patientList.get(i).returnInfoString());
+				}
 			}
 		});
 		btnRefresh.setBounds(20, 210, 200, 21);
 		ReportPanel.add(btnRefresh);
+		
+		
 	}//End of initialize method
 }//End of ER_UI class
 
