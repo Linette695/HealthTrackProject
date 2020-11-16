@@ -117,7 +117,7 @@ public class DASH_UI {
 		btnEr.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				ERtabbedPane.setVisible(true);
-				SCHEDtabbedPane_1.setVisible(false);
+				SCHEDtabbedPane_1.setVisible(true);
 			}
 		});
 		menuBar.add(btnEr);
@@ -125,7 +125,7 @@ public class DASH_UI {
 		JButton btnNewButton = new JButton("SCHED");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				ERtabbedPane.setVisible(false);
+				ERtabbedPane.setVisible(true);
 				SCHEDtabbedPane_1.setVisible(true);
 			}
 		});

@@ -26,6 +26,8 @@ import javax.swing.JRadioButton;
 import javax.swing.SwingConstants;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JList;
+import javax.swing.JScrollBar;
 
 
 public class ER_UI {
@@ -118,6 +120,7 @@ public class ER_UI {
 		
 		JPanel CreateNewPatientPanel = new JPanel();
 		CreateNewPatienttabbedPane.addTab("Create New Patient", null, CreateNewPatientPanel, null);
+		CreateNewPatienttabbedPane.setEnabledAt(0, true);
 		
 		JLabel lblNewLabel_1 = new JLabel("You are now creating a new patient, please enter their information below.");
 		
@@ -481,7 +484,28 @@ public class ER_UI {
 					.addGap(38))
 		);
 		EnterNewMedicalEncouterpanel.setLayout(gl_EnterNewMedicalEncouterpanel);
+		
+		JPanel ReportPanel = new JPanel();
+		CreateNewPatienttabbedPane.addTab("Patient List", null, ReportPanel, null);
+		CreateNewPatienttabbedPane.setEnabledAt(2, true);
+		ReportPanel.setLayout(null);
+		
+		JList list = new JList();
+		list.setBounds(0, 0, 400, 200);
+		ReportPanel.add(list);
+		
+		JButton btnDeletePatient = new JButton("Delete patient");
+		btnDeletePatient.setBounds(20, 250, 200, 21);
+		ReportPanel.add(btnDeletePatient);
+		
+		JButton btnRefresh = new JButton("Refresh List");
+		btnRefresh.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+			}
+		});
+		btnRefresh.setBounds(20, 210, 200, 21);
+		ReportPanel.add(btnRefresh);
 	}//End of initialize method
-
 }//End of ER_UI class
 
