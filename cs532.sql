@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 8.0.21, for Linux (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.22, for Linux (x86_64)
 --
 -- Host: localhost    Database: cs532
 -- ------------------------------------------------------
--- Server version	8.0.21
+-- Server version	8.0.22
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -41,6 +41,35 @@ CREATE TABLE `Equipment` (
 LOCK TABLES `Equipment` WRITE;
 /*!40000 ALTER TABLE `Equipment` DISABLE KEYS */;
 /*!40000 ALTER TABLE `Equipment` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `Events`
+--
+
+DROP TABLE IF EXISTS `Events`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `Events` (
+  `eventid` int NOT NULL,
+  `patientid` int DEFAULT NULL,
+  `doctorid` int DEFAULT NULL,
+  `eventtype` varchar(25) DEFAULT NULL,
+  `start` datetime DEFAULT NULL,
+  `end` datetime DEFAULT NULL,
+  PRIMARY KEY (`eventid`),
+  UNIQUE KEY `eventid` (`eventid`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `Events`
+--
+
+LOCK TABLES `Events` WRITE;
+/*!40000 ALTER TABLE `Events` DISABLE KEYS */;
+INSERT INTO `Events` VALUES (1,1,1,'Routine','2020-12-20 10:30:00','2020-12-20 11:30:00');
+/*!40000 ALTER TABLE `Events` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -288,4 +317,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-10-09 16:26:27
+-- Dump completed on 2020-11-06 16:42:35
