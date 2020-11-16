@@ -10,6 +10,8 @@ import java.awt.GridBagConstraints;
 import javax.swing.JTabbedPane;
 import java.awt.Insets;
 import javax.swing.JLabel;
+import javax.swing.JList;
+
 import java.awt.CardLayout;
 import javax.swing.BoxLayout;
 import java.awt.FlowLayout;
@@ -20,9 +22,11 @@ import javax.swing.LayoutStyle.ComponentPlacement;
 import java.awt.List;
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.DefaultListModel;
 import javax.swing.JSpinner;
 import javax.swing.SpinnerNumberModel;
 import javax.swing.JRadioButton;
+import javax.swing.JScrollPane;
 import javax.swing.SwingConstants;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -481,6 +485,61 @@ public class ER_UI {
 					.addGap(38))
 		);
 		EnterNewMedicalEncouterpanel.setLayout(gl_EnterNewMedicalEncouterpanel);
+		
+		JPanel ReportPanel = new JPanel();
+		CreateNewPatienttabbedPane.addTab("Patient List", null, ReportPanel, null);
+		CreateNewPatienttabbedPane.setEnabledAt(2, true);
+		ReportPanel.setLayout(null);
+
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(0, 0, 400, 200);
+
+		DefaultListModel listModel = new DefaultListModel();
+		JList list = new JList(listModel);
+		//list.setBounds(0, 0, 400, 200);
+
+		scrollPane.setViewportView(list);
+		ReportPanel.add(scrollPane);
+
+
+
+		JButton btnDeletePatient = new JButton("Delete patient");
+		btnDeletePatient.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				int i = list.getSelectedIndex();
+				/*Commented out for UI building*/
+				//int id = ER_BE.returnPatientInfoAll().get(i).pid;
+				//ER_BE.deletePatient(id);
+
+				listModel.clear();
+
+				/*Commented out for UI building*/
+				//java.util.List<Patient> patientList = ER_BE.returnPatientInfoAll();
+				//for (i=0; i<patientList.size(); i++) {
+//					listModel.addElement(patientList.get(i).returnInfoString());
+//				}
+			}
+		});
+		btnDeletePatient.setBounds(20, 250, 200, 21);
+		ReportPanel.add(btnDeletePatient);
+
+		JButton btnRefresh = new JButton("Refresh List");
+		btnRefresh.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				listModel.clear();
+
+				/*Commented out for UI building*/
+				//java.util.List<Patient> patientList = ER_BE.returnPatientInfoAll();
+//				for (int i=0; i<patientList.size(); i++) {
+//					listModel.addElement(patientList.get(i).returnInfoString());
+//				}
+			}
+		});
+		btnRefresh.setBounds(20, 210, 200, 21);
+		ReportPanel.add(btnRefresh);
+
+		
+		
 	}//End of initialize method
 
 }//End of ER_UI class
