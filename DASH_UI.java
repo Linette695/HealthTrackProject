@@ -18,11 +18,13 @@ import java.awt.GridBagConstraints;
 import java.awt.Insets;
 
 import javax.swing.JFrame;
+import javax.swing.SwingConstants;
 
 public class DASH_UI {
 
 	private JFrame DASHframe;
 	private ER_UI erSubsystem;
+	private SCHED schedSubsystem;
 
 	/**
 	 * Launch the application.
@@ -49,7 +51,8 @@ public class DASH_UI {
 		
 		initialize();
 		DASHframe.setVisible(true);				//MAke sure Dashboard frame is visible
-		erSubsystem = new ER_UI();;
+		erSubsystem = new ER_UI();
+		schedSubsystem = new SCHED();
 	}
 
 	/**
@@ -76,7 +79,7 @@ public class DASH_UI {
 		JButton btnCreateNewPatient = new JButton("Create New Patient");
 		btnCreateNewPatient.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-//				ER ElectronicRecord = new ER();
+
 				erSubsystem.ERCreateNewPatient();
 			}
 		});
@@ -105,10 +108,54 @@ public class DASH_UI {
 		DASHframe.getContentPane().add(SCHEDtabbedPane_1, "name_2453437677515500");
 		
 		JPanel panel_1 = new JPanel();
-		SCHEDtabbedPane_1.addTab("New tab", null, panel_1, null);
+		SCHEDtabbedPane_1.addTab("SCHED", null, panel_1, null);
+		GridBagLayout gbl_panel_1 = new GridBagLayout();
+		gbl_panel_1.columnWidths = new int[]{186, 59, 0};
+		gbl_panel_1.rowHeights = new int[]{13, 0, 0, 0};
+		gbl_panel_1.columnWeights = new double[]{0.0, 0.0, Double.MIN_VALUE};
+		gbl_panel_1.rowWeights = new double[]{0.0, 0.0, 0.0, Double.MIN_VALUE};
+		panel_1.setLayout(gbl_panel_1);
 		
-		JLabel lblSchedPanel = new JLabel("SCHED Panel");
-		panel_1.add(lblSchedPanel);
+		JButton btnSchedulePhysicianAppointment = new JButton("Schedule New Physician Appointment");
+		btnSchedulePhysicianAppointment.setHorizontalAlignment(SwingConstants.LEFT);
+		btnSchedulePhysicianAppointment.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				schedSubsystem.SCHEDScheduleNewPhysicianApp();
+			
+			}
+		});
+		GridBagConstraints gbc_btnSchedulePhysicianAppointment = new GridBagConstraints();
+		gbc_btnSchedulePhysicianAppointment.insets = new Insets(0, 0, 5, 5);
+		gbc_btnSchedulePhysicianAppointment.gridx = 0;
+		gbc_btnSchedulePhysicianAppointment.gridy = 0;
+		panel_1.add(btnSchedulePhysicianAppointment, gbc_btnSchedulePhysicianAppointment);
+		
+		JButton btnScheduleNewPatient = new JButton("Schedule New Patient Appointment");
+		btnScheduleNewPatient.setHorizontalAlignment(SwingConstants.LEFT);
+		btnScheduleNewPatient.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				schedSubsystem.SCHEDScheduleNewPatientApp();
+			}
+		});
+		GridBagConstraints gbc_btnScheduleNewPatient = new GridBagConstraints();
+		gbc_btnScheduleNewPatient.anchor = GridBagConstraints.WEST;
+		gbc_btnScheduleNewPatient.insets = new Insets(0, 0, 5, 5);
+		gbc_btnScheduleNewPatient.gridx = 0;
+		gbc_btnScheduleNewPatient.gridy = 1;
+		panel_1.add(btnScheduleNewPatient, gbc_btnScheduleNewPatient);
+		
+		JButton btnGenerateNewReport = new JButton("Generate New Report");
+		btnGenerateNewReport.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				schedSubsystem.SCHEDGenerateNewReport();
+			}
+		});
+		GridBagConstraints gbc_btnGenerateNewReport = new GridBagConstraints();
+		gbc_btnGenerateNewReport.anchor = GridBagConstraints.WEST;
+		gbc_btnGenerateNewReport.insets = new Insets(0, 0, 0, 5);
+		gbc_btnGenerateNewReport.gridx = 0;
+		gbc_btnGenerateNewReport.gridy = 2;
+		panel_1.add(btnGenerateNewReport, gbc_btnGenerateNewReport);
 		
 		JMenuBar menuBar = new JMenuBar();
 		DASHframe.setJMenuBar(menuBar);
