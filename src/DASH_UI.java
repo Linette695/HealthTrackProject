@@ -174,7 +174,7 @@ public class DASH_UI {
 		DASHframe.getContentPane().add(LTtabbedPane, "name_132104797100000");
 		
 		JPanel LTPanel = new JPanel();
-		LTtabbedPane.addTab("New tab", null, LTPanel, null);
+		LTtabbedPane.addTab("LT", null, LTPanel, null);
 		
 		JMenuBar menuBar = new JMenuBar();
 		DASHframe.setJMenuBar(menuBar);
@@ -184,6 +184,7 @@ public class DASH_UI {
 			public void actionPerformed(ActionEvent e) {
 				ERtabbedPane.setVisible(true);
 				SCHEDtabbedPane_1.setVisible(false);
+				LTtabbedPane.setVisible(false);
 			}
 		});
 		menuBar.add(btnEr);
@@ -192,6 +193,7 @@ public class DASH_UI {
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				ERtabbedPane.setVisible(false);
+				LTtabbedPane.setVisible(false);
 				SCHEDtabbedPane_1.setVisible(true);
 			}
 		});
@@ -200,6 +202,9 @@ public class DASH_UI {
 		JButton btnNewButton_1 = new JButton("LT");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				LTtabbedPane.setVisible(true);
+				ERtabbedPane.setVisible(false);
+				SCHEDtabbedPane_1.setVisible(false);
 			}
 		});
 		menuBar.add(btnNewButton_1);
