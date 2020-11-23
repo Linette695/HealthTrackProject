@@ -15,6 +15,12 @@ import javax.swing.JSeparator;
 import java.awt.Color;
 import javax.swing.JButton;
 import javax.swing.JTextField;
+import javax.swing.ScrollPaneConstants;
+import javax.swing.SwingConstants;
+import javax.swing.JInternalFrame;
+import java.awt.Panel;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class SCHED {
 	
@@ -23,6 +29,7 @@ public class SCHED {
 
 	private JFrame frmPhysicianScheduler;
 	private JTextField txtNone;
+	private JTextField textField;
 
 	/**
 	 * Launch the application.
@@ -225,7 +232,6 @@ public class SCHED {
 		panelType.add(lblNewLabel_2_2);
 		
 		JComboBox comboBox_4_1 = new JComboBox();
-		comboBox_4_1.setEditable(true);
 		comboBox_4_1.setModel(new DefaultComboBoxModel(new String[] {"Vacation", "Conference", "Other"}));
 		comboBox_4_1.setBounds(0, 20, 150, 20);
 		panelType.add(comboBox_4_1);
@@ -252,10 +258,12 @@ public class SCHED {
 		panelDate_1.add(lblNewLabel_4);
 		
 		JComboBox comboBox_2 = new JComboBox();
+		comboBox_2.setModel(new DefaultComboBoxModel(new String[] {"Jauary", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"}));
 		comboBox_2.setBounds(0, 20, 100, 20);
 		panelDate_1.add(comboBox_2);
 		
 		JSpinner spinner_2 = new JSpinner();
+		spinner_2.setModel(new SpinnerNumberModel(1, 1, 31, 1));
 		spinner_2.setBounds(110, 20, 50, 20);
 		panelDate_1.add(spinner_2);
 		
@@ -302,6 +310,10 @@ public class SCHED {
 		lblNewLabel_2_1.setBounds(0, 0, 200, 20);
 		panelPhysician_1.add(lblNewLabel_2_1);
 		
+		JComboBox comboBox_4_1_2 = new JComboBox();
+		comboBox_4_1_2.setBounds(10, 20, 150, 20);
+		panelPhysician_1.add(comboBox_4_1_2);
+		
 		JPanel panelType_1 = new JPanel();
 		panelType_1.setLayout(null);
 		panelType_1.setBounds(210, 100, 200, 50);
@@ -311,9 +323,54 @@ public class SCHED {
 		lblNewLabel_3_1.setBounds(0, 0, 200, 20);
 		panelType_1.add(lblNewLabel_3_1);
 		
+		JComboBox comboBox_4_1_1 = new JComboBox();
+		comboBox_4_1_1.setModel(new DefaultComboBoxModel(new String[] {"Routine", "Urgent Care", "Folow-up"}));
+		comboBox_4_1_1.setBounds(10, 20, 150, 20);
+		panelType_1.add(comboBox_4_1_1);
+		
+		JPanel panelButton_1 = new JPanel();
+		panelButton_1.setLayout(null);
+		panelButton_1.setBounds(210, 154, 200, 50);
+		panelPatientSchedule.add(panelButton_1);
+		
+		JButton btnNewButton_1 = new JButton("Book appointment");
+		btnNewButton_1.setBounds(0, 0, 200, 20);
+		panelButton_1.add(btnNewButton_1);
+		
+		textField = new JTextField();
+		textField.setEditable(false);
+		textField.setText("none");
+		textField.setColumns(10);
+		textField.setBounds(100, 20, 100, 20);
+		panelButton_1.add(textField);
+		
+		JLabel lblNewLabel_3_2 = new JLabel("Result:");
+		lblNewLabel_3_2.setBounds(0, 20, 100, 20);
+		panelButton_1.add(lblNewLabel_3_2);
+		
 		JPanel panelReport = new JPanel();
 		tabbedPane.addTab("Generate report", null, panelReport, null);
+		panelReport.setLayout(null);
+		
+		JButton btnGenerateDailyReport = new JButton("Generate Daily Report");
+		btnGenerateDailyReport.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			SCHED_DailyReport newDailyReport = new SCHED_DailyReport();
+			
+			}
+		});
+		btnGenerateDailyReport.setBounds(10, 10, 184, 21);
+		panelReport.add(btnGenerateDailyReport);
+		
+		JButton btnGenerateWeeklyReport = new JButton("Generate Weekly Report");
+		btnGenerateWeeklyReport.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			SCHED_WeeklyReport newWeeklyReport = new SCHED_WeeklyReport();
+			
+			}
+		});
+		btnGenerateWeeklyReport.setBounds(10, 41, 184, 21);
+		panelReport.add(btnGenerateWeeklyReport);
 		
 	}//End of initialize method
-
 }//End of SCHED class
