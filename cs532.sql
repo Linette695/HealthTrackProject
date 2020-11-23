@@ -157,11 +157,16 @@ DROP TABLE IF EXISTS `MedicalEncounter`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `MedicalEncounter` (
   `dateinput` date DEFAULT NULL,
-  `eidinput` int DEFAULT NULL,
-  `dateseen` date DEFAULT NULL,
-  `eidseen` int DEFAULT NULL,
-  `pid` int DEFAULT NULL,
-  `sid` int DEFAULT NULL
+  `eid` int DEFAULT NULL,
+  `complaints` varchar(200) DEFAULT NULL,
+  `heartrate` int DEFAULT NULL,
+  `bloodpressure` int DEFAULT NULL,
+  `temperature` int DEFAULT NULL,
+  `notes` varchar(200) DEFAULT NULL,
+  `diagnosis` varchar(200) DEFAULT NULL,
+  `treatment` varchar(200) DEFAULT NULL,
+  `referral` varchar(200) DEFAULT NULL,
+  `datefollowup` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
