@@ -219,6 +219,70 @@ public class ER_Backend {
 		return true;
 	}
 
+	public List<MedicalEncounter> returnMedicalEncounter(int pid) {
+		Connection conn = null;
+		Statement stmt = null;
+		List<MedicalEncounter> meList = new ArrayList<MedicalEncounter>();
+		try{
+			//STEP 2: Register JDBC driver
+			Class.forName("com.mysql.jdbc.Driver");
+
+			//STEP 3: Open a connection
+			System.out.println("Connecting to a selected database...");
+			conn = DriverManager.getConnection(DB_URL, USER, PASS);
+			System.out.println("Connected database successfully...");
+
+			//STEP 4: Execute a query
+			System.out.println("Creating statement...");
+			stmt = conn.createStatement();
+
+			String sql = "SELECT * FROM MedicalEnounter WHERE pid="+pid;
+			ResultSet rs = stmt.executeQuery(sql);
+			//STEP 5: Extract data from result set
+			while(rs.next()){
+				MedicalEncounter me = new MedicalEncounter();
+				//Retrieve by column name
+
+				me.dateinput = rs.getString("dateinput");
+				me.eid = rs.getInt("eid");
+				me.pid = rs.getInt("pid");
+				me.complaints = rs.getString("complaints");
+				me.heartrate = rs.getInt("heartrate");
+				me.bloodpressure = rs.getInt("bloodpressure");
+				me.temperature = rs.getInt("temperature");
+				me.notes = rs.getString("notes");
+				me.diagnosis = rs.getString("diagnosis");
+				me.treatment = rs.getString("treatment");
+				me.referral = rs.getString("referral");
+				me.datefollowup = rs.getString("datefollowup");
+				
+				meList.add(me);
+			}
+			rs.close();
+		}catch(SQLException se){
+			//Handle errors for JDBC
+			se.printStackTrace();
+		}catch(Exception e){
+			//Handle errors for Class.forName
+			e.printStackTrace();
+		}finally{
+			//finally block used to close resources
+			try{
+				if(stmt!=null)
+					conn.close();
+			}catch(SQLException se){
+			}// do nothing
+			try{
+				if(conn!=null)
+					conn.close();
+			}catch(SQLException se){
+				se.printStackTrace();
+			}//end finally try
+		}//end try
+		System.out.println("Goodbye!");
+		return meList;
+	}
+	
 	public boolean createLabOrder(LabOrder lo) {
 		return false;
 	}

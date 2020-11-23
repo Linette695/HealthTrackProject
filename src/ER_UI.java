@@ -358,11 +358,6 @@ public class ER_UI {
 		lblNewLabel_10.setBounds(120, 8, 100, 13);
 		EnterNewMedicalEncouterpanel.add(lblNewLabel_10);
 		
-		JComboBox cbMonthIn = new JComboBox();
-		cbMonthIn.setModel(new DefaultComboBoxModel(new String[] {"January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"}));
-		cbMonthIn.setBounds(170, 23, 70, 21);
-		EnterNewMedicalEncouterpanel.add(cbMonthIn);
-		
 		JSpinner spinnerYearIn = new JSpinner();
 		spinnerYearIn.setModel(new SpinnerNumberModel(new Integer(2020), new Integer(2020), null, new Integer(1)));
 		spinnerYearIn.setBounds(120, 23, 50, 20);
@@ -376,11 +371,6 @@ public class ER_UI {
 		JLabel lblNewLabel_10_1 = new JLabel("Follow Up Date");
 		lblNewLabel_10_1.setBounds(120, 43, 200, 13);
 		EnterNewMedicalEncouterpanel.add(lblNewLabel_10_1);
-		
-		JComboBox cbMonthFollow = new JComboBox();
-		cbMonthFollow.setModel(new DefaultComboBoxModel(new String[] {"January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"}));
-		cbMonthFollow.setBounds(170, 58, 70, 21);
-		EnterNewMedicalEncouterpanel.add(cbMonthFollow);
 		
 		JSpinner spinnerYearFollow = new JSpinner();
 		spinnerYearFollow.setModel(new SpinnerNumberModel(new Integer(2020), new Integer(2020), null, new Integer(1)));
@@ -409,6 +399,39 @@ public class ER_UI {
 		JLabel lblNewLabel_11_1 = new JLabel("Specialist Referral");
 		lblNewLabel_11_1.setBounds(10, 120, 200, 13);
 		EnterNewMedicalEncouterpanel.add(lblNewLabel_11_1);
+		
+		JSpinner spinnerMonthIn = new JSpinner();
+		spinnerMonthIn.setModel(new SpinnerNumberModel(1, 1, 12, 1));
+		spinnerMonthIn.setBounds(185, 25, 40, 20);
+		EnterNewMedicalEncouterpanel.add(spinnerMonthIn);
+		
+		JSpinner spinnerMonthFollow = new JSpinner();
+		spinnerMonthFollow.setModel(new SpinnerNumberModel(1, 1, 12, 1));
+		spinnerMonthFollow.setBounds(185, 58, 40, 20);
+		EnterNewMedicalEncouterpanel.add(spinnerMonthFollow);
+		
+		JButton btnNewButton = new JButton("Create Medical Encounter");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				MedicalEncounter me = new MedicalEncounter();
+				me.dateinput = ER_BE.createDate((int)spinnerYearIn.getValue(), (int)spinnerMonthIn.getValue(), (int)spinnerDayIn.getValue());
+				me.eid = Integer.parseInt(tfEid.getText());
+				me.pid = Integer.parseInt(tfPid.getText());
+				me.complaints = tfComplaints.getText();
+				me.heartrate = Integer.parseInt(tfHeartrate.getText());
+				me.bloodpressure = Integer.parseInt(tfBloodPressure.getText());
+				me.temperature = Integer.parseInt(tfTemperature.getText());
+				me.notes = tfNotes.getText();;
+				me.diagnosis = tfDiagnosis.getText();;
+				me.treatment = tfTreatment.getText();;
+				me.referral = tfReferral.getText();;
+				me.datefollowup = ER_BE.createDate((int)spinnerYearFollow.getValue(), (int)spinnerMonthFollow.getValue(), (int)spinnerDayFollow.getValue());
+				
+				ER_BE.createMedicalEncounter(me);
+			}
+		});
+		btnNewButton.setBounds(150, 300, 200, 21);
+		EnterNewMedicalEncouterpanel.add(btnNewButton);
 		
 		JPanel patientReportPanel = new JPanel();
 		CreateNewPatienttabbedPane.addTab("Generate Patient Report", null, patientReportPanel, null);
