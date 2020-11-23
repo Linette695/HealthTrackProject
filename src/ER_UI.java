@@ -234,7 +234,7 @@ public class ER_UI {
 		txtEnterPhysicianId.setColumns(10);
 
 		JButton btnSaveNewPatient = new JButton("SAVE NEW PATIENT");
-		btnSaveNewPatient.setBounds(197, 282, 125, 21);
+		btnSaveNewPatient.setBounds(197, 282, 150, 21);
 		btnSaveNewPatient.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Patient p = new Patient();
