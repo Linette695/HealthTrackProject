@@ -72,9 +72,7 @@ public class ER_Backend {
 			System.out.println("Inserting records into the table...");
 			stmt = conn.createStatement();
 
-			//Get id
-			//int pid = returnNextID();
-
+			//TODO: fix date input
 			String sql = "INSERT INTO Patients " +
 					"VALUES ("+
 					p.pid+", "+

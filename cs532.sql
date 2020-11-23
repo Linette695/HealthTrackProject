@@ -158,6 +158,7 @@ DROP TABLE IF EXISTS `MedicalEncounter`;
 CREATE TABLE `MedicalEncounter` (
   `dateinput` date DEFAULT NULL,
   `eid` int DEFAULT NULL,
+  `pid` int DEFAULT NULL,
   `complaints` varchar(200) DEFAULT NULL,
   `heartrate` int DEFAULT NULL,
   `bloodpressure` int DEFAULT NULL,

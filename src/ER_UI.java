@@ -50,11 +50,15 @@ public class ER_UI {
 	private JTextField txtEnterAddress;
 	private JTextField txtEnterCarrierId;
 	private JTextField txtEnterPhysicianId;
-	private JTextField txtEnterPatientId;
-	private JTextField txtEnterEmployeeId;
-	private JTextField txtEnterServiceId;
-	private JTextField txtEnterPhysicianId_1;
 	private JTextField txtEnterId;
+	private JTextField tfHeartrate;
+	private JTextField tfBloodPressure;
+	private JTextField tfTemperature;
+	private JTextField tfTreatment;
+	private JTextField tfNotes;
+	private JTextField tfComplaints;
+	private JTextField tfPid;
+	private JTextField tfEid;
 
 
 	/**
@@ -344,178 +348,114 @@ public class ER_UI {
 
 		EnterNewMedicalEncouterpanel = new JPanel();
 		CreateNewPatienttabbedPane.addTab("Enter New Medical Encounter", null, EnterNewMedicalEncouterpanel, null);
-
-
-		JLabel lblYouAteNow = new JLabel("You are now entering a new medical encounter.");
-		lblYouAteNow.setHorizontalAlignment(SwingConstants.CENTER);
-
-		JLabel lblEnterPatientsId = new JLabel("Enter patient's ID:");
-
-		txtEnterPatientId = new JTextField();
-		txtEnterPatientId.setText("Enter patient ID");
-		txtEnterPatientId.setColumns(10);
-
-		JLabel lblDateOfEncounter = new JLabel("Date of encounter:");
-
-		JLabel lblMonth_1 = new JLabel("Month:");
-
-		JComboBox comboBox_2 = new JComboBox();
-		comboBox_2.setModel(new DefaultComboBoxModel(new String[] {"01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12"}));
-
-		JLabel lblDay_1 = new JLabel("Day:");
-
-		JSpinner spinner_2 = new JSpinner();
-		spinner_2.setModel(new SpinnerNumberModel(1, 1, 31, 1));
-
-		JLabel lblYeat = new JLabel("Year:");
-
-		JSpinner spinner_3 = new JSpinner();
-		spinner_3.setModel(new SpinnerNumberModel(new Integer(2020), new Integer(2020), null, new Integer(1)));
-
-		JLabel lblEmployee = new JLabel("Employee ID ( who is inputting encounter): ");
-
-		txtEnterEmployeeId = new JTextField();
-		txtEnterEmployeeId.setText("Enter employee ID");
-		txtEnterEmployeeId.setColumns(10);
-
-		JLabel lblEnterCurrentTime = new JLabel("Enter current time:");
-
-		JLabel label = new JLabel(":");
-
-		JSpinner spinner_4 = new JSpinner();
-		spinner_4.setModel(new SpinnerNumberModel(0, 0, 5, 1));
-
-		JSpinner spinner_5 = new JSpinner();
-		spinner_5.setModel(new SpinnerNumberModel(1, 1, 12, 1));
-
-		JSpinner spinner_6 = new JSpinner();
-		spinner_6.setModel(new SpinnerNumberModel(0, 0, 9, 1));
-
-		JLabel lblEnterServiceId = new JLabel("Enter service ID:");
-
-		txtEnterServiceId = new JTextField();
-		txtEnterServiceId.setText("Enter service ID");
-		txtEnterServiceId.setColumns(10);
-
-		JLabel lblEnter = new JLabel("Enter physician ID:");
-
-		txtEnterPhysicianId_1 = new JTextField();
-		txtEnterPhysicianId_1.setText("Enter physician ID");
-		txtEnterPhysicianId_1.setColumns(10);
-
-		JButton btnSubmitMedicalEncounter = new JButton("Submit Medical Encounter");
-
-		JComboBox comboBox_3 = new JComboBox();
-		comboBox_3.setModel(new DefaultComboBoxModel(new String[] {"AM", "PM"}));
-		GroupLayout gl_EnterNewMedicalEncouterpanel = new GroupLayout(EnterNewMedicalEncouterpanel);
-		gl_EnterNewMedicalEncouterpanel.setHorizontalGroup(
-			gl_EnterNewMedicalEncouterpanel.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_EnterNewMedicalEncouterpanel.createSequentialGroup()
-					.addGroup(gl_EnterNewMedicalEncouterpanel.createParallelGroup(Alignment.LEADING)
-						.addGroup(gl_EnterNewMedicalEncouterpanel.createSequentialGroup()
-							.addContainerGap()
-							.addGroup(gl_EnterNewMedicalEncouterpanel.createParallelGroup(Alignment.LEADING)
-								.addComponent(lblYouAteNow, GroupLayout.PREFERRED_SIZE, 437, GroupLayout.PREFERRED_SIZE)
-								.addGroup(gl_EnterNewMedicalEncouterpanel.createSequentialGroup()
-									.addGroup(gl_EnterNewMedicalEncouterpanel.createParallelGroup(Alignment.LEADING)
-										.addComponent(lblEnterPatientsId, GroupLayout.PREFERRED_SIZE, 108, GroupLayout.PREFERRED_SIZE)
-										.addComponent(lblDateOfEncounter, GroupLayout.PREFERRED_SIZE, 116, GroupLayout.PREFERRED_SIZE))
-									.addPreferredGap(ComponentPlacement.RELATED)
-									.addComponent(txtEnterPatientId, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))))
-						.addGroup(gl_EnterNewMedicalEncouterpanel.createSequentialGroup()
-							.addGap(58)
-							.addComponent(lblMonth_1, GroupLayout.PREFERRED_SIZE, 45, GroupLayout.PREFERRED_SIZE)
-							.addPreferredGap(ComponentPlacement.RELATED)
-							.addComponent(comboBox_2, GroupLayout.PREFERRED_SIZE, 39, GroupLayout.PREFERRED_SIZE)
-							.addGap(18)
-							.addComponent(lblDay_1, GroupLayout.PREFERRED_SIZE, 43, GroupLayout.PREFERRED_SIZE)
-							.addPreferredGap(ComponentPlacement.RELATED)
-							.addComponent(spinner_2, GroupLayout.PREFERRED_SIZE, 39, GroupLayout.PREFERRED_SIZE)
-							.addGap(24)
-							.addComponent(lblYeat, GroupLayout.PREFERRED_SIZE, 31, GroupLayout.PREFERRED_SIZE)
-							.addPreferredGap(ComponentPlacement.RELATED)
-							.addComponent(spinner_3, GroupLayout.PREFERRED_SIZE, 54, GroupLayout.PREFERRED_SIZE))
-						.addGroup(gl_EnterNewMedicalEncouterpanel.createSequentialGroup()
-							.addGap(164)
-							.addComponent(btnSubmitMedicalEncounter))
-						.addGroup(gl_EnterNewMedicalEncouterpanel.createSequentialGroup()
-							.addContainerGap()
-							.addGroup(gl_EnterNewMedicalEncouterpanel.createParallelGroup(Alignment.LEADING)
-								.addGroup(gl_EnterNewMedicalEncouterpanel.createSequentialGroup()
-									.addGroup(gl_EnterNewMedicalEncouterpanel.createParallelGroup(Alignment.LEADING)
-										.addGroup(gl_EnterNewMedicalEncouterpanel.createSequentialGroup()
-											.addComponent(lblEnterCurrentTime, GroupLayout.PREFERRED_SIZE, 129, GroupLayout.PREFERRED_SIZE)
-											.addPreferredGap(ComponentPlacement.RELATED)
-											.addComponent(spinner_5, GroupLayout.PREFERRED_SIZE, 40, GroupLayout.PREFERRED_SIZE)
-											.addPreferredGap(ComponentPlacement.RELATED)
-											.addComponent(label, GroupLayout.PREFERRED_SIZE, 16, GroupLayout.PREFERRED_SIZE)
-											.addPreferredGap(ComponentPlacement.UNRELATED)
-											.addComponent(spinner_4, GroupLayout.PREFERRED_SIZE, 33, GroupLayout.PREFERRED_SIZE)
-											.addPreferredGap(ComponentPlacement.RELATED)
-											.addComponent(spinner_6, GroupLayout.PREFERRED_SIZE, 32, GroupLayout.PREFERRED_SIZE)
-											.addPreferredGap(ComponentPlacement.UNRELATED)
-											.addComponent(comboBox_3, GroupLayout.PREFERRED_SIZE, 57, GroupLayout.PREFERRED_SIZE))
-										.addGroup(gl_EnterNewMedicalEncouterpanel.createSequentialGroup()
-											.addComponent(lblEmployee, GroupLayout.PREFERRED_SIZE, 226, GroupLayout.PREFERRED_SIZE)
-											.addPreferredGap(ComponentPlacement.RELATED)
-											.addComponent(txtEnterEmployeeId, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))
-									.addPreferredGap(ComponentPlacement.RELATED))
-								.addGroup(gl_EnterNewMedicalEncouterpanel.createSequentialGroup()
-									.addGroup(gl_EnterNewMedicalEncouterpanel.createParallelGroup(Alignment.TRAILING, false)
-										.addComponent(lblEnter, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-										.addComponent(lblEnterServiceId, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 102, Short.MAX_VALUE))
-									.addGroup(gl_EnterNewMedicalEncouterpanel.createParallelGroup(Alignment.LEADING, false)
-										.addGroup(gl_EnterNewMedicalEncouterpanel.createSequentialGroup()
-											.addPreferredGap(ComponentPlacement.UNRELATED)
-											.addComponent(txtEnterServiceId, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-										.addGroup(gl_EnterNewMedicalEncouterpanel.createSequentialGroup()
-											.addGap(2)
-											.addComponent(txtEnterPhysicianId_1)))))))
-					.addContainerGap(43, Short.MAX_VALUE))
-		);
-		gl_EnterNewMedicalEncouterpanel.setVerticalGroup(
-			gl_EnterNewMedicalEncouterpanel.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_EnterNewMedicalEncouterpanel.createSequentialGroup()
-					.addComponent(lblYouAteNow)
-					.addPreferredGap(ComponentPlacement.UNRELATED)
-					.addGroup(gl_EnterNewMedicalEncouterpanel.createParallelGroup(Alignment.BASELINE)
-						.addComponent(lblEnterPatientsId)
-						.addComponent(txtEnterPatientId, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-					.addPreferredGap(ComponentPlacement.RELATED)
-					.addComponent(lblDateOfEncounter)
-					.addPreferredGap(ComponentPlacement.RELATED)
-					.addGroup(gl_EnterNewMedicalEncouterpanel.createParallelGroup(Alignment.BASELINE)
-						.addComponent(lblMonth_1)
-						.addComponent(comboBox_2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-						.addComponent(lblDay_1)
-						.addComponent(spinner_2, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE)
-						.addComponent(spinner_3, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE)
-						.addComponent(lblYeat))
-					.addPreferredGap(ComponentPlacement.UNRELATED)
-					.addGroup(gl_EnterNewMedicalEncouterpanel.createParallelGroup(Alignment.BASELINE)
-						.addComponent(lblEmployee)
-						.addComponent(txtEnterEmployeeId, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-					.addPreferredGap(ComponentPlacement.UNRELATED)
-					.addGroup(gl_EnterNewMedicalEncouterpanel.createParallelGroup(Alignment.BASELINE)
-						.addComponent(lblEnterCurrentTime)
-						.addComponent(spinner_5, GroupLayout.PREFERRED_SIZE, 22, GroupLayout.PREFERRED_SIZE)
-						.addComponent(spinner_4, GroupLayout.PREFERRED_SIZE, 23, GroupLayout.PREFERRED_SIZE)
-						.addComponent(spinner_6, GroupLayout.PREFERRED_SIZE, 21, GroupLayout.PREFERRED_SIZE)
-						.addComponent(label)
-						.addComponent(comboBox_3, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-					.addPreferredGap(ComponentPlacement.UNRELATED)
-					.addGroup(gl_EnterNewMedicalEncouterpanel.createParallelGroup(Alignment.BASELINE)
-						.addComponent(lblEnterServiceId)
-						.addComponent(txtEnterServiceId, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-					.addPreferredGap(ComponentPlacement.RELATED)
-					.addGroup(gl_EnterNewMedicalEncouterpanel.createParallelGroup(Alignment.BASELINE)
-						.addComponent(lblEnter)
-						.addComponent(txtEnterPhysicianId_1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-					.addPreferredGap(ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
-					.addComponent(btnSubmitMedicalEncounter)
-					.addGap(38))
-		);
-		EnterNewMedicalEncouterpanel.setLayout(gl_EnterNewMedicalEncouterpanel);
+		EnterNewMedicalEncouterpanel.setLayout(null);
+		
+		JLabel lblNewLabel_2 = new JLabel("Heartrate");
+		lblNewLabel_2.setBounds(400, 10, 100, 13);
+		EnterNewMedicalEncouterpanel.add(lblNewLabel_2);
+		
+		tfHeartrate = new JTextField();
+		tfHeartrate.setBounds(400, 20, 50, 19);
+		EnterNewMedicalEncouterpanel.add(tfHeartrate);
+		tfHeartrate.setColumns(10);
+		
+		tfBloodPressure = new JTextField();
+		tfBloodPressure.setBounds(400, 50, 50, 19);
+		EnterNewMedicalEncouterpanel.add(tfBloodPressure);
+		tfBloodPressure.setColumns(10);
+		
+		tfTemperature = new JTextField();
+		tfTemperature.setBounds(400, 80, 50, 19);
+		EnterNewMedicalEncouterpanel.add(tfTemperature);
+		tfTemperature.setColumns(10);
+		
+		JLabel lblNewLabel_3 = new JLabel("Temperature");
+		lblNewLabel_3.setBounds(400, 70, 100, 13);
+		EnterNewMedicalEncouterpanel.add(lblNewLabel_3);
+		
+		JLabel lblNewLabel_4 = new JLabel("Blood Pressure");
+		lblNewLabel_4.setBounds(400, 40, 100, 13);
+		EnterNewMedicalEncouterpanel.add(lblNewLabel_4);
+		
+		tfTreatment = new JTextField();
+		tfTreatment.setBounds(10, 300, 450, 20);
+		EnterNewMedicalEncouterpanel.add(tfTreatment);
+		tfTreatment.setColumns(10);
+		
+		tfNotes = new JTextField();
+		tfNotes.setBounds(10, 270, 450, 19);
+		EnterNewMedicalEncouterpanel.add(tfNotes);
+		tfNotes.setColumns(10);
+		
+		tfComplaints = new JTextField();
+		tfComplaints.setBounds(10, 240, 450, 19);
+		EnterNewMedicalEncouterpanel.add(tfComplaints);
+		tfComplaints.setColumns(10);
+		
+		JLabel lblNewLabel_5 = new JLabel("Patient Complaints");
+		lblNewLabel_5.setBounds(10, 230, 200, 13);
+		EnterNewMedicalEncouterpanel.add(lblNewLabel_5);
+		
+		JLabel lblNewLabel_6 = new JLabel("Practicioner Notes");
+		lblNewLabel_6.setBounds(10, 260, 200, 13);
+		EnterNewMedicalEncouterpanel.add(lblNewLabel_6);
+		
+		JLabel lblNewLabel_7 = new JLabel("Treatment Plan");
+		lblNewLabel_7.setBounds(10, 290, 200, 13);
+		EnterNewMedicalEncouterpanel.add(lblNewLabel_7);
+		
+		JLabel lblNewLabel_8 = new JLabel("Patient ID");
+		lblNewLabel_8.setBounds(10, 10, 100, 13);
+		EnterNewMedicalEncouterpanel.add(lblNewLabel_8);
+		
+		tfPid = new JTextField();
+		tfPid.setBounds(10, 20, 96, 19);
+		EnterNewMedicalEncouterpanel.add(tfPid);
+		tfPid.setColumns(10);
+		
+		JLabel lblNewLabel_9 = new JLabel("Practicitioner ID");
+		lblNewLabel_9.setBounds(10, 40, 100, 13);
+		EnterNewMedicalEncouterpanel.add(lblNewLabel_9);
+		
+		tfEid = new JTextField();
+		tfEid.setBounds(10, 50, 96, 19);
+		EnterNewMedicalEncouterpanel.add(tfEid);
+		tfEid.setColumns(10);
+		
+		JLabel lblNewLabel_10 = new JLabel("Date");
+		lblNewLabel_10.setBounds(10, 70, 100, 13);
+		EnterNewMedicalEncouterpanel.add(lblNewLabel_10);
+		
+		JComboBox cbMonthIn = new JComboBox();
+		cbMonthIn.setModel(new DefaultComboBoxModel(new String[] {"January"}));
+		cbMonthIn.setBounds(60, 80, 70, 21);
+		EnterNewMedicalEncouterpanel.add(cbMonthIn);
+		
+		JSpinner spinnerYearIn = new JSpinner();
+		spinnerYearIn.setModel(new SpinnerNumberModel(new Integer(2020), new Integer(2020), null, new Integer(1)));
+		spinnerYearIn.setBounds(10, 80, 50, 20);
+		EnterNewMedicalEncouterpanel.add(spinnerYearIn);
+		
+		JSpinner spinnerDayIn = new JSpinner();
+		spinnerDayIn.setModel(new SpinnerNumberModel(1, 1, 31, 1));
+		spinnerDayIn.setBounds(130, 80, 40, 20);
+		EnterNewMedicalEncouterpanel.add(spinnerDayIn);
+		
+		JLabel lblNewLabel_10_1 = new JLabel("Follow Up Date");
+		lblNewLabel_10_1.setBounds(10, 111, 200, 13);
+		EnterNewMedicalEncouterpanel.add(lblNewLabel_10_1);
+		
+		JComboBox cbMonthIn_1 = new JComboBox();
+		cbMonthIn_1.setBounds(60, 121, 70, 21);
+		EnterNewMedicalEncouterpanel.add(cbMonthIn_1);
+		
+		JSpinner spinnerYearIn_1 = new JSpinner();
+		spinnerYearIn_1.setBounds(10, 121, 50, 20);
+		EnterNewMedicalEncouterpanel.add(spinnerYearIn_1);
+		
+		JSpinner spinnerDayIn_1 = new JSpinner();
+		spinnerDayIn_1.setBounds(130, 121, 40, 20);
+		EnterNewMedicalEncouterpanel.add(spinnerDayIn_1);
 		
 		JPanel patientReportPanel = new JPanel();
 		CreateNewPatienttabbedPane.addTab("Generate Patient Report", null, patientReportPanel, null);
