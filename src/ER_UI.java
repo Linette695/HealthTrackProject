@@ -59,6 +59,8 @@ public class ER_UI {
 	private JTextField tfComplaints;
 	private JTextField tfPid;
 	private JTextField tfEid;
+	private JTextField tfDiagnosis;
+	private JTextField tfReferral;
 
 
 	/**
@@ -351,57 +353,57 @@ public class ER_UI {
 		EnterNewMedicalEncouterpanel.setLayout(null);
 		
 		JLabel lblNewLabel_2 = new JLabel("Heartrate");
-		lblNewLabel_2.setBounds(400, 10, 100, 13);
+		lblNewLabel_2.setBounds(350, 10, 100, 13);
 		EnterNewMedicalEncouterpanel.add(lblNewLabel_2);
 		
+		JLabel lblNewLabel_3 = new JLabel("Temperature");
+		lblNewLabel_3.setBounds(350, 80, 100, 13);
+		EnterNewMedicalEncouterpanel.add(lblNewLabel_3);
+		
+		JLabel lblNewLabel_4 = new JLabel("Blood Pressure");
+		lblNewLabel_4.setBounds(350, 45, 100, 13);
+		EnterNewMedicalEncouterpanel.add(lblNewLabel_4);
+		
 		tfHeartrate = new JTextField();
-		tfHeartrate.setBounds(400, 20, 50, 19);
+		tfHeartrate.setBounds(350, 25, 50, 19);
 		EnterNewMedicalEncouterpanel.add(tfHeartrate);
 		tfHeartrate.setColumns(10);
 		
 		tfBloodPressure = new JTextField();
-		tfBloodPressure.setBounds(400, 50, 50, 19);
+		tfBloodPressure.setBounds(350, 60, 50, 19);
 		EnterNewMedicalEncouterpanel.add(tfBloodPressure);
 		tfBloodPressure.setColumns(10);
 		
 		tfTemperature = new JTextField();
-		tfTemperature.setBounds(400, 80, 50, 19);
+		tfTemperature.setBounds(350, 95, 50, 19);
 		EnterNewMedicalEncouterpanel.add(tfTemperature);
 		tfTemperature.setColumns(10);
 		
-		JLabel lblNewLabel_3 = new JLabel("Temperature");
-		lblNewLabel_3.setBounds(400, 70, 100, 13);
-		EnterNewMedicalEncouterpanel.add(lblNewLabel_3);
-		
-		JLabel lblNewLabel_4 = new JLabel("Blood Pressure");
-		lblNewLabel_4.setBounds(400, 40, 100, 13);
-		EnterNewMedicalEncouterpanel.add(lblNewLabel_4);
-		
 		tfTreatment = new JTextField();
-		tfTreatment.setBounds(10, 300, 450, 20);
+		tfTreatment.setBounds(10, 275, 450, 20);
 		EnterNewMedicalEncouterpanel.add(tfTreatment);
 		tfTreatment.setColumns(10);
 		
 		tfNotes = new JTextField();
-		tfNotes.setBounds(10, 270, 450, 19);
+		tfNotes.setBounds(10, 240, 450, 19);
 		EnterNewMedicalEncouterpanel.add(tfNotes);
 		tfNotes.setColumns(10);
 		
 		tfComplaints = new JTextField();
-		tfComplaints.setBounds(10, 240, 450, 19);
+		tfComplaints.setBounds(10, 205, 450, 19);
 		EnterNewMedicalEncouterpanel.add(tfComplaints);
 		tfComplaints.setColumns(10);
 		
 		JLabel lblNewLabel_5 = new JLabel("Patient Complaints");
-		lblNewLabel_5.setBounds(10, 230, 200, 13);
+		lblNewLabel_5.setBounds(10, 190, 200, 13);
 		EnterNewMedicalEncouterpanel.add(lblNewLabel_5);
 		
 		JLabel lblNewLabel_6 = new JLabel("Practicioner Notes");
-		lblNewLabel_6.setBounds(10, 260, 200, 13);
+		lblNewLabel_6.setBounds(10, 225, 200, 13);
 		EnterNewMedicalEncouterpanel.add(lblNewLabel_6);
 		
 		JLabel lblNewLabel_7 = new JLabel("Treatment Plan");
-		lblNewLabel_7.setBounds(10, 290, 200, 13);
+		lblNewLabel_7.setBounds(10, 260, 200, 13);
 		EnterNewMedicalEncouterpanel.add(lblNewLabel_7);
 		
 		JLabel lblNewLabel_8 = new JLabel("Patient ID");
@@ -409,53 +411,74 @@ public class ER_UI {
 		EnterNewMedicalEncouterpanel.add(lblNewLabel_8);
 		
 		tfPid = new JTextField();
-		tfPid.setBounds(10, 20, 96, 19);
+		tfPid.setBounds(10, 25, 96, 19);
 		EnterNewMedicalEncouterpanel.add(tfPid);
 		tfPid.setColumns(10);
 		
 		JLabel lblNewLabel_9 = new JLabel("Practicitioner ID");
-		lblNewLabel_9.setBounds(10, 40, 100, 13);
+		lblNewLabel_9.setBounds(10, 45, 100, 13);
 		EnterNewMedicalEncouterpanel.add(lblNewLabel_9);
 		
 		tfEid = new JTextField();
-		tfEid.setBounds(10, 50, 96, 19);
+		tfEid.setBounds(10, 60, 96, 19);
 		EnterNewMedicalEncouterpanel.add(tfEid);
 		tfEid.setColumns(10);
 		
 		JLabel lblNewLabel_10 = new JLabel("Date");
-		lblNewLabel_10.setBounds(10, 70, 100, 13);
+		lblNewLabel_10.setBounds(120, 8, 100, 13);
 		EnterNewMedicalEncouterpanel.add(lblNewLabel_10);
 		
 		JComboBox cbMonthIn = new JComboBox();
-		cbMonthIn.setModel(new DefaultComboBoxModel(new String[] {"January"}));
-		cbMonthIn.setBounds(60, 80, 70, 21);
+		cbMonthIn.setModel(new DefaultComboBoxModel(new String[] {"January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"}));
+		cbMonthIn.setBounds(170, 23, 70, 21);
 		EnterNewMedicalEncouterpanel.add(cbMonthIn);
 		
 		JSpinner spinnerYearIn = new JSpinner();
 		spinnerYearIn.setModel(new SpinnerNumberModel(new Integer(2020), new Integer(2020), null, new Integer(1)));
-		spinnerYearIn.setBounds(10, 80, 50, 20);
+		spinnerYearIn.setBounds(120, 23, 50, 20);
 		EnterNewMedicalEncouterpanel.add(spinnerYearIn);
 		
 		JSpinner spinnerDayIn = new JSpinner();
 		spinnerDayIn.setModel(new SpinnerNumberModel(1, 1, 31, 1));
-		spinnerDayIn.setBounds(130, 80, 40, 20);
+		spinnerDayIn.setBounds(240, 23, 40, 20);
 		EnterNewMedicalEncouterpanel.add(spinnerDayIn);
 		
 		JLabel lblNewLabel_10_1 = new JLabel("Follow Up Date");
-		lblNewLabel_10_1.setBounds(10, 111, 200, 13);
+		lblNewLabel_10_1.setBounds(120, 43, 200, 13);
 		EnterNewMedicalEncouterpanel.add(lblNewLabel_10_1);
 		
-		JComboBox cbMonthIn_1 = new JComboBox();
-		cbMonthIn_1.setBounds(60, 121, 70, 21);
-		EnterNewMedicalEncouterpanel.add(cbMonthIn_1);
+		JComboBox cbMonthFollow = new JComboBox();
+		cbMonthFollow.setModel(new DefaultComboBoxModel(new String[] {"January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"}));
+		cbMonthFollow.setBounds(170, 58, 70, 21);
+		EnterNewMedicalEncouterpanel.add(cbMonthFollow);
 		
-		JSpinner spinnerYearIn_1 = new JSpinner();
-		spinnerYearIn_1.setBounds(10, 121, 50, 20);
-		EnterNewMedicalEncouterpanel.add(spinnerYearIn_1);
+		JSpinner spinnerYearFollow = new JSpinner();
+		spinnerYearFollow.setModel(new SpinnerNumberModel(new Integer(2020), new Integer(2020), null, new Integer(1)));
+		spinnerYearFollow.setBounds(120, 58, 50, 20);
+		EnterNewMedicalEncouterpanel.add(spinnerYearFollow);
 		
-		JSpinner spinnerDayIn_1 = new JSpinner();
-		spinnerDayIn_1.setBounds(130, 121, 40, 20);
-		EnterNewMedicalEncouterpanel.add(spinnerDayIn_1);
+		JSpinner spinnerDayFollow = new JSpinner();
+		spinnerDayFollow.setModel(new SpinnerNumberModel(1, 1, 31, 1));
+		spinnerDayFollow.setBounds(240, 58, 40, 20);
+		EnterNewMedicalEncouterpanel.add(spinnerDayFollow);
+		
+		tfDiagnosis = new JTextField();
+		tfDiagnosis.setBounds(10, 170, 450, 19);
+		EnterNewMedicalEncouterpanel.add(tfDiagnosis);
+		tfDiagnosis.setColumns(10);
+		
+		JLabel lblNewLabel_11 = new JLabel("Diagnosis");
+		lblNewLabel_11.setBounds(10, 155, 200, 13);
+		EnterNewMedicalEncouterpanel.add(lblNewLabel_11);
+		
+		tfReferral = new JTextField();
+		tfReferral.setColumns(10);
+		tfReferral.setBounds(10, 135, 450, 19);
+		EnterNewMedicalEncouterpanel.add(tfReferral);
+		
+		JLabel lblNewLabel_11_1 = new JLabel("Specialist Referral");
+		lblNewLabel_11_1.setBounds(10, 120, 200, 13);
+		EnterNewMedicalEncouterpanel.add(lblNewLabel_11_1);
 		
 		JPanel patientReportPanel = new JPanel();
 		CreateNewPatienttabbedPane.addTab("Generate Patient Report", null, patientReportPanel, null);
