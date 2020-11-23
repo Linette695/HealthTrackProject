@@ -448,20 +448,33 @@ public class ER_UI {
 		patientReportPanel.add(txtEnterId);
 		txtEnterId.setColumns(10);
 		
+		JScrollPane patientInfoScrollPane_1 = new JScrollPane();
+		patientInfoScrollPane_1.setBounds(28, 29, 452, 234);
+		patientReportPanel.add(patientInfoScrollPane_1);
+		
+		DefaultListModel listModelPatientReport = new DefaultListModel();
+		JList listPatientReport = new JList(listModelPatientReport);
+		patientInfoScrollPane_1.setViewportView(listPatientReport);
+		
 		JButton btnGeneratePatientReport = new JButton("Generate Patient Report");
+		btnGeneratePatientReport.setBounds(143, 273, 227, 21);
 		btnGeneratePatientReport.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				listModelPatientReport.clear();
+
+				int pid = Integer.parseInt(txtEnterId.getText());
+				
+				java.util.List<MedicalEncounter> meList = ER_BE.returnMedicalEncounter(pid);
+				
+				for (int i=0; i<meList.size(); i++) {
+					listModelPatientReport.addElement(meList.get(i).returnInfoString());
+				}
 			//TODO Display the information of the patient indicated by the given ID #
 				/*use txtEnterID to obtain the inputed ID #, and display information on the patientInfoScrollPane_1 */
 			
 			}
 		});
-		btnGeneratePatientReport.setBounds(143, 273, 227, 21);
 		patientReportPanel.add(btnGeneratePatientReport);
-		
-		JScrollPane patientInfoScrollPane_1 = new JScrollPane();
-		patientInfoScrollPane_1.setBounds(28, 29, 452, 234);
-		patientReportPanel.add(patientInfoScrollPane_1);
 		
 		JPanel ReportPanel = new JPanel();
 		CreateNewPatienttabbedPane.addTab("Patient List", null, ReportPanel, null);
