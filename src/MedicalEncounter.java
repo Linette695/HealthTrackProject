@@ -1,8 +1,9 @@
 import java.sql.*; 
 
 public class MedicalEncounter {
-	public Date dateinput;
+	public String dateinput;
 	public int eid;
+	public int pid;
 	public String complaints;
 	public int heartrate;
 	public int bloodpressure;
@@ -11,6 +12,6 @@ public class MedicalEncounter {
 	public String diagnosis;
 	public String treatment;
 	public String referral;
-	public Date datefollowup;
+	public String datefollowup;
 }
 	

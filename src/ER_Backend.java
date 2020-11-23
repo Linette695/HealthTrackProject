@@ -159,7 +159,64 @@ public class ER_Backend {
 	}
 
 	public boolean createMedicalEncounter(MedicalEncounter me) {
-		return false;
+		Connection conn = null;
+		Statement stmt = null;
+		try{
+			//STEP 2: Register JDBC driver
+			Class.forName("com.mysql.jdbc.Driver");
+
+			//STEP 3: Open a connection
+			System.out.println("Connecting to a selected database...");
+			conn = DriverManager.getConnection(DB_URL, USER, PASS);
+			System.out.println("Connected database successfully...");
+
+			//STEP 4: Execute a query
+			System.out.println("Inserting records into the table...");
+			stmt = conn.createStatement();
+
+			//TODO: fix date input
+			String sql = "INSERT INTO MedicalEncounter " +
+					"VALUES ("+
+					"'"+me.dateinput+"'"+", "+
+					me.eid+", "+
+					me.pid+", "+
+					"'"+me.complaints+"'"+", "+
+					me.heartrate+", "+
+					me.bloodpressure+", "+
+					me.temperature+", "+
+					"'"+me.notes+"'"+", "+
+					"'"+me.diagnosis+"'"+", "+
+					"'"+me.treatment+"'"+", "+
+					"'"+me.referral+"'"+", "+
+					"'"+me.datefollowup+"'"+
+					")";
+			stmt.executeUpdate(sql);
+			System.out.println("Inserted records into the table...");
+
+		}catch(SQLException se){
+			//Handle errors for JDBC
+			se.printStackTrace();
+			return false;
+		}catch(Exception e){
+			//Handle errors for Class.forName
+			e.printStackTrace();
+			return false;
+		}finally{
+			//finally block used to close resources
+			try{
+				if(stmt!=null)
+					conn.close();
+			}catch(SQLException se){
+			}// do nothing
+			try{
+				if(conn!=null)
+					conn.close();
+			}catch(SQLException se){
+				se.printStackTrace();
+			}//end finally try
+		}//end try
+		System.out.println("Goodbye!");
+		return true;
 	}
 
 	public boolean createLabOrder(LabOrder lo) {
@@ -293,6 +350,10 @@ public class ER_Backend {
 			}
 		}
 		return id;
+	}
+
+	public String createDate(int year, String month, int day) {
+		return year+"-"+month+"-"+day;
 	}
 
 }//end ER_Backend
