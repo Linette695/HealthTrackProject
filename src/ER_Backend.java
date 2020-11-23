@@ -35,7 +35,7 @@ public class ER_Backend {
 		p2.tnumber = 0;
 		p2.address = "testaddress";
 		p2.iid = 0;
-		p2.dob = new Date(0);
+		p2.dob = "2020-01-01";
 		p2.gender = "tgender";
 		p2.pcp = 0;
 		createPatient(p2);
@@ -81,7 +81,7 @@ public class ER_Backend {
 					p.tnumber+", "+
 					"'"+p.address+"'"+", "+
 					p.iid+", "+
-					"NULL"+", "+
+					"'"+p.dob+"'"+", "+
 					"'"+p.gender+"'"+", "+
 					p.pcp+
 					")";
@@ -251,7 +251,7 @@ public class ER_Backend {
 				patient.tnumber = rs.getInt("tnumber");
 				patient.address = rs.getString("address");
 				patient.iid = rs.getInt("iid");
-				patient.dob = rs.getDate("dob");
+				patient.dob = rs.getString("dob");
 				patient.gender = rs.getString("gender");
 				patient.pcp = rs.getInt("pcp");
 			}
@@ -309,7 +309,7 @@ public class ER_Backend {
 				patient.tnumber = rs.getInt("tnumber");
 				patient.address = rs.getString("address");
 				patient.iid = rs.getInt("iid");
-				patient.dob = rs.getDate("dob");
+				patient.dob = rs.getString("dob");
 				patient.gender = rs.getString("gender");
 				patient.pcp = rs.getInt("pcp");
 
@@ -352,7 +352,7 @@ public class ER_Backend {
 		return id;
 	}
 
-	public String createDate(int year, String month, int day) {
+	public String createDate(int year, int month, int day) {
 		return year+"-"+month+"-"+day;
 	}
 

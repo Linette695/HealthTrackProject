@@ -150,68 +150,91 @@ public class ER_UI {
 		CreateNewPatienttabbedPane.setEnabledAt(0, true);
 
 		JLabel lblNewLabel_1 = new JLabel("You are now creating a new patient, please enter their information below.");
+		lblNewLabel_1.setBounds(46, 5, 339, 13);
 
 		JLabel lblNewLabel = new JLabel("Enter patient's first name:");
+		lblNewLabel.setBounds(10, 26, 119, 13);
 
 		txtEnterName = new JTextField();
+		txtEnterName.setBounds(142, 23, 114, 19);
 		txtEnterName.setText("Enter first name");
 		txtEnterName.setColumns(10);
 
 		JLabel lblEnterPatientsLast = new JLabel("Enter patient's last name:");
+		lblEnterPatientsLast.setBounds(10, 51, 128, 13);
 
 		txtEnterLastName = new JTextField();
+		txtEnterLastName.setBounds(142, 48, 114, 19);
 		txtEnterLastName.setText("Enter last name");
 		txtEnterLastName.setColumns(10);
 
 		JLabel lblEnterPatientsPhone = new JLabel("Enter patient's phone number (with no spaces/symbols, ex: 6192661486):");
+		lblEnterPatientsPhone.setBounds(10, 73, 339, 13);
 
 		textTNumber = new JTextField();
+		textTNumber.setBounds(142, 92, 117, 19);
 		textTNumber.setText("##########");
 		textTNumber.setColumns(10);
 
 		JLabel lblEnterPatientsAddress = new JLabel("Enter patient's address:");
+		lblEnterPatientsAddress.setBounds(10, 120, 157, 13);
 
 		txtEnterAddress = new JTextField();
+		txtEnterAddress.setBounds(171, 117, 306, 19);
 		txtEnterAddress.setText("Enter address");
 		txtEnterAddress.setColumns(10);
 
 		JLabel lblEnterPatientsDate = new JLabel("Enter patient's date of birith:");
+		lblEnterPatientsDate.setBounds(10, 142, 131, 13);
 
 		JLabel lblMonth = new JLabel("Month:");
-
-		JComboBox comboBox = new JComboBox();
-		comboBox.setModel(new DefaultComboBoxModel(new String[] {"01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12"}));
-		comboBox.setMaximumRowCount(12);
+		lblMonth.setBounds(45, 168, 43, 13);
 
 		JLabel lblDay = new JLabel("Day:");
+		lblDay.setBounds(199, 168, 37, 13);
 
-		JSpinner spinner = new JSpinner();
-		spinner.setModel(new SpinnerNumberModel(1, 1, 31, 1));
+		JSpinner spinnerDay = new JSpinner();
+		spinnerDay.setBounds(240, 161, 41, 28);
+		spinnerDay.setModel(new SpinnerNumberModel(1, 1, 31, 1));
 
 		JLabel lblYear = new JLabel("Year:");
+		lblYear.setBounds(291, 168, 31, 13);
 
-		JSpinner spinner_1 = new JSpinner();
-		spinner_1.setModel(new SpinnerNumberModel(new Integer(2020), new Integer(2020), null, new Integer(1)));
+		JSpinner spinnerYear = new JSpinner();
+		spinnerYear.setBounds(326, 162, 55, 26);
+		spinnerYear.setModel(new SpinnerNumberModel(new Integer(2020), new Integer(2020), null, new Integer(1)));
+		
+		JSpinner spinnerMonth = new JSpinner();
+		spinnerMonth.setModel(new SpinnerNumberModel(1, 1, 12, 1));
+		spinnerMonth.setBounds(118, 161, 41, 28);
+
 
 		JLabel lblPatientsGender = new JLabel("Patient's gender:");
+		lblPatientsGender.setBounds(10, 198, 78, 13);
 
 		JComboBox comboBoxGender = new JComboBox();
+		comboBoxGender.setBounds(92, 195, 97, 19);
 		comboBoxGender.setMaximumRowCount(3);
 		comboBoxGender.setModel(new DefaultComboBoxModel(new String[] {"Female", "Male", "Other"}));
 
 		JLabel lblInsuranceCarrierid = new JLabel("Insurance carrier (ID of carrier):");
+		lblInsuranceCarrierid.setBounds(10, 223, 179, 13);
 
 		txtEnterCarrierId = new JTextField();
+		txtEnterCarrierId.setBounds(193, 220, 96, 19);
 		txtEnterCarrierId.setText("Enter carrier ID");
 		txtEnterCarrierId.setColumns(10);
 
 		JLabel lblPrimaryCarePhysician = new JLabel("Primary care physician (ID of physician):");
+		lblPrimaryCarePhysician.setBounds(10, 248, 235, 13);
 
 		txtEnterPhysicianId = new JTextField();
+		txtEnterPhysicianId.setBounds(249, 245, 111, 19);
 		txtEnterPhysicianId.setText("Enter physician ID");
 		txtEnterPhysicianId.setColumns(10);
 
 		JButton btnSaveNewPatient = new JButton("SAVE NEW PATIENT");
+		btnSaveNewPatient.setBounds(197, 282, 125, 21);
 		btnSaveNewPatient.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Patient p = new Patient();
@@ -221,132 +244,39 @@ public class ER_UI {
 				p.tnumber = Integer.parseInt(textTNumber.getText());
 				p.address = txtEnterAddress.getText();
 				p.iid = Integer.parseInt(txtEnterCarrierId.getText());
-				p.dob = null;
+				p.dob = ER_BE.createDate((int)spinnerYear.getValue(), (int)spinnerMonth.getValue(), (int)spinnerDay.getValue());
 				p.gender = (String) comboBoxGender.getSelectedItem();
 				p.pcp = Integer.parseInt(txtEnterPhysicianId.getText());
 				
 				ER_BE.createPatient(p);
 			}
 		});
-		GroupLayout gl_CreateNewPatientPanel = new GroupLayout(CreateNewPatientPanel);
-		gl_CreateNewPatientPanel.setHorizontalGroup(
-				gl_CreateNewPatientPanel.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_CreateNewPatientPanel.createSequentialGroup()
-						.addGroup(gl_CreateNewPatientPanel.createParallelGroup(Alignment.LEADING, false)
-								.addGroup(gl_CreateNewPatientPanel.createSequentialGroup()
-										.addGap(46)
-										.addComponent(lblNewLabel_1))
-								.addGroup(gl_CreateNewPatientPanel.createSequentialGroup()
-										.addContainerGap()
-										.addGroup(gl_CreateNewPatientPanel.createParallelGroup(Alignment.LEADING)
-												.addComponent(lblNewLabel)
-												.addComponent(lblEnterPatientsLast, GroupLayout.PREFERRED_SIZE, 128, GroupLayout.PREFERRED_SIZE))
-										.addPreferredGap(ComponentPlacement.RELATED)
-										.addGroup(gl_CreateNewPatientPanel.createParallelGroup(Alignment.LEADING, false)
-												.addComponent(txtEnterName)
-												.addComponent(txtEnterLastName, GroupLayout.DEFAULT_SIZE, 114, Short.MAX_VALUE)))
-								.addGroup(gl_CreateNewPatientPanel.createSequentialGroup()
-										.addContainerGap()
-										.addComponent(lblEnterPatientsPhone))
-								.addGroup(gl_CreateNewPatientPanel.createSequentialGroup()
-										.addGap(142)
-										.addComponent(textTNumber, GroupLayout.PREFERRED_SIZE, 117, GroupLayout.PREFERRED_SIZE))
-								.addGroup(Alignment.TRAILING, gl_CreateNewPatientPanel.createSequentialGroup()
-										.addContainerGap()
-										.addComponent(lblEnterPatientsAddress, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-										.addPreferredGap(ComponentPlacement.RELATED)
-										.addComponent(txtEnterAddress, GroupLayout.PREFERRED_SIZE, 306, GroupLayout.PREFERRED_SIZE)
-										.addGap(24))
-								.addGroup(gl_CreateNewPatientPanel.createSequentialGroup()
-										.addGroup(gl_CreateNewPatientPanel.createParallelGroup(Alignment.LEADING, false)
-												.addGroup(gl_CreateNewPatientPanel.createSequentialGroup()
-														.addContainerGap()
-														.addComponent(lblEnterPatientsDate))
-												.addGroup(gl_CreateNewPatientPanel.createSequentialGroup()
-														.addGroup(gl_CreateNewPatientPanel.createParallelGroup(Alignment.LEADING, false)
-																.addGroup(gl_CreateNewPatientPanel.createSequentialGroup()
-																		.addContainerGap()
-																		.addComponent(lblPatientsGender, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-																.addGroup(gl_CreateNewPatientPanel.createSequentialGroup()
-																		.addGap(45)
-																		.addComponent(lblMonth, GroupLayout.PREFERRED_SIZE, 43, GroupLayout.PREFERRED_SIZE)))
-														.addPreferredGap(ComponentPlacement.RELATED)
-														.addGroup(gl_CreateNewPatientPanel.createParallelGroup(Alignment.LEADING)
-																.addComponent(comboBoxGender, GroupLayout.PREFERRED_SIZE, 97, GroupLayout.PREFERRED_SIZE)
-																.addComponent(comboBox, 0, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-										.addPreferredGap(ComponentPlacement.UNRELATED)
-										.addComponent(lblDay, GroupLayout.PREFERRED_SIZE, 37, GroupLayout.PREFERRED_SIZE)
-										.addPreferredGap(ComponentPlacement.RELATED)
-										.addComponent(spinner, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-										.addPreferredGap(ComponentPlacement.UNRELATED)
-										.addComponent(lblYear, GroupLayout.PREFERRED_SIZE, 31, GroupLayout.PREFERRED_SIZE)
-										.addPreferredGap(ComponentPlacement.RELATED)
-										.addComponent(spinner_1, GroupLayout.PREFERRED_SIZE, 55, GroupLayout.PREFERRED_SIZE))
-								.addGroup(gl_CreateNewPatientPanel.createSequentialGroup()
-										.addContainerGap()
-										.addGroup(gl_CreateNewPatientPanel.createParallelGroup(Alignment.LEADING)
-												.addGroup(gl_CreateNewPatientPanel.createSequentialGroup()
-														.addComponent(lblPrimaryCarePhysician, GroupLayout.PREFERRED_SIZE, 235, GroupLayout.PREFERRED_SIZE)
-														.addPreferredGap(ComponentPlacement.RELATED)
-														.addComponent(txtEnterPhysicianId, GroupLayout.PREFERRED_SIZE, 111, GroupLayout.PREFERRED_SIZE))
-												.addGroup(gl_CreateNewPatientPanel.createSequentialGroup()
-														.addComponent(lblInsuranceCarrierid, GroupLayout.PREFERRED_SIZE, 179, GroupLayout.PREFERRED_SIZE)
-														.addPreferredGap(ComponentPlacement.RELATED)
-														.addComponent(txtEnterCarrierId, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))
-										.addGap(141))
-								.addGroup(gl_CreateNewPatientPanel.createSequentialGroup()
-										.addGap(197)
-										.addComponent(btnSaveNewPatient)))
-						.addContainerGap())
-				);
-		gl_CreateNewPatientPanel.setVerticalGroup(
-				gl_CreateNewPatientPanel.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_CreateNewPatientPanel.createSequentialGroup()
-						.addGap(5)
-						.addComponent(lblNewLabel_1)
-						.addGap(5)
-						.addGroup(gl_CreateNewPatientPanel.createParallelGroup(Alignment.BASELINE)
-								.addComponent(txtEnterName, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-								.addComponent(lblNewLabel))
-						.addPreferredGap(ComponentPlacement.RELATED)
-						.addGroup(gl_CreateNewPatientPanel.createParallelGroup(Alignment.BASELINE)
-								.addComponent(lblEnterPatientsLast)
-								.addComponent(txtEnterLastName, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-						.addPreferredGap(ComponentPlacement.RELATED)
-						.addComponent(lblEnterPatientsPhone)
-						.addPreferredGap(ComponentPlacement.RELATED)
-						.addComponent(textTNumber, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-						.addPreferredGap(ComponentPlacement.RELATED)
-						.addGroup(gl_CreateNewPatientPanel.createParallelGroup(Alignment.BASELINE)
-								.addComponent(lblEnterPatientsAddress)
-								.addComponent(txtEnterAddress, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-						.addPreferredGap(ComponentPlacement.RELATED)
-						.addComponent(lblEnterPatientsDate)
-						.addPreferredGap(ComponentPlacement.RELATED)
-						.addGroup(gl_CreateNewPatientPanel.createParallelGroup(Alignment.BASELINE)
-								.addComponent(lblMonth, GroupLayout.PREFERRED_SIZE, 13, GroupLayout.PREFERRED_SIZE)
-								.addComponent(comboBox, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-								.addComponent(lblDay)
-								.addComponent(spinner, GroupLayout.PREFERRED_SIZE, 28, GroupLayout.PREFERRED_SIZE)
-								.addComponent(lblYear)
-								.addComponent(spinner_1, GroupLayout.PREFERRED_SIZE, 26, GroupLayout.PREFERRED_SIZE))
-						.addPreferredGap(ComponentPlacement.RELATED)
-						.addGroup(gl_CreateNewPatientPanel.createParallelGroup(Alignment.BASELINE)
-								.addComponent(lblPatientsGender)
-								.addComponent(comboBoxGender, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-						.addPreferredGap(ComponentPlacement.RELATED)
-						.addGroup(gl_CreateNewPatientPanel.createParallelGroup(Alignment.BASELINE)
-								.addComponent(lblInsuranceCarrierid)
-								.addComponent(txtEnterCarrierId, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-						.addPreferredGap(ComponentPlacement.RELATED)
-						.addGroup(gl_CreateNewPatientPanel.createParallelGroup(Alignment.BASELINE)
-								.addComponent(lblPrimaryCarePhysician)
-								.addComponent(txtEnterPhysicianId, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-						.addGap(18)
-						.addComponent(btnSaveNewPatient)
-						.addContainerGap(26, Short.MAX_VALUE))
-				);
-		CreateNewPatientPanel.setLayout(gl_CreateNewPatientPanel);
+		CreateNewPatientPanel.setLayout(null);
+		CreateNewPatientPanel.add(lblNewLabel_1);
+		CreateNewPatientPanel.add(lblNewLabel);
+		CreateNewPatientPanel.add(lblEnterPatientsLast);
+		CreateNewPatientPanel.add(txtEnterName);
+		CreateNewPatientPanel.add(txtEnterLastName);
+		CreateNewPatientPanel.add(lblEnterPatientsPhone);
+		CreateNewPatientPanel.add(textTNumber);
+		CreateNewPatientPanel.add(lblEnterPatientsAddress);
+		CreateNewPatientPanel.add(txtEnterAddress);
+		CreateNewPatientPanel.add(lblEnterPatientsDate);
+		CreateNewPatientPanel.add(lblPatientsGender);
+		CreateNewPatientPanel.add(lblMonth);
+		CreateNewPatientPanel.add(comboBoxGender);
+		CreateNewPatientPanel.add(lblDay);
+		CreateNewPatientPanel.add(spinnerDay);
+		CreateNewPatientPanel.add(lblYear);
+		CreateNewPatientPanel.add(spinnerYear);
+		CreateNewPatientPanel.add(spinnerMonth);
+		CreateNewPatientPanel.add(lblPrimaryCarePhysician);
+		CreateNewPatientPanel.add(txtEnterPhysicianId);
+		CreateNewPatientPanel.add(lblInsuranceCarrierid);
+		CreateNewPatientPanel.add(txtEnterCarrierId);
+		CreateNewPatientPanel.add(btnSaveNewPatient);
+		
+		
 
 		EnterNewMedicalEncouterpanel = new JPanel();
 		CreateNewPatienttabbedPane.addTab("Enter New Medical Encounter", null, EnterNewMedicalEncouterpanel, null);

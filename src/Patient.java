@@ -7,7 +7,7 @@ public class Patient {
 	public int tnumber;
 	public String address;
 	public int iid;
-	public Date dob;
+	public String dob;
 	public String gender;
 	public int pcp;
 	
