@@ -13,5 +13,22 @@ public class MedicalEncounter {
 	public String treatment;
 	public String referral;
 	public String datefollowup;
+	
+	public String returnInfoString() {
+		String meInfo = "dateinput: "+dateinput+
+				", eid: "+eid+
+				", pid: "+pid+
+				", complaints: "+complaints+
+				", heartrate: "+heartrate+
+				", bloodpressure: "+bloodpressure+
+				", temperature: "+temperature+
+				", notes: "+notes+
+				", diagnosis: "+diagnosis+
+				", treatment: "+treatment+
+				", referral: "+referral+
+				", datefollowup: "+datefollowup;
+		
+		return meInfo;
+	}
 }
 	
