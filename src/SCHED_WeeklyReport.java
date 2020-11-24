@@ -20,6 +20,9 @@ import javax.swing.GroupLayout.Alignment;
 import java.awt.BorderLayout;
 import javax.swing.BoxLayout;
 import javax.swing.JFormattedTextField;
+import javax.swing.JSpinner;
+import javax.swing.SpinnerNumberModel;
+import javax.swing.JScrollPane;
 
 public class SCHED_WeeklyReport {
 
@@ -70,17 +73,40 @@ public class SCHED_WeeklyReport {
 		frmGeneratingWeeklyReport.getContentPane().add(comboBox_5);
 		
 		JButton btnGenerateReport = new JButton("Generate Report");
-		btnGenerateReport.setBounds(290, 9, 136, 21);
+		btnGenerateReport.setBounds(290, 34, 136, 21);
 		frmGeneratingWeeklyReport.getContentPane().add(btnGenerateReport);
 		
-		UtilDateModel model = new UtilDateModel();
-		Properties props = new Properties();
-		props.put("text.today", "Today");
-		props.put("text.month", "Month");
-		props.put("text.year", "Year");
-		JDatePanelImpl datePanel = new JDatePanelImpl(model,props);
+		JLabel lblNewLabel_10 = new JLabel("Week of :");
+		lblNewLabel_10.setBounds(10, 36, 100, 17);
+		frmGeneratingWeeklyReport.getContentPane().add(lblNewLabel_10);
+		
+		JSpinner spinnerYearIn = new JSpinner();
+		spinnerYearIn.setModel(new SpinnerNumberModel(1, 1, 31, 1));
+		spinnerYearIn.setBounds(86, 55, 50, 20);
+		frmGeneratingWeeklyReport.getContentPane().add(spinnerYearIn);
+		
+		JComboBox cbMonthIn = new JComboBox();
+		cbMonthIn.setModel(new DefaultComboBoxModel(new String[] {"January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"}));
+		cbMonthIn.setBounds(10, 55, 70, 21);
+		frmGeneratingWeeklyReport.getContentPane().add(cbMonthIn);
+		
+		JSpinner spinnerDayIn = new JSpinner();
+		spinnerDayIn.setModel(new SpinnerNumberModel(new Integer(2020), new Integer(2020), null, new Integer(1)));
+		spinnerDayIn.setBounds(146, 55, 57, 20);
+		frmGeneratingWeeklyReport.getContentPane().add(spinnerDayIn);
+		
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(10, 88, 416, 175);
+		frmGeneratingWeeklyReport.getContentPane().add(scrollPane);
 		
 		//TRYING TO USE JDatePicker
+//		UtilDateModel model = new UtilDateModel();
+//		Properties props = new Properties();
+//		props.put("text.today", "Today");
+//		props.put("text.month", "Month");
+//		props.put("text.year", "Year");
+//		JDatePanelImpl datePanel = new JDatePanelImpl(model,props);
+//		
 //		JDatePickerImpl datePicker = new JDatePickerImpl(datePanel, null);
 //		datePicker.setBounds(262, 40, 164, 58);
 //		
