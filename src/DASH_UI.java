@@ -25,6 +25,7 @@ public class DASH_UI {
 	private JFrame DASHframe;
 	private ER_UI erSubsystem;
 	private SCHED schedSubsystem;
+	private LT ltSubsystem;
 
 	/**
 	 * Launch the application.
@@ -51,8 +52,10 @@ public class DASH_UI {
 		
 		initialize();
 		DASHframe.setVisible(true);				//MAke sure Dashboard frame is visible
-		erSubsystem = new ER_UI();
-		schedSubsystem = new SCHED();
+		
+		erSubsystem = new ER_UI();			//Initialize the ER subsystem
+		schedSubsystem = new SCHED();		//Initialize the SCHED subsystem
+		ltSubsystem = new LT();				//Initialize the LT subsystem
 	}
 
 	/**
@@ -175,6 +178,37 @@ public class DASH_UI {
 		
 		JPanel LTPanel = new JPanel();
 		LTtabbedPane.addTab("LT", null, LTPanel, null);
+		LTPanel.setLayout(null);
+		
+		JButton btnRequestNewLab = new JButton("Request New Lab Order");
+		btnRequestNewLab.setHorizontalAlignment(SwingConstants.LEFT);
+		btnRequestNewLab.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ltSubsystem.LTRequestNewOrder();
+			}
+		});
+		btnRequestNewLab.setBounds(10, 10, 209, 21);
+		LTPanel.add(btnRequestNewLab);
+		
+		JButton btnUpdateALab = new JButton("Update A Lab Order");
+		btnUpdateALab.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ltSubsystem.LTupdateAOrder();
+			}
+		});
+		btnUpdateALab.setHorizontalAlignment(SwingConstants.LEFT);
+		btnUpdateALab.setBounds(10, 41, 209, 21);
+		LTPanel.add(btnUpdateALab);
+		
+		JButton btnGenerateAReport = new JButton("Generate A New Report");
+		btnGenerateAReport.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ltSubsystem.LTcreateNewReport();
+			}
+		});
+		btnGenerateAReport.setHorizontalAlignment(SwingConstants.LEFT);
+		btnGenerateAReport.setBounds(10, 72, 209, 21);
+		LTPanel.add(btnGenerateAReport);
 		
 		JMenuBar menuBar = new JMenuBar();
 		DASHframe.setJMenuBar(menuBar);
@@ -229,5 +263,4 @@ public class DASH_UI {
 		});
 		menuBar.add(btnLogOut);
 	}
-
 }

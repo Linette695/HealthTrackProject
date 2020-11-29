@@ -99,21 +99,7 @@ public class SCHED_WeeklyReport {
 		scrollPane.setBounds(10, 88, 416, 175);
 		frmGeneratingWeeklyReport.getContentPane().add(scrollPane);
 		
-		//TRYING TO USE JDatePicker
-//		UtilDateModel model = new UtilDateModel();
-//		Properties props = new Properties();
-//		props.put("text.today", "Today");
-//		props.put("text.month", "Month");
-//		props.put("text.year", "Year");
-//		JDatePanelImpl datePanel = new JDatePanelImpl(model,props);
-//		
-//		JDatePickerImpl datePicker = new JDatePickerImpl(datePanel, null);
-//		datePicker.setBounds(262, 40, 164, 58);
-//		
-//		frmGeneratingWeeklyReport.getContentPane().add(datePicker);
-//		datePicker.add(datePicker.getJFormattedTextField());
-//		
-//		System.out.println(datePicker.getJFormattedTextField().getText());
+	
 	}
 
 }

@@ -429,7 +429,7 @@ public class ER_UI {
 		EnterNewMedicalEncouterpanel.add(lblNewLabel_10);
 		
 		JComboBox cbMonthIn = new JComboBox();
-		cbMonthIn.setModel(new DefaultComboBoxModel(new String[] {"January"}));
+		cbMonthIn.setModel(new DefaultComboBoxModel(new String[] {"January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"}));
 		cbMonthIn.setBounds(60, 80, 70, 21);
 		EnterNewMedicalEncouterpanel.add(cbMonthIn);
 		
@@ -448,6 +448,7 @@ public class ER_UI {
 		EnterNewMedicalEncouterpanel.add(lblNewLabel_10_1);
 		
 		JComboBox cbMonthIn_1 = new JComboBox();
+		cbMonthIn_1.setModel(new DefaultComboBoxModel(new String[] {"January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"}));
 		cbMonthIn_1.setBounds(60, 121, 70, 21);
 		EnterNewMedicalEncouterpanel.add(cbMonthIn_1);
 		
