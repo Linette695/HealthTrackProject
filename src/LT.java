@@ -14,6 +14,8 @@ import javax.swing.JScrollPane;
 import javax.swing.JList;
 import javax.swing.ListModel;
 import javax.swing.SwingConstants;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class LT {
 
@@ -181,14 +183,19 @@ public class LT {
 		tabbedPane.addTab("Create New Report", null, GenerateReportPanel, null);
 		GenerateReportPanel.setLayout(null);
 		
-		JButton btnReportForA = new JButton("Report For A Specific Patient");
+		JButton btnReportForA = new JButton("Create A New Report For A Specific Patient");
+		btnReportForA.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			LT_SpecificPatientReport newPatientReport = new LT_SpecificPatientReport();
+			}
+		});
 		btnReportForA.setHorizontalAlignment(SwingConstants.LEFT);
-		btnReportForA.setBounds(10, 10, 269, 21);
+		btnReportForA.setBounds(10, 10, 346, 21);
 		GenerateReportPanel.add(btnReportForA);
 		
-		JButton btnNewButton = new JButton("Report Based On A Specified Physician");
+		JButton btnNewButton = new JButton("Create A New Report Based On A Specified Physician");
 		btnNewButton.setHorizontalAlignment(SwingConstants.LEFT);
-		btnNewButton.setBounds(10, 41, 269, 21);
+		btnNewButton.setBounds(10, 41, 346, 21);
 		GenerateReportPanel.add(btnNewButton);
 		
 		JPanel AvailableLabsListPanel = new JPanel();
