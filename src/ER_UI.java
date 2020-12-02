@@ -237,18 +237,22 @@ public class ER_UI {
 		btnSaveNewPatient.setBounds(197, 282, 150, 21);
 		btnSaveNewPatient.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Patient p = new Patient();
-				p.pid = ER_BE.getMaxID() + 1;
-				p.pfirstname = txtEnterName.getText();
-				p.plastname = txtEnterLastName.getText();
-				p.tnumber = Integer.parseInt(textTNumber.getText());
-				p.address = txtEnterAddress.getText();
-				p.iid = Integer.parseInt(txtEnterCarrierId.getText());
-				p.dob = ER_BE.createDate((int)spinnerYear.getValue(), (int)spinnerMonth.getValue(), (int)spinnerDay.getValue());
-				p.gender = (String) comboBoxGender.getSelectedItem();
-				p.pcp = Integer.parseInt(txtEnterPhysicianId.getText());
-				
-				ER_BE.createPatient(p);
+				try {
+					Patient p = new Patient();
+					p.pid = ER_BE.getMaxID() + 1;
+					p.pfirstname = txtEnterName.getText();
+					p.plastname = txtEnterLastName.getText();
+					p.tnumber = Integer.parseInt(textTNumber.getText());
+					p.address = txtEnterAddress.getText();
+					p.iid = Integer.parseInt(txtEnterCarrierId.getText());
+					p.dob = ER_BE.createDate((int)spinnerYear.getValue(), (int)spinnerMonth.getValue(), (int)spinnerDay.getValue());
+					p.gender = (String) comboBoxGender.getSelectedItem();
+					p.pcp = Integer.parseInt(txtEnterPhysicianId.getText());
+					
+					ER_BE.createPatient(p);
+				} catch (Exception ee) {
+					
+				}
 			}
 		});
 		CreateNewPatientPanel.setLayout(null);
@@ -413,21 +417,25 @@ public class ER_UI {
 		JButton btnNewButton = new JButton("Create Medical Encounter");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				MedicalEncounter me = new MedicalEncounter();
-				me.dateinput = ER_BE.createDate((int)spinnerYearIn.getValue(), (int)spinnerMonthIn.getValue(), (int)spinnerDayIn.getValue());
-				me.eid = Integer.parseInt(tfEid.getText());
-				me.pid = Integer.parseInt(tfPid.getText());
-				me.complaints = tfComplaints.getText();
-				me.heartrate = Integer.parseInt(tfHeartrate.getText());
-				me.bloodpressure = tfBloodPressure.getText();
-				me.temperature = Float.parseFloat(tfTemperature.getText());
-				me.notes = tfNotes.getText();;
-				me.diagnosis = tfDiagnosis.getText();;
-				me.treatment = tfTreatment.getText();;
-				me.referral = tfReferral.getText();;
-				me.datefollowup = ER_BE.createDate((int)spinnerYearFollow.getValue(), (int)spinnerMonthFollow.getValue(), (int)spinnerDayFollow.getValue());
-				
-				ER_BE.createMedicalEncounter(me);
+				try {
+					MedicalEncounter me = new MedicalEncounter();
+					me.dateinput = ER_BE.createDate((int)spinnerYearIn.getValue(), (int)spinnerMonthIn.getValue(), (int)spinnerDayIn.getValue());
+					me.eid = Integer.parseInt(tfEid.getText());
+					me.pid = Integer.parseInt(tfPid.getText());
+					me.complaints = tfComplaints.getText();
+					me.heartrate = Integer.parseInt(tfHeartrate.getText());
+					me.bloodpressure = tfBloodPressure.getText();
+					me.temperature = Float.parseFloat(tfTemperature.getText());
+					me.notes = tfNotes.getText();;
+					me.diagnosis = tfDiagnosis.getText();;
+					me.treatment = tfTreatment.getText();;
+					me.referral = tfReferral.getText();;
+					me.datefollowup = ER_BE.createDate((int)spinnerYearFollow.getValue(), (int)spinnerMonthFollow.getValue(), (int)spinnerDayFollow.getValue());
+					
+					ER_BE.createMedicalEncounter(me);
+				} catch (Exception e) {
+					
+				}
 			}
 		});
 		btnNewButton.setBounds(150, 300, 200, 21);
