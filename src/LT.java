@@ -194,6 +194,11 @@ public class LT {
 		GenerateReportPanel.add(btnReportForA);
 		
 		JButton btnNewButton = new JButton("Create A New Report Based On A Specified Physician");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				LT_PhysicianSpecificReport newPhysicianBasedReport = new LT_PhysicianSpecificReport();
+			}
+		});
 		btnNewButton.setHorizontalAlignment(SwingConstants.LEFT);
 		btnNewButton.setBounds(10, 41, 346, 21);
 		GenerateReportPanel.add(btnNewButton);
