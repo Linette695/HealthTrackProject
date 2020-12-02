@@ -232,6 +232,10 @@ public class ER_UI {
 		txtEnterPhysicianId.setBounds(249, 245, 111, 19);
 		txtEnterPhysicianId.setText("Enter physician ID");
 		txtEnterPhysicianId.setColumns(10);
+		
+		JLabel lblPatientResult = new JLabel("Result: none");
+		lblPatientResult.setBounds(357, 286, 100, 13);
+		CreateNewPatientPanel.add(lblPatientResult);
 
 		JButton btnSaveNewPatient = new JButton("SAVE NEW PATIENT");
 		btnSaveNewPatient.setBounds(197, 282, 150, 21);
@@ -249,9 +253,14 @@ public class ER_UI {
 					p.gender = (String) comboBoxGender.getSelectedItem();
 					p.pcp = Integer.parseInt(txtEnterPhysicianId.getText());
 					
-					ER_BE.createPatient(p);
+					if (ER_BE.createPatient(p) == true) {
+						lblPatientResult.setText("Result: Success");
+					}
+					else {
+						lblPatientResult.setText("Result: Failure");
+					}
 				} catch (Exception ee) {
-					
+					lblPatientResult.setText("Result: Failure");
 				}
 			}
 		});
@@ -279,8 +288,6 @@ public class ER_UI {
 		CreateNewPatientPanel.add(lblInsuranceCarrierid);
 		CreateNewPatientPanel.add(txtEnterCarrierId);
 		CreateNewPatientPanel.add(btnSaveNewPatient);
-		
-		
 
 		EnterNewMedicalEncouterpanel = new JPanel();
 		CreateNewPatienttabbedPane.addTab("Enter New Medical Encounter", null, EnterNewMedicalEncouterpanel, null);
@@ -414,6 +421,10 @@ public class ER_UI {
 		spinnerMonthFollow.setBounds(185, 58, 40, 20);
 		EnterNewMedicalEncouterpanel.add(spinnerMonthFollow);
 		
+		JLabel lblMedicalResult = new JLabel("Result: none");
+		lblMedicalResult.setBounds(360, 305, 100, 13);
+		EnterNewMedicalEncouterpanel.add(lblMedicalResult);
+		
 		JButton btnNewButton = new JButton("Create Medical Encounter");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -432,9 +443,14 @@ public class ER_UI {
 					me.referral = tfReferral.getText();;
 					me.datefollowup = ER_BE.createDate((int)spinnerYearFollow.getValue(), (int)spinnerMonthFollow.getValue(), (int)spinnerDayFollow.getValue());
 					
-					ER_BE.createMedicalEncounter(me);
+					if (ER_BE.createMedicalEncounter(me) == true) {
+						lblMedicalResult.setText("Result: Success");
+					}
+					else {
+						lblMedicalResult.setText("Result: Failure");
+					}
 				} catch (Exception e) {
-					
+					lblMedicalResult.setText("Result: Failure");
 				}
 			}
 		});
