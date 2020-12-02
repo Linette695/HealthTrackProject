@@ -173,7 +173,7 @@ public class DASH_UI {
 		gbc_btnGenerateNewReport.gridy = 2;
 		panel_1.add(btnGenerateNewReport, gbc_btnGenerateNewReport);
 		
-		JTabbedPane LTtabbedPane = new JTabbedPane(JTabbedPane.TOP);
+		final JTabbedPane LTtabbedPane = new JTabbedPane(JTabbedPane.TOP);
 		DASHframe.getContentPane().add(LTtabbedPane, "name_132104797100000");
 		
 		JPanel LTPanel = new JPanel();
