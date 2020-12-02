@@ -419,8 +419,8 @@ public class ER_UI {
 				me.pid = Integer.parseInt(tfPid.getText());
 				me.complaints = tfComplaints.getText();
 				me.heartrate = Integer.parseInt(tfHeartrate.getText());
-				me.bloodpressure = Integer.parseInt(tfBloodPressure.getText());
-				me.temperature = Integer.parseInt(tfTemperature.getText());
+				me.bloodpressure = tfBloodPressure.getText();
+				me.temperature = Float.parseFloat(tfTemperature.getText());
 				me.notes = tfNotes.getText();;
 				me.diagnosis = tfDiagnosis.getText();;
 				me.treatment = tfTreatment.getText();;

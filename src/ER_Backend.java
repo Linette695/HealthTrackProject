@@ -182,7 +182,7 @@ public class ER_Backend {
 					me.pid+", "+
 					"'"+me.complaints+"'"+", "+
 					me.heartrate+", "+
-					me.bloodpressure+", "+
+					"'"+me.bloodpressure+"'"+", "+
 					me.temperature+", "+
 					"'"+me.notes+"'"+", "+
 					"'"+me.diagnosis+"'"+", "+
@@ -248,8 +248,8 @@ public class ER_Backend {
 				me.pid = rs.getInt("pid");
 				me.complaints = rs.getString("complaints");
 				me.heartrate = rs.getInt("heartrate");
-				me.bloodpressure = rs.getInt("bloodpressure");
-				me.temperature = rs.getInt("temperature");
+				me.bloodpressure = rs.getString("bloodpressure");
+				me.temperature = rs.getFloat("temperature");
 				me.notes = rs.getString("notes");
 				me.diagnosis = rs.getString("diagnosis");
 				me.treatment = rs.getString("treatment");
@@ -406,7 +406,7 @@ public class ER_Backend {
 
 	public int getMaxID() {
 		List<Patient> patientList = returnPatientInfoAll();
-		int id = -1;
+		int id = 0;
 		for (int i=0; i<patientList.size(); i++)
 		{
 			if (patientList.get(i).pid > id) {

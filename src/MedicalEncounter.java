@@ -6,8 +6,8 @@ public class MedicalEncounter {
 	public int pid;
 	public String complaints;
 	public int heartrate;
-	public int bloodpressure;
-	public int temperature;
+	public String bloodpressure;
+	public float temperature;
 	public String notes;
 	public String diagnosis;
 	public String treatment;
