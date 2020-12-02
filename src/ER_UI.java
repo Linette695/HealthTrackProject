@@ -490,10 +490,10 @@ public class ER_UI {
 		patientInfoScrollPane_1.setBounds(28, 29, 452, 234);
 		patientReportPanel.add(patientInfoScrollPane_1);
 		
-		JPanel ReportPanel = new JPanel();
-		CreateNewPatienttabbedPane.addTab("Patient List", null, ReportPanel, null);
+		JPanel PatientListPanel = new JPanel();
+		CreateNewPatienttabbedPane.addTab("Patient List", null, PatientListPanel, null);
 		CreateNewPatienttabbedPane.setEnabledAt(3, true);
-		ReportPanel.setLayout(null);
+		PatientListPanel.setLayout(null);
 
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setBounds(0, 0, 400, 200);
@@ -503,7 +503,7 @@ public class ER_UI {
 		//list.setBounds(0, 0, 400, 200);
 
 		scrollPane.setViewportView(list);
-		ReportPanel.add(scrollPane);
+		PatientListPanel.add(scrollPane);
 
 
 
@@ -524,7 +524,7 @@ public class ER_UI {
 			}
 		});
 		btnDeletePatient.setBounds(20, 250, 200, 21);
-		ReportPanel.add(btnDeletePatient);
+		PatientListPanel.add(btnDeletePatient);
 
 		JButton btnRefresh = new JButton("Refresh List");
 		btnRefresh.addActionListener(new ActionListener() {
@@ -539,7 +539,7 @@ public class ER_UI {
 			}
 		});
 		btnRefresh.setBounds(20, 210, 200, 21);
-		ReportPanel.add(btnRefresh);
+		PatientListPanel.add(btnRefresh);
 
 	}//End of initialize method
 }//End of ER_UI class

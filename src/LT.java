@@ -56,6 +56,7 @@ public class LT {
 	 *		New Lab Order tab   == 0
 	 *		Update A Lab Oder tab == 1
 	 *		Create New Report  == 2
+	 *		Available Lab Tests == 3
 	 *		
 	 */
 
@@ -67,7 +68,7 @@ public class LT {
 		tabbedPane.setSelectedIndex(2);				//Make sure the create new report tab is the one being displayed
 		tabbedPane.setEnabledAt(0, false);			//Make sure the new lab order tab is not enabled
 		tabbedPane.setEnabledAt(1, false);			//Make sure the update a lab order tab is not enabled
-		
+		tabbedPane.setEnabledAt(3, false);			//Make sure the available lab tests list tab is not visible
 	}//end of LTcreateNewReport
 	
 	//Method invoked when user wants to update a lab order
@@ -78,7 +79,7 @@ public class LT {
 		tabbedPane.setSelectedIndex(1);				//Make sure the update a lab order is the one being displayed
 		tabbedPane.setEnabledAt(0, false);			//Make sure the new lab order tab is not enabled
 		tabbedPane.setEnabledAt(2, false);			//Make sure the create new report tab is not enabled
-		
+		tabbedPane.setEnabledAt(3, false);			//Make sure the available lab tests list tab is not visible
 	}//end of LTupdateAOrder
 	
 	//Method invoked when user wants to request a new lab order
@@ -89,7 +90,7 @@ public class LT {
 		tabbedPane.setSelectedIndex(0);				//Make sure the request new lab order is the one being displayed
 		tabbedPane.setEnabledAt(1, false);			//Make sure the update new lab tab is not enabled
 		tabbedPane.setEnabledAt(2, false);			//Make sure the create new report tab is not enabled
-		
+		tabbedPane.setEnabledAt(3, true);			//Make sure the available lab tests list tab is visible
 	}//end of LTRequestNewOrder	
 	
 	
@@ -189,5 +190,21 @@ public class LT {
 		btnNewButton.setHorizontalAlignment(SwingConstants.LEFT);
 		btnNewButton.setBounds(10, 41, 269, 21);
 		GenerateReportPanel.add(btnNewButton);
+		
+		JPanel AvailableLabsListPanel = new JPanel();
+		AvailableLabsListPanel.setLayout(null);
+		tabbedPane.addTab("Available Lab Tests", null, AvailableLabsListPanel, null);
+		
+		JScrollPane scrollPane_1 = new JScrollPane();
+		scrollPane_1.setBounds(0, 0, 380, 180);
+		AvailableLabsListPanel.add(scrollPane_1);
+		
+		JButton btnDeletePatient = new JButton("Delete patient");
+		btnDeletePatient.setBounds(20, 250, 200, 21);
+		AvailableLabsListPanel.add(btnDeletePatient);
+		
+		JButton btnRefresh = new JButton("Refresh List");
+		btnRefresh.setBounds(10, 190, 200, 21);
+		AvailableLabsListPanel.add(btnRefresh);
 	}
 }
