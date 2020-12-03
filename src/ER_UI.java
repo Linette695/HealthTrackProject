@@ -486,16 +486,17 @@ public class ER_UI {
 			public void actionPerformed(ActionEvent e) {
 				listModelPatientReport.clear();
 
-				int pid = Integer.parseInt(txtEnterId.getText());
-				
-				java.util.List<MedicalEncounter> meList = ER_BE.returnMedicalEncounter(pid);
-				
-				for (int i=0; i<meList.size(); i++) {
-					listModelPatientReport.addElement(meList.get(i).returnInfoString());
+				try {
+					int pid = Integer.parseInt(txtEnterId.getText());
+	
+					java.util.List<MedicalEncounter> meList = ER_BE.returnMedicalEncounter(pid);
+					
+					for (int i=0; i<meList.size(); i++) {
+						listModelPatientReport.addElement(meList.get(i).returnInfoString());
+					}
+				} catch (Exception e1){
+					
 				}
-			//TODO Display the information of the patient indicated by the given ID #
-				/*use txtEnterID to obtain the inputed ID #, and display information on the patientInfoScrollPane_1 */
-			
 			}
 		});
 		patientReportPanel.add(btnGeneratePatientReport);
