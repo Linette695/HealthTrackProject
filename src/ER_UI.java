@@ -425,8 +425,8 @@ public class ER_UI {
 		lblMedicalResult.setBounds(360, 305, 100, 13);
 		EnterNewMedicalEncouterpanel.add(lblMedicalResult);
 		
-		JButton btnNewButton = new JButton("Create Medical Encounter");
-		btnNewButton.addActionListener(new ActionListener() {
+		JButton btnCreateME = new JButton("Create Medical Encounter");
+		btnCreateME.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				try {
 					MedicalEncounter me = new MedicalEncounter();
@@ -454,8 +454,8 @@ public class ER_UI {
 				}
 			}
 		});
-		btnNewButton.setBounds(150, 300, 200, 21);
-		EnterNewMedicalEncouterpanel.add(btnNewButton);
+		btnCreateME.setBounds(150, 300, 200, 21);
+		EnterNewMedicalEncouterpanel.add(btnCreateME);
 		
 		JPanel patientReportPanel = new JPanel();
 		CreateNewPatienttabbedPane.addTab("Generate Patient Report", null, patientReportPanel, null);
