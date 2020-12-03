@@ -367,12 +367,12 @@ public class SCHED {
 		lblNewLabel_4.setBounds(0, 0, 170, 20);
 		panelDate_1.add(lblNewLabel_4);
 
-		JComboBox comboBox_2 = new JComboBox();
+		final JComboBox comboBox_2 = new JComboBox();
 		comboBox_2.setModel(new DefaultComboBoxModel(new String[] {"Jauary", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"}));
 		comboBox_2.setBounds(0, 20, 100, 20);
 		panelDate_1.add(comboBox_2);
 
-		JSpinner spinner_2 = new JSpinner();
+		final JSpinner spinner_2 = new JSpinner();
 		spinner_2.setModel(new SpinnerNumberModel(1, 1, 31, 1));
 		spinner_2.setBounds(110, 20, 50, 20);
 		panelDate_1.add(spinner_2);
@@ -386,11 +386,12 @@ public class SCHED {
 		lblNewLabel_1_2.setBounds(0, 0, 170, 20);
 		panelStartTime_1.add(lblNewLabel_1_2);
 
-		JSpinner spinner_1_2 = new JSpinner();
+		final JSpinner spinner_1_2 = new JSpinner();
 		spinner_1_2.setBounds(0, 20, 50, 20);
 		panelStartTime_1.add(spinner_1_2);
 
-		JComboBox comboBox_1_2 = new JComboBox();
+		final JComboBox comboBox_1_2 = new JComboBox();
+		comboBox_1_2.setModel(new DefaultComboBoxModel(new String[] {":00", ":30"}));
 		comboBox_1_2.setBounds(50, 20, 50, 20);
 		panelStartTime_1.add(comboBox_1_2);
 
@@ -403,11 +404,12 @@ public class SCHED {
 		lblNewLabel_1_1_1.setBounds(0, 0, 170, 20);
 		panelEndTime_1.add(lblNewLabel_1_1_1);
 
-		JSpinner spinner_1_1_1 = new JSpinner();
+		final JSpinner spinner_1_1_1 = new JSpinner();
 		spinner_1_1_1.setBounds(0, 20, 50, 20);
 		panelEndTime_1.add(spinner_1_1_1);
 
-		JComboBox comboBox_1_1_1 = new JComboBox();
+		final JComboBox comboBox_1_1_1 = new JComboBox();
+		comboBox_1_1_1.setModel(new DefaultComboBoxModel(new String[] {":00", ":30"}));
 		comboBox_1_1_1.setBounds(50, 20, 50, 20);
 		panelEndTime_1.add(comboBox_1_1_1);
 
@@ -420,7 +422,7 @@ public class SCHED {
 		lblNewLabel_2_1.setBounds(0, 0, 200, 20);
 		panelPhysician_1.add(lblNewLabel_2_1);
 
-		JComboBox comboBox_4_1_2 = new JComboBox(physicians.toArray());
+		final JComboBox comboBox_4_1_2 = new JComboBox(physicians.toArray());
 		comboBox_4_1_2.setBounds(10, 20, 150, 20);
 		panelPhysician_1.add(comboBox_4_1_2);
 
@@ -433,7 +435,7 @@ public class SCHED {
 		lblNewLabel_3_1.setBounds(0, 0, 200, 20);
 		panelType_1.add(lblNewLabel_3_1);
 
-		JComboBox comboBox_4_1_1 = new JComboBox();
+		final JComboBox comboBox_4_1_1 = new JComboBox();
 		comboBox_4_1_1.setModel(new DefaultComboBoxModel(new String[] {"Routine", "Urgent Care", "Folow-up"}));
 		comboBox_4_1_1.setBounds(10, 20, 150, 20);
 		panelType_1.add(comboBox_4_1_1);
@@ -458,6 +460,12 @@ public class SCHED {
 		JButton btnNewButton_1 = new JButton("Book appointment");
 		btnNewButton_1.setBounds(0, 0, 200, 20);
 		panelButton_1.add(btnNewButton_1);
+		btnNewButton_1.addActionListener(new ActionListener(){  
+			public void actionPerformed(ActionEvent e){  
+				Appointment a = new Appointment(comboBox_4_1_2.getSelectedIndex(), comboBox_4_1_1.getSelectedItem().toString(), comboBox_2.getSelectedIndex(), (Integer) (((SpinnerNumberModel)spinner_2.getModel()).getNumber()), (Integer) (((SpinnerNumberModel)spinner_1_2.getModel()).getNumber()), comboBox_1_2.getSelectedIndex(), comboBox_2.getSelectedIndex(), (Integer) (((SpinnerNumberModel)spinner_2.getModel()).getNumber()), (Integer) (((SpinnerNumberModel)spinner_1_1_1.getModel()).getNumber()), comboBox_1_1_1.getSelectedIndex());
+				System.out.println(a.insertintoDB(a.startTime(), a.endTime()));
+			}		
+		});  
 
 		textField = new JTextField();
 		textField.setEditable(false);
