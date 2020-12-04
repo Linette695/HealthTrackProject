@@ -355,7 +355,8 @@ public class SCHED {
 		JButton btnGenerateDailyReport = new JButton("Generate Daily Report");
 		btnGenerateDailyReport.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-			SCHED_DailyReport newDailyReport = new SCHED_DailyReport();
+				frmPhysicianScheduler.setVisible(false);
+				SCHED_DailyReport newDailyReport = new SCHED_DailyReport();
 			
 			}
 		});
@@ -365,7 +366,8 @@ public class SCHED {
 		JButton btnGenerateWeeklyReport = new JButton("Generate Weekly Report");
 		btnGenerateWeeklyReport.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-			SCHED_WeeklyReport newWeeklyReport = new SCHED_WeeklyReport();
+				frmPhysicianScheduler.setVisible(false);
+				SCHED_WeeklyReport newWeeklyReport = new SCHED_WeeklyReport();
 			
 			}
 		});

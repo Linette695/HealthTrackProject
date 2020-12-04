@@ -65,6 +65,7 @@ public class DASH_UI {
 	 */
 	private void initialize() {
 		DASHframe = new JFrame();
+		DASHframe.setTitle("Health Track");
 		DASHframe.setBounds(100, 100, 450, 300);
 		DASHframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		DASHframe.getContentPane().setLayout(new CardLayout(0, 0));

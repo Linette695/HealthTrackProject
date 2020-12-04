@@ -244,7 +244,7 @@ public class PT {
 		textField_1 = new JTextField();
 		textField_1.setText("Enter ID #");
 		textField_1.setColumns(10);
-		textField_1.setBounds(80, 85, 96, 19);
+		textField_1.setBounds(100, 85, 96, 19);
 		UpdateAPrescriptionPanel.add(textField_1);
 		
 		JPanel AvailableMedicationsPanel = new JPanel();
@@ -308,16 +308,35 @@ public class PT {
 		GenerateReportPanel.setLayout(null);
 		
 		JButton btnGenerateNewPatient = new JButton("Crearte A New Report For A Specific Patient");
+		btnGenerateNewPatient.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frmPharmacyOrderTracking.setVisible(false);
+				PT_SpecificPatientReport newPatientReport = new PT_SpecificPatientReport();
+				
+			}
+		});
 		btnGenerateNewPatient.setHorizontalAlignment(SwingConstants.LEADING);
 		btnGenerateNewPatient.setBounds(0, 10, 381, 21);
 		GenerateReportPanel.add(btnGenerateNewPatient);
 		
 		JButton btnNewButton = new JButton("Create A New Report Based On A Specified Physician ");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frmPharmacyOrderTracking.setVisible(false);
+				PT_PhysicianSpecificReport newPhysicianBasedReport = new PT_PhysicianSpecificReport();
+			}
+		});
 		btnNewButton.setHorizontalAlignment(SwingConstants.LEADING);
 		btnNewButton.setBounds(0, 41, 381, 21);
 		GenerateReportPanel.add(btnNewButton);
 		
 		JButton btnCreateASummary = new JButton("Create A Summary Report For A Specific Medication");
+		btnCreateASummary.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frmPharmacyOrderTracking.setVisible(false);
+				PT_MedSpecificSummaryReport newMedSummaryReport = new PT_MedSpecificSummaryReport();
+			}
+		});
 		btnCreateASummary.setHorizontalAlignment(SwingConstants.LEADING);
 		btnCreateASummary.setBounds(0, 72, 381, 21);
 		GenerateReportPanel.add(btnCreateASummary);

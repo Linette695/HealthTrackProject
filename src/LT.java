@@ -186,7 +186,8 @@ public class LT {
 		JButton btnReportForA = new JButton("Create A New Report For A Specific Patient");
 		btnReportForA.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-			LT_SpecificPatientReport newPatientReport = new LT_SpecificPatientReport();
+				frmLabOrderTracking.setVisible(false);
+				LT_SpecificPatientReport newPatientReport = new LT_SpecificPatientReport();
 			}
 		});
 		btnReportForA.setHorizontalAlignment(SwingConstants.LEFT);
@@ -196,6 +197,7 @@ public class LT {
 		JButton btnNewButton = new JButton("Create A New Report Based On A Specified Physician");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				frmLabOrderTracking.setVisible(false);
 				LT_PhysicianSpecificReport newPhysicianBasedReport = new LT_PhysicianSpecificReport();
 			}
 		});
