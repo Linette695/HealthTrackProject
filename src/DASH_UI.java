@@ -190,7 +190,7 @@ public class DASH_UI {
 				ltSubsystem.LTRequestNewOrder();
 			}
 		});
-		btnRequestNewLab.setBounds(10, 10, 209, 21);
+		btnRequestNewLab.setBounds(0, 10, 209, 21);
 		LTPanel.add(btnRequestNewLab);
 		
 		JButton btnUpdateALab = new JButton("Update A Lab Order");
@@ -200,7 +200,7 @@ public class DASH_UI {
 			}
 		});
 		btnUpdateALab.setHorizontalAlignment(SwingConstants.LEFT);
-		btnUpdateALab.setBounds(10, 41, 209, 21);
+		btnUpdateALab.setBounds(0, 41, 209, 21);
 		LTPanel.add(btnUpdateALab);
 		
 		JButton btnGenerateAReport = new JButton("Generate A New Report");
@@ -210,7 +210,7 @@ public class DASH_UI {
 			}
 		});
 		btnGenerateAReport.setHorizontalAlignment(SwingConstants.LEFT);
-		btnGenerateAReport.setBounds(10, 72, 209, 21);
+		btnGenerateAReport.setBounds(0, 72, 209, 21);
 		LTPanel.add(btnGenerateAReport);
 		
 		JTabbedPane PTtabbedPane = new JTabbedPane(JTabbedPane.TOP);
@@ -260,6 +260,28 @@ public class DASH_UI {
 		btnGenerateANew.setBounds(0, 103, 209, 21);
 		PTPanel.add(btnGenerateANew);
 		
+		JTabbedPane IBtabbedPane = new JTabbedPane(JTabbedPane.TOP);
+		DASHframe.getContentPane().add(IBtabbedPane, "name_940132906759600");
+		
+		JPanel IBpanel = new JPanel();
+		IBtabbedPane.addTab("Insurance Billing ( IB )", null, IBpanel, null);
+		IBpanel.setLayout(null);
+		
+		JButton btnBillForA = new JButton("Bill For A Service");
+		btnBillForA.setHorizontalAlignment(SwingConstants.LEFT);
+		btnBillForA.setBounds(0, 10, 209, 21);
+		IBpanel.add(btnBillForA);
+		
+		JButton btnGenerateAReport_1 = new JButton("Generate A New Report");
+		btnGenerateAReport_1.setHorizontalAlignment(SwingConstants.LEFT);
+		btnGenerateAReport_1.setBounds(0, 72, 209, 21);
+		IBpanel.add(btnGenerateAReport_1);
+		
+		JButton btnGenerateAMonthly = new JButton("Generate A Monthly Invoice");
+		btnGenerateAMonthly.setHorizontalAlignment(SwingConstants.LEADING);
+		btnGenerateAMonthly.setBounds(0, 41, 209, 21);
+		IBpanel.add(btnGenerateAMonthly);
+		
 		JMenuBar menuBar = new JMenuBar();
 		DASHframe.setJMenuBar(menuBar);
 		
@@ -270,6 +292,7 @@ public class DASH_UI {
 				SCHEDtabbedPane_1.setVisible(false);
 				LTtabbedPane.setVisible(false);
 				PTtabbedPane.setVisible(false);
+				IBtabbedPane.setVisible(false);
 			}
 		});
 		menuBar.add(btnEr);
@@ -280,6 +303,7 @@ public class DASH_UI {
 				ERtabbedPane.setVisible(false);
 				LTtabbedPane.setVisible(false);
 				PTtabbedPane.setVisible(false);
+				IBtabbedPane.setVisible(false);
 				SCHEDtabbedPane_1.setVisible(true);
 			}
 		});
@@ -292,6 +316,7 @@ public class DASH_UI {
 				ERtabbedPane.setVisible(false);
 				SCHEDtabbedPane_1.setVisible(false);
 				PTtabbedPane.setVisible(false);
+				IBtabbedPane.setVisible(false);
 			}
 		});
 		menuBar.add(btnNewButton_1);
@@ -303,12 +328,22 @@ public class DASH_UI {
 				LTtabbedPane.setVisible(false);
 				ERtabbedPane.setVisible(false);
 				SCHEDtabbedPane_1.setVisible(false);
+				IBtabbedPane.setVisible(false);
 				
 			}
 		});
 		menuBar.add(btnPt);
 		
 		JButton btnIb = new JButton("IB");
+		btnIb.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				IBtabbedPane.setVisible(true);
+				LTtabbedPane.setVisible(false);
+				ERtabbedPane.setVisible(false);
+				SCHEDtabbedPane_1.setVisible(false);
+				PTtabbedPane.setVisible(false);			
+			}
+		});
 		menuBar.add(btnIb);
 		
 		JButton btnEq = new JButton("EQ");
