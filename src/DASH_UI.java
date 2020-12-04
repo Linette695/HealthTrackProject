@@ -26,6 +26,7 @@ public class DASH_UI {
 	private ER_UI erSubsystem;
 	private SCHED schedSubsystem;
 	private LT ltSubsystem;
+	private PT ptSubsystem;
 
 	/**
 	 * Launch the application.
@@ -56,6 +57,7 @@ public class DASH_UI {
 		erSubsystem = new ER_UI();			//Initialize the ER subsystem
 		schedSubsystem = new SCHED();		//Initialize the SCHED subsystem
 		ltSubsystem = new LT();				//Initialize the LT subsystem
+		ptSubsystem = new PT();				//Initialize the PT subsystem
 	}
 
 	/**
@@ -70,14 +72,14 @@ public class DASH_UI {
 		final JTabbedPane ERtabbedPane = new JTabbedPane(JTabbedPane.TOP);
 		DASHframe.getContentPane().add(ERtabbedPane, "name_2453419553316400");
 		
-		JPanel panel = new JPanel();
-		ERtabbedPane.addTab("ER", null, panel, null);
-		GridBagLayout gbl_panel = new GridBagLayout();
-		gbl_panel.columnWidths = new int[]{155, 121, 0};
-		gbl_panel.rowHeights = new int[]{21, 0, 0, 0};
-		gbl_panel.columnWeights = new double[]{0.0, 0.0, Double.MIN_VALUE};
-		gbl_panel.rowWeights = new double[]{0.0, 0.0, 0.0, Double.MIN_VALUE};
-		panel.setLayout(gbl_panel);
+		JPanel ERPanel = new JPanel();
+		ERtabbedPane.addTab("Electronic Patient Record ( ER )", null, ERPanel, null);
+		GridBagLayout gbl_ERPanel = new GridBagLayout();
+		gbl_ERPanel.columnWidths = new int[]{155, 121, 0};
+		gbl_ERPanel.rowHeights = new int[]{21, 0, 0, 0};
+		gbl_ERPanel.columnWeights = new double[]{0.0, 0.0, Double.MIN_VALUE};
+		gbl_ERPanel.rowWeights = new double[]{0.0, 0.0, 0.0, Double.MIN_VALUE};
+		ERPanel.setLayout(gbl_ERPanel);
 		
 		JButton btnCreateNewPatient = new JButton("Create New Patient");
 		btnCreateNewPatient.addActionListener(new ActionListener() {
@@ -91,7 +93,7 @@ public class DASH_UI {
 		gbc_btnCreateNewPatient.anchor = GridBagConstraints.NORTHWEST;
 		gbc_btnCreateNewPatient.gridx = 0;
 		gbc_btnCreateNewPatient.gridy = 0;
-		panel.add(btnCreateNewPatient, gbc_btnCreateNewPatient);
+		ERPanel.add(btnCreateNewPatient, gbc_btnCreateNewPatient);
 		
 		JButton btnEnterNewMedical = new JButton("Enter New Medical Encounter");
 		btnEnterNewMedical.addActionListener(new ActionListener() {
@@ -105,7 +107,7 @@ public class DASH_UI {
 		gbc_btnEnterNewMedical.insets = new Insets(0, 0, 5, 5);
 		gbc_btnEnterNewMedical.gridx = 0;
 		gbc_btnEnterNewMedical.gridy = 1;
-		panel.add(btnEnterNewMedical, gbc_btnEnterNewMedical);
+		ERPanel.add(btnEnterNewMedical, gbc_btnEnterNewMedical);
 		
 		JButton btnGeneratePatientReport = new JButton("Generate Patient Report");
 		btnGeneratePatientReport.addActionListener(new ActionListener() {
@@ -118,19 +120,19 @@ public class DASH_UI {
 		gbc_btnGeneratePatientReport.insets = new Insets(0, 0, 0, 5);
 		gbc_btnGeneratePatientReport.gridx = 0;
 		gbc_btnGeneratePatientReport.gridy = 2;
-		panel.add(btnGeneratePatientReport, gbc_btnGeneratePatientReport);
+		ERPanel.add(btnGeneratePatientReport, gbc_btnGeneratePatientReport);
 		
 		final JTabbedPane SCHEDtabbedPane_1 = new JTabbedPane(JTabbedPane.TOP);
 		DASHframe.getContentPane().add(SCHEDtabbedPane_1, "name_2453437677515500");
 		
-		JPanel panel_1 = new JPanel();
-		SCHEDtabbedPane_1.addTab("SCHED", null, panel_1, null);
-		GridBagLayout gbl_panel_1 = new GridBagLayout();
-		gbl_panel_1.columnWidths = new int[]{186, 59, 0};
-		gbl_panel_1.rowHeights = new int[]{13, 0, 0, 0};
-		gbl_panel_1.columnWeights = new double[]{0.0, 0.0, Double.MIN_VALUE};
-		gbl_panel_1.rowWeights = new double[]{0.0, 0.0, 0.0, Double.MIN_VALUE};
-		panel_1.setLayout(gbl_panel_1);
+		JPanel SCHEDPanel = new JPanel();
+		SCHEDtabbedPane_1.addTab("Physician Scheduler ( SCHED )", null, SCHEDPanel, null);
+		GridBagLayout gbl_SCHEDPanel = new GridBagLayout();
+		gbl_SCHEDPanel.columnWidths = new int[]{186, 59, 0};
+		gbl_SCHEDPanel.rowHeights = new int[]{13, 0, 0, 0};
+		gbl_SCHEDPanel.columnWeights = new double[]{0.0, 0.0, Double.MIN_VALUE};
+		gbl_SCHEDPanel.rowWeights = new double[]{0.0, 0.0, 0.0, Double.MIN_VALUE};
+		SCHEDPanel.setLayout(gbl_SCHEDPanel);
 		
 		JButton btnSchedulePhysicianAppointment = new JButton("Schedule New Physician Appointment");
 		btnSchedulePhysicianAppointment.setHorizontalAlignment(SwingConstants.LEFT);
@@ -144,7 +146,7 @@ public class DASH_UI {
 		gbc_btnSchedulePhysicianAppointment.insets = new Insets(0, 0, 5, 5);
 		gbc_btnSchedulePhysicianAppointment.gridx = 0;
 		gbc_btnSchedulePhysicianAppointment.gridy = 0;
-		panel_1.add(btnSchedulePhysicianAppointment, gbc_btnSchedulePhysicianAppointment);
+		SCHEDPanel.add(btnSchedulePhysicianAppointment, gbc_btnSchedulePhysicianAppointment);
 		
 		JButton btnScheduleNewPatient = new JButton("Schedule New Patient Appointment");
 		btnScheduleNewPatient.setHorizontalAlignment(SwingConstants.LEFT);
@@ -158,7 +160,7 @@ public class DASH_UI {
 		gbc_btnScheduleNewPatient.insets = new Insets(0, 0, 5, 5);
 		gbc_btnScheduleNewPatient.gridx = 0;
 		gbc_btnScheduleNewPatient.gridy = 1;
-		panel_1.add(btnScheduleNewPatient, gbc_btnScheduleNewPatient);
+		SCHEDPanel.add(btnScheduleNewPatient, gbc_btnScheduleNewPatient);
 		
 		JButton btnGenerateNewReport = new JButton("Generate New Report");
 		btnGenerateNewReport.addActionListener(new ActionListener() {
@@ -171,13 +173,13 @@ public class DASH_UI {
 		gbc_btnGenerateNewReport.insets = new Insets(0, 0, 0, 5);
 		gbc_btnGenerateNewReport.gridx = 0;
 		gbc_btnGenerateNewReport.gridy = 2;
-		panel_1.add(btnGenerateNewReport, gbc_btnGenerateNewReport);
+		SCHEDPanel.add(btnGenerateNewReport, gbc_btnGenerateNewReport);
 		
 		JTabbedPane LTtabbedPane = new JTabbedPane(JTabbedPane.TOP);
 		DASHframe.getContentPane().add(LTtabbedPane, "name_132104797100000");
 		
 		JPanel LTPanel = new JPanel();
-		LTtabbedPane.addTab("LT", null, LTPanel, null);
+		LTtabbedPane.addTab("Lab Order Tracking ( LT )", null, LTPanel, null);
 		LTPanel.setLayout(null);
 		
 		JButton btnRequestNewLab = new JButton("Request New Lab Order");
@@ -210,6 +212,53 @@ public class DASH_UI {
 		btnGenerateAReport.setBounds(10, 72, 209, 21);
 		LTPanel.add(btnGenerateAReport);
 		
+		JTabbedPane PTtabbedPane = new JTabbedPane(JTabbedPane.TOP);
+		DASHframe.getContentPane().add(PTtabbedPane, "name_930605227919300");
+		
+		JPanel PTPanel = new JPanel();
+		PTtabbedPane.addTab("Pharmacy Order Tracking ( PT )", null, PTPanel, null);
+		PTPanel.setLayout(null);
+		
+		JButton btnOrderNewPrescription = new JButton("Order New Prescription");
+		btnOrderNewPrescription.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ptSubsystem.PTOrderNewPrescription();
+			}
+		});
+		btnOrderNewPrescription.setHorizontalAlignment(SwingConstants.LEFT);
+		btnOrderNewPrescription.setBounds(0, 10, 209, 21);
+		PTPanel.add(btnOrderNewPrescription);
+		
+		JButton btnRetriveAPrescription = new JButton("Retrieve A Prescription");
+		btnRetriveAPrescription.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ptSubsystem.PTRetrieveAPrescription();
+			}
+		});
+		btnRetriveAPrescription.setHorizontalAlignment(SwingConstants.LEFT);
+		btnRetriveAPrescription.setBounds(0, 72, 209, 21);
+		PTPanel.add(btnRetriveAPrescription);
+		
+		JButton btnFillAnExistent = new JButton("Fill An Existent Prescription");
+		btnFillAnExistent.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ptSubsystem.PTFillAnExistentPrescription();
+			}
+		});
+		btnFillAnExistent.setHorizontalAlignment(SwingConstants.LEFT);
+		btnFillAnExistent.setBounds(0, 41, 209, 21);
+		PTPanel.add(btnFillAnExistent);
+		
+		JButton btnGenerateANew = new JButton("Generate A New Report");
+		btnGenerateANew.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ptSubsystem.PTGenerateNewReport();
+			}
+		});
+		btnGenerateANew.setHorizontalAlignment(SwingConstants.LEFT);
+		btnGenerateANew.setBounds(0, 103, 209, 21);
+		PTPanel.add(btnGenerateANew);
+		
 		JMenuBar menuBar = new JMenuBar();
 		DASHframe.setJMenuBar(menuBar);
 		
@@ -219,6 +268,7 @@ public class DASH_UI {
 				ERtabbedPane.setVisible(true);
 				SCHEDtabbedPane_1.setVisible(false);
 				LTtabbedPane.setVisible(false);
+				PTtabbedPane.setVisible(false);
 			}
 		});
 		menuBar.add(btnEr);
@@ -228,6 +278,7 @@ public class DASH_UI {
 			public void actionPerformed(ActionEvent e) {
 				ERtabbedPane.setVisible(false);
 				LTtabbedPane.setVisible(false);
+				PTtabbedPane.setVisible(false);
 				SCHEDtabbedPane_1.setVisible(true);
 			}
 		});
@@ -239,11 +290,21 @@ public class DASH_UI {
 				LTtabbedPane.setVisible(true);
 				ERtabbedPane.setVisible(false);
 				SCHEDtabbedPane_1.setVisible(false);
+				PTtabbedPane.setVisible(false);
 			}
 		});
 		menuBar.add(btnNewButton_1);
 		
 		JButton btnPt = new JButton("PT");
+		btnPt.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				PTtabbedPane.setVisible(true);
+				LTtabbedPane.setVisible(false);
+				ERtabbedPane.setVisible(false);
+				SCHEDtabbedPane_1.setVisible(false);
+				
+			}
+		});
 		menuBar.add(btnPt);
 		
 		JButton btnIb = new JButton("IB");

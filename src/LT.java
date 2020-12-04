@@ -180,7 +180,7 @@ public class LT {
 		UpdateLabOrderpanel.add(btnSelectOrder);
 		
 		JPanel GenerateReportPanel = new JPanel();
-		tabbedPane.addTab("Create New Report", null, GenerateReportPanel, null);
+		tabbedPane.addTab("Generate New Report", null, GenerateReportPanel, null);
 		GenerateReportPanel.setLayout(null);
 		
 		JButton btnReportForA = new JButton("Create A New Report For A Specific Patient");
