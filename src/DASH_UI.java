@@ -27,6 +27,7 @@ public class DASH_UI {
 	private SCHED schedSubsystem;
 	private LT ltSubsystem;
 	private PT ptSubsystem;
+	private IB ibSubsystem;
 
 	/**
 	 * Launch the application.
@@ -58,6 +59,7 @@ public class DASH_UI {
 		schedSubsystem = new SCHED();		//Initialize the SCHED subsystem
 		ltSubsystem = new LT();				//Initialize the LT subsystem
 		ptSubsystem = new PT();				//Initialize the PT subsystem
+		ibSubsystem = new IB();				//Initialize the IB subsystem
 	}
 
 	/**
@@ -267,20 +269,45 @@ public class DASH_UI {
 		IBtabbedPane.addTab("Insurance Billing ( IB )", null, IBpanel, null);
 		IBpanel.setLayout(null);
 		
-		JButton btnBillForA = new JButton("Bill For A Service");
+		JButton btnBillForA = new JButton("Bill A Service");
+		btnBillForA.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ibSubsystem.IBNewBill();
+			}
+		});
 		btnBillForA.setHorizontalAlignment(SwingConstants.LEFT);
-		btnBillForA.setBounds(0, 10, 209, 21);
+		btnBillForA.setBounds(0, 10, 330, 21);
 		IBpanel.add(btnBillForA);
 		
 		JButton btnGenerateAReport_1 = new JButton("Generate A New Report");
+		btnGenerateAReport_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ibSubsystem.IBGenerateNewReport();
+			}
+		});
 		btnGenerateAReport_1.setHorizontalAlignment(SwingConstants.LEFT);
-		btnGenerateAReport_1.setBounds(0, 72, 209, 21);
+		btnGenerateAReport_1.setBounds(0, 105, 330, 21);
 		IBpanel.add(btnGenerateAReport_1);
 		
 		JButton btnGenerateAMonthly = new JButton("Generate A Monthly Invoice");
+		btnGenerateAMonthly.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ibSubsystem.IBNewMonthlyInvoice();
+			}
+		});
 		btnGenerateAMonthly.setHorizontalAlignment(SwingConstants.LEADING);
-		btnGenerateAMonthly.setBounds(0, 41, 209, 21);
+		btnGenerateAMonthly.setBounds(0, 74, 330, 21);
 		IBpanel.add(btnGenerateAMonthly);
+		
+		JButton btnInformationOnThe = new JButton("Information On The Available Clinic Services ");
+		btnInformationOnThe.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ibSubsystem.IBAvailableServices();
+			}
+		});
+		btnInformationOnThe.setHorizontalAlignment(SwingConstants.LEADING);
+		btnInformationOnThe.setBounds(0, 41, 330, 21);
+		IBpanel.add(btnInformationOnThe);
 		
 		JMenuBar menuBar = new JMenuBar();
 		DASHframe.setJMenuBar(menuBar);

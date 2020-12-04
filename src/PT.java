@@ -66,7 +66,7 @@ public class PT {
 	 *		Generate New Report == 4
 	 */
 
-	//Method invoked when user wants to create a new report
+	//Method invoked when user wants to Order a new prescription
 	public void PTOrderNewPrescription() {
 		frmPharmacyOrderTracking.setVisible(true);					
 		
@@ -78,6 +78,7 @@ public class PT {
 		tabbedPane.setEnabledAt(4, false);			//Make sure the generate new report tab is not enabled
 	}//end of PTOrderNewPrescription
 	
+	//Method invoked when user wants to fill a prescription
 	public void PTFillAnExistentPrescription() {
 		frmPharmacyOrderTracking.setVisible(true);					
 		
@@ -89,6 +90,7 @@ public class PT {
 		tabbedPane.setEnabledAt(4, false);			//Make sure the generate new report tab is not enabled
 	}//end of PTFillAnExistentPrescription
 	
+	//Method invoked when user wants to retrieve a prescription
 	public void PTRetrieveAPrescription() {
 		frmPharmacyOrderTracking.setVisible(true);					
 		
@@ -99,7 +101,8 @@ public class PT {
 		tabbedPane.setEnabledAt(1, false);			//Make sure the fill an existent prescription tab is not enabled
 		tabbedPane.setEnabledAt(4, false);			//Make sure the generate new report tab is not enabled
 	}//end of PTRetrieveAPrescription
-		
+	
+	//Method invoked when user wants to generate a new report
 	public void PTGenerateNewReport() {
 		frmPharmacyOrderTracking.setVisible(true);					
 		
@@ -109,7 +112,7 @@ public class PT {
 		tabbedPane.setEnabledAt(2, false);			//Make sure the available medications tab is  not enabled
 		tabbedPane.setEnabledAt(1, false);			//Make sure the fill an existent prescription tab is not enabled
 		tabbedPane.setEnabledAt(3, false);			//Make sure the search for a prescription tab is not enabled
-	}//end of PTRetrieveAPrescription
+	}//end of PTGenerateNewReport
 		
 		
 	
