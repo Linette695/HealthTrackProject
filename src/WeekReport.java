@@ -33,7 +33,7 @@ import java.awt.event.ActionEvent;
 import java.util.Date;
 
 
-public class Report {
+public class WeekReport {
 
 	// JDBC driver name and database URL
 	static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";  
@@ -48,7 +48,7 @@ public class Report {
 	static int physID = 0;
 	static String physName;
 	
-	public Report(int selmonth, Number selday, int selphys, String physN) {
+	public WeekReport(int selmonth, Number selday, int selphys, String physN) {
 		this.month = selmonth;
 		this.day = selday;
 		this.physID = selphys+1;
@@ -70,11 +70,11 @@ public class Report {
 			conn = DriverManager.getConnection(DB_URL,USER,PASS);
 			stmt = conn.createStatement();
 			
-			String sql = "SELECT * from events where doctorid = " + physID + " and start BETWEEN '2020-" + month + "-" + day + " 00:00:00' AND '2020-" + month + "-" + day + " 23:59:59';";
+			String sql = "SELECT * from events where doctorid = " + physID + " and start BETWEEN '2020-" + month + "-" + day + " 00:00:00' AND '2020-" + month + "-" + (day.intValue()+7) + " 23:59:59';";
 
 			ResultSet rs = stmt.executeQuery(sql);
 			
-			System.out.println("Generated Report from 2020-" + month + "-" + day + ", Physician: " + physName);
+			System.out.println("Generated Report from 2020-" + month + "-" + day + " to 2020-" + month + "-" + (day.intValue()+7) + ", Physician: " + physName);
 			System.out.print(System.lineSeparator());
 			
 			
