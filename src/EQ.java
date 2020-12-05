@@ -13,6 +13,8 @@ import java.awt.Font;
 import java.awt.Color;
 import javax.swing.SwingConstants;
 import javax.swing.JScrollPane;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class EQ {
 
@@ -23,6 +25,7 @@ public class EQ {
 	
 	/*GUI Variables*/
 	private JTabbedPane tabbedPane;
+	private EQ_QueryVendorInfo VendorListSubsystem;
 
 	/**
 	 * Launch the application.
@@ -133,6 +136,8 @@ public class EQ {
 		tabbedPane = new JTabbedPane(JTabbedPane.TOP);
 		tabbedPane.setBounds(0, 0, 467, 292);
 		frmEquiptmentInventory.getContentPane().add(tabbedPane);
+		
+		VendorListSubsystem = new EQ_QueryVendorInfo();
 		
 		JPanel ReportEquiptmentProblemPanel = new JPanel();
 		tabbedPane.addTab("Report An Equiptment Problem", null, ReportEquiptmentProblemPanel, null);
@@ -250,7 +255,7 @@ public class EQ {
 		QueryEquiptmentPanel.add(btnQueryDatabase);
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(2, 112, 460, 153);
+		scrollPane.setBounds(2, 112, 460, 138);
 		QueryEquiptmentPanel.add(scrollPane);
 		
 		JPanel VendorListMaintenancePanel = new JPanel();
@@ -258,11 +263,24 @@ public class EQ {
 		VendorListMaintenancePanel.setLayout(null);
 		
 		JButton btnQueryVendorInformation = new JButton("Query Vendor Information");
+		btnQueryVendorInformation.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frmEquiptmentInventory.setVisible(false);
+				VendorListSubsystem.eqQueryVendorList();
+				
+			}
+		});
 		btnQueryVendorInformation.setHorizontalAlignment(SwingConstants.LEADING);
 		btnQueryVendorInformation.setBounds(10, 10, 188, 21);
 		VendorListMaintenancePanel.add(btnQueryVendorInformation);
 		
 		JButton btnAddANew = new JButton("Add A New Vendor");
+		btnAddANew.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frmEquiptmentInventory.setVisible(false);
+				VendorListSubsystem.eqNewVendor();
+			}
+		});
 		btnAddANew.setHorizontalAlignment(SwingConstants.LEADING);
 		btnAddANew.setBounds(10, 41, 188, 21);
 		VendorListMaintenancePanel.add(btnAddANew);
