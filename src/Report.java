@@ -21,6 +21,7 @@ import javax.swing.SwingConstants;
 import javax.swing.JInternalFrame;
 import java.awt.Panel;
 import java.awt.event.ActionListener;
+import java.io.Console;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -29,6 +30,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.awt.event.ActionEvent;
+import java.util.Date;
 
 
 public class Report {
@@ -49,12 +51,12 @@ public class Report {
 	public Report(int selmonth, Number selday, int selphys, String physN) {
 		this.month = selmonth;
 		this.day = selday;
-		this.physID = selphys;
+		this.physID = selphys+1;
 		this.physName = physN;
 	}
 
 	//stmt.executeUpdate(x)
-	public static String getfromDB() {
+	public static void getfromDB() {
 
 		Scanner scnr = new Scanner(System.in);
 		Connection conn = null;
@@ -67,10 +69,31 @@ public class Report {
 			System.out.println("Connecting to database...");
 			conn = DriverManager.getConnection(DB_URL,USER,PASS);
 			stmt = conn.createStatement();
+			
+			String sql = "SELECT * from events where doctorid = " + physID + " and start BETWEEN '2020-" + month + "-" + day + " 00:00:00' AND '2020-" + month + "-" + day + " 23:59:59';";
 
-			String sql = "SELECT * from events where ;";
+			ResultSet rs = stmt.executeQuery(sql);
+			
+			System.out.println("Generated Report from 2020-" + month + "-" + day + ", Physician: " + physName);
+			System.out.print(System.lineSeparator());
+			
+			
+			while(rs.next()){
+		         //Retrieve by column name
+		         int rsEID  = rs.getInt("eventid");
+		         int rsPID  = rs.getInt("patientid");
+		         int rsDID  = rs.getInt("doctorid");
+		         String rsType = rs.getString("eventtype");
+		         Date rsStart = rs.getDate("start");
+		         Date rsEnd = rs.getDate("end");
 
-			//stmt.executeUpdate(sql);
+		         //Display values
+		         System.out.print("Patient ID: " + rsPID);
+		         System.out.print(", Event Type: " + rsType);
+		         System.out.print(", Start Time: " + rsStart);
+		         System.out.println(", End Time: " + rsEnd);
+		      }
+			rs.close();
 
 			//STEP 6: Clean-up environment
 			stmt.close();
@@ -96,7 +119,7 @@ public class Report {
 			}
 		}
 
-		return  "Generated Report from 2020-" + month + "-" + day + ", Physician: " + physName;
+		return;
 	}
 
 }

@@ -140,7 +140,7 @@ public class SCHED_DailyReport {
 			public void actionPerformed(ActionEvent e) {
 				
 				Report r = new Report(comboBox_2_1.getSelectedIndex()+1, (((SpinnerNumberModel)spinner_4.getModel()).getNumber()), comboBox_5.getSelectedIndex(), physicians.get(comboBox_5.getSelectedIndex()));
-				System.out.println(r.getfromDB());
+				r.getfromDB();
 			}
 		});
 		btnGenerateReport.setBounds(290, 39, 136, 21);
