@@ -286,11 +286,23 @@ public class IB {
 		GenerateNewReportPanel.setLayout(null);
 		
 		JButton btnCrearteANew = new JButton("Crearte A New Report For A Specific Patient");
+		btnCrearteANew.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frmInsuranceBilling.setVisible(false);
+				IB_PatientBasedReport newPatientReport = new IB_PatientBasedReport();
+			}
+		});
 		btnCrearteANew.setHorizontalAlignment(SwingConstants.LEADING);
 		btnCrearteANew.setBounds(0, 10, 381, 21);
 		GenerateNewReportPanel.add(btnCrearteANew);
 		
 		JButton btnCreateANew = new JButton("Create A New Report For A Specific Insurance Carrier");
+		btnCreateANew.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frmInsuranceBilling.setVisible(false);
+				IB_InsuranceCarrierReport newInsuranceReport = new IB_InsuranceCarrierReport();
+			}
+		});
 		btnCreateANew.setHorizontalAlignment(SwingConstants.LEADING);
 		btnCreateANew.setBounds(0, 41, 381, 21);
 		GenerateNewReportPanel.add(btnCreateANew);
