@@ -313,7 +313,7 @@ public class PT {
 		JButton btnGenerateNewPatient = new JButton("Crearte A New Report For A Specific Patient");
 		btnGenerateNewPatient.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				frmPharmacyOrderTracking.setVisible(false);
+				
 				PT_SpecificPatientReport newPatientReport = new PT_SpecificPatientReport();
 				
 			}
@@ -325,7 +325,7 @@ public class PT {
 		JButton btnNewButton = new JButton("Create A New Report Based On A Specified Physician ");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				frmPharmacyOrderTracking.setVisible(false);
+				
 				PT_PhysicianSpecificReport newPhysicianBasedReport = new PT_PhysicianSpecificReport();
 			}
 		});
@@ -336,7 +336,7 @@ public class PT {
 		JButton btnCreateASummary = new JButton("Create A Summary Report For A Specific Medication");
 		btnCreateASummary.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				frmPharmacyOrderTracking.setVisible(false);
+				
 				PT_MedSpecificSummaryReport newMedSummaryReport = new PT_MedSpecificSummaryReport();
 			}
 		});

@@ -292,7 +292,7 @@ public class EQ {
 		JButton btnCreateAComplete = new JButton("Create A Complete Inventory Report");
 		btnCreateAComplete.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				frmEquiptmentInventory.setVisible(false);
+				
 				EQ_CompleteInventoryReport newCompleteReport = new EQ_CompleteInventoryReport();
 			}
 		});
@@ -313,7 +313,7 @@ public class EQ {
 		JButton btnStatisticalReportOf = new JButton("Create A Statistical Report Of Equiptment Problems");
 		btnStatisticalReportOf.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				frmEquiptmentInventory.setVisible(false);
+				
 				EQ_StatisticalReport newStatisticalReport = new EQ_StatisticalReport();
 			}
 		});

@@ -288,7 +288,7 @@ public class IB {
 		JButton btnCrearteANew = new JButton("Crearte A New Report For A Specific Patient");
 		btnCrearteANew.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				frmInsuranceBilling.setVisible(false);
+				
 				IB_PatientBasedReport newPatientReport = new IB_PatientBasedReport();
 			}
 		});
@@ -299,7 +299,7 @@ public class IB {
 		JButton btnCreateANew = new JButton("Create A New Report For A Specific Insurance Carrier");
 		btnCreateANew.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				frmInsuranceBilling.setVisible(false);
+				
 				IB_InsuranceCarrierReport newInsuranceReport = new IB_InsuranceCarrierReport();
 			}
 		});
