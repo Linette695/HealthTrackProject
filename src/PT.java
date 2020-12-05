@@ -72,10 +72,11 @@ public class PT {
 		
 		tabbedPane.setEnabledAt(0, true);			//Make sure the order new prescription tab is enabled
 		tabbedPane.setSelectedIndex(0);				//Make sure the create new prescription tab is the one being displayed
-		tabbedPane.setEnabledAt(1, false);			//Make sure the fill a prescription tab is not enabled
-		tabbedPane.setEnabledAt(2, true);			//Make sure the available medications tab is  enabled to be used as a helper 
-		tabbedPane.setEnabledAt(3, false);			//Make sure the search for a prescription tab is not enabled
-		tabbedPane.setEnabledAt(4, false);			//Make sure the generate new report tab is not enabled
+//		tabbedPane.setEnabledAt(1, false);			//Make sure the fill a prescription tab is not enabled
+//		tabbedPane.setEnabledAt(2, true);			//Make sure the available medications tab is  enabled to be used as a helper 
+//		tabbedPane.setEnabledAt(3, false);			//Make sure the search for a prescription tab is not enabled
+//		tabbedPane.setEnabledAt(4, false);			//Make sure the generate new report tab is not enabled
+//	
 	}//end of PTOrderNewPrescription
 	
 	//Method invoked when user wants to fill a prescription
@@ -84,10 +85,11 @@ public class PT {
 		
 		tabbedPane.setEnabledAt(1, true);			//Make sure the fill an existent prescription tab is enabled
 		tabbedPane.setSelectedIndex(1);				//Make sure the fill an existent prescription tab is the one being displayed
-		tabbedPane.setEnabledAt(0, false);			//Make sure the create a new prescription tab is not enabled
-		tabbedPane.setEnabledAt(2, false);			//Make sure the available medications tab is  not enabled
-		tabbedPane.setEnabledAt(3, false);			//Make sure the search for a prescription tab is not enabled
-		tabbedPane.setEnabledAt(4, false);			//Make sure the generate new report tab is not enabled
+//		tabbedPane.setEnabledAt(0, false);			//Make sure the create a new prescription tab is not enabled
+//		tabbedPane.setEnabledAt(2, false);			//Make sure the available medications tab is  not enabled
+//		tabbedPane.setEnabledAt(3, false);			//Make sure the search for a prescription tab is not enabled
+//		tabbedPane.setEnabledAt(4, false);			//Make sure the generate new report tab is not enabled
+//	
 	}//end of PTFillAnExistentPrescription
 	
 	//Method invoked when user wants to retrieve a prescription
@@ -96,10 +98,11 @@ public class PT {
 		
 		tabbedPane.setEnabledAt(3, true);			//Make sure the search for a prescription tab is enabled
 		tabbedPane.setSelectedIndex(3);				//Make sure the search for a prescription tab is the one being displayed
-		tabbedPane.setEnabledAt(0, false);			//Make sure the create a new prescription tab is not enabled
-		tabbedPane.setEnabledAt(2, false);			//Make sure the available medications tab is  not enabled
-		tabbedPane.setEnabledAt(1, false);			//Make sure the fill an existent prescription tab is not enabled
-		tabbedPane.setEnabledAt(4, false);			//Make sure the generate new report tab is not enabled
+//		tabbedPane.setEnabledAt(0, false);			//Make sure the create a new prescription tab is not enabled
+//		tabbedPane.setEnabledAt(2, false);			//Make sure the available medications tab is  not enabled
+//		tabbedPane.setEnabledAt(1, false);			//Make sure the fill an existent prescription tab is not enabled
+//		tabbedPane.setEnabledAt(4, false);			//Make sure the generate new report tab is not enabled
+//	
 	}//end of PTRetrieveAPrescription
 	
 	//Method invoked when user wants to generate a new report
@@ -108,10 +111,11 @@ public class PT {
 		
 		tabbedPane.setEnabledAt(4, true);			//Make sure the generate new report tab is enabled
 		tabbedPane.setSelectedIndex(4);				//Make sure the generate new report tab is the one being displayed
-		tabbedPane.setEnabledAt(0, false);			//Make sure the create a new prescription tab is not enabled
-		tabbedPane.setEnabledAt(2, false);			//Make sure the available medications tab is  not enabled
-		tabbedPane.setEnabledAt(1, false);			//Make sure the fill an existent prescription tab is not enabled
-		tabbedPane.setEnabledAt(3, false);			//Make sure the search for a prescription tab is not enabled
+//		tabbedPane.setEnabledAt(0, false);			//Make sure the create a new prescription tab is not enabled
+//		tabbedPane.setEnabledAt(2, false);			//Make sure the available medications tab is  not enabled
+//		tabbedPane.setEnabledAt(1, false);			//Make sure the fill an existent prescription tab is not enabled
+//		tabbedPane.setEnabledAt(3, false);			//Make sure the search for a prescription tab is not enabled
+//	
 	}//end of PTGenerateNewReport
 		
 		

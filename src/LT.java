@@ -50,6 +50,7 @@ public class LT {
 	 */
 	public LT() {
 		initialize();
+	
 	} //end of constructor
 	
 	
@@ -68,9 +69,10 @@ public class LT {
 		
 		tabbedPane.setEnabledAt(2, true);			//Make sure the create new report tab is enabled
 		tabbedPane.setSelectedIndex(2);				//Make sure the create new report tab is the one being displayed
-		tabbedPane.setEnabledAt(0, false);			//Make sure the new lab order tab is not enabled
-		tabbedPane.setEnabledAt(1, false);			//Make sure the update a lab order tab is not enabled
-		tabbedPane.setEnabledAt(3, false);			//Make sure the available lab tests list tab is not visible
+//		tabbedPane.setEnabledAt(0, false);			//Make sure the new lab order tab is not enabled
+//		tabbedPane.setEnabledAt(1, false);			//Make sure the update a lab order tab is not enabled
+//		tabbedPane.setEnabledAt(3, false);			//Make sure the available lab tests list tab is not visible
+//	
 	}//end of LTcreateNewReport
 	
 	//Method invoked when user wants to update a lab order
@@ -79,9 +81,10 @@ public class LT {
 		
 		tabbedPane.setEnabledAt(1, true);			//Make sure the update a lab order tab is enabled
 		tabbedPane.setSelectedIndex(1);				//Make sure the update a lab order is the one being displayed
-		tabbedPane.setEnabledAt(0, false);			//Make sure the new lab order tab is not enabled
-		tabbedPane.setEnabledAt(2, false);			//Make sure the create new report tab is not enabled
-		tabbedPane.setEnabledAt(3, false);			//Make sure the available lab tests list tab is not visible
+//		tabbedPane.setEnabledAt(0, false);			//Make sure the new lab order tab is not enabled
+//		tabbedPane.setEnabledAt(2, false);			//Make sure the create new report tab is not enabled
+//		tabbedPane.setEnabledAt(3, false);			//Make sure the available lab tests list tab is not visible
+//	
 	}//end of LTupdateAOrder
 	
 	//Method invoked when user wants to request a new lab order
@@ -90,9 +93,10 @@ public class LT {
 		
 		tabbedPane.setEnabledAt(0, true);			//Make sure the request new lab order tab is enabled
 		tabbedPane.setSelectedIndex(0);				//Make sure the request new lab order is the one being displayed
-		tabbedPane.setEnabledAt(1, false);			//Make sure the update new lab tab is not enabled
-		tabbedPane.setEnabledAt(2, false);			//Make sure the create new report tab is not enabled
-		tabbedPane.setEnabledAt(3, true);			//Make sure the available lab tests list tab is visible
+//		tabbedPane.setEnabledAt(1, false);			//Make sure the update new lab tab is not enabled
+//		tabbedPane.setEnabledAt(2, false);			//Make sure the create new report tab is not enabled
+//		tabbedPane.setEnabledAt(3, true);			//Make sure the available lab tests list tab is visible
+//	
 	}//end of LTRequestNewOrder	
 	
 	

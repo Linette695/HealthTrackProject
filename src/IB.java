@@ -71,10 +71,10 @@ public class IB {
 		
 		tabbedPane.setEnabledAt(0, true);			//Make sure the Bill A Service tab is enabled
 		tabbedPane.setSelectedIndex(0);				//Make sure the Bill A Service tab is the one being displayed
-		tabbedPane.setEnabledAt(1, false);			//Make sure the Available services tab is not enabled
-		tabbedPane.setEnabledAt(2, false);			//Make sure the Generate monthly invoice tab is  not enabled
-		tabbedPane.setEnabledAt(3, false);			//Make sure the generate new report tab is not enabled
-		
+//		tabbedPane.setEnabledAt(1, false);			//Make sure the Available services tab is not enabled
+//		tabbedPane.setEnabledAt(2, false);			//Make sure the Generate monthly invoice tab is  not enabled
+//		tabbedPane.setEnabledAt(3, false);			//Make sure the generate new report tab is not enabled
+//		
 	}//end of IBNewBill
 
 	//Method invoked when user wants to look at the information of available clinic services
@@ -83,10 +83,10 @@ public class IB {
 		
 		tabbedPane.setEnabledAt(1, true);			//Make sure the Available Services tab is enabled
 		tabbedPane.setSelectedIndex(1);				//Make sure the Available Services tab is the one being displayed
-		tabbedPane.setEnabledAt(0, false);			//Make sure the Bill A Service tab is not enabled
-		tabbedPane.setEnabledAt(2, false);			//Make sure the Generate monthly invoice tab is  not enabled
-		tabbedPane.setEnabledAt(3, false);			//Make sure the generate new report tab is not enabled
-		
+//		tabbedPane.setEnabledAt(0, false);			//Make sure the Bill A Service tab is not enabled
+//		tabbedPane.setEnabledAt(2, false);			//Make sure the Generate monthly invoice tab is  not enabled
+//		tabbedPane.setEnabledAt(3, false);			//Make sure the generate new report tab is not enabled
+//		
 	}//end of IBAvailableServices
 
 	//Method invoked when user wants to generate a new monthly invoice
@@ -95,10 +95,10 @@ public class IB {
 		
 		tabbedPane.setEnabledAt(2, true);			//Make sure the Generate monthly invoice tab is enabled
 		tabbedPane.setSelectedIndex(2);				//Make sure the Generate monthly invoice tab is the one being displayed
-		tabbedPane.setEnabledAt(0, false);			//Make sure the Bill A Service tab is not enabled
-		tabbedPane.setEnabledAt(1, false);			//Make sure the Available Services tab is  not enabled
-		tabbedPane.setEnabledAt(3, false);			//Make sure the generate new report tab is not enabled
-		
+//		tabbedPane.setEnabledAt(0, false);			//Make sure the Bill A Service tab is not enabled
+//		tabbedPane.setEnabledAt(1, false);			//Make sure the Available Services tab is  not enabled
+//		tabbedPane.setEnabledAt(3, false);			//Make sure the generate new report tab is not enabled
+//		
 	}//end of IBNewMonthlyInvoice
 
 	//Method invoked when user wants to generate a new report
@@ -107,10 +107,10 @@ public class IB {
 		
 		tabbedPane.setEnabledAt(3, true);			//Make sure the Generate new report tab is enabled
 		tabbedPane.setSelectedIndex(3);				//Make sure the Generate new report tab is the one being displayed
-		tabbedPane.setEnabledAt(0, false);			//Make sure the Bill A Service tab is not enabled
-		tabbedPane.setEnabledAt(1, false);			//Make sure the Available Services tab is  not enabled
-		tabbedPane.setEnabledAt(2, false);			//Make sure the Generate monthly invoice tab is not enabled
-		
+//		tabbedPane.setEnabledAt(0, false);			//Make sure the Bill A Service tab is not enabled
+//		tabbedPane.setEnabledAt(1, false);			//Make sure the Available Services tab is  not enabled
+//		tabbedPane.setEnabledAt(2, false);			//Make sure the Generate monthly invoice tab is not enabled
+//		
 	}//end of IBGenerateNewReport
 	
 

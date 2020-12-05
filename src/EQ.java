@@ -68,10 +68,11 @@ public class EQ {
 		
 		tabbedPane.setEnabledAt(0, true);			//Make sure the Report Equipment problem tab is enabled
 		tabbedPane.setSelectedIndex(0);				//Make sure the Report Equipment problem tab is the one being displayed
-		tabbedPane.setEnabledAt(1, false);			//Make sure the Update an equipment problem tab is not enabled
-		tabbedPane.setEnabledAt(2, false);			//Make sure the query equipment tab is  not enabled
-		tabbedPane.setEnabledAt(3, false);			//Make sure the vendor list maintenance tab is not enabled
-		tabbedPane.setEnabledAt(4, false);			//Make sure the generate new report tab is not enabled
+//		tabbedPane.setEnabledAt(1, false);			//Make sure the Update an equipment problem tab is not enabled
+//		tabbedPane.setEnabledAt(2, false);			//Make sure the query equipment tab is  not enabled
+//		tabbedPane.setEnabledAt(3, false);			//Make sure the vendor list maintenance tab is not enabled
+//		tabbedPane.setEnabledAt(4, false);			//Make sure the generate new report tab is not enabled
+//	
 	}//end of EQNewProblem
 	
 	//Method invoked when user wants to update an equipment problem
@@ -80,10 +81,11 @@ public class EQ {
 		
 		tabbedPane.setEnabledAt(1, true);			//Make sure the update an equipment problem tab is enabled
 		tabbedPane.setSelectedIndex(1);				//Make sure the update an equipment problem tab is the one being displayed
-		tabbedPane.setEnabledAt(0, false);			//Make sure the report equipment problem tab is not enabled
-		tabbedPane.setEnabledAt(2, false);			//Make sure the query equipment tab is  not enabled
-		tabbedPane.setEnabledAt(3, false);			//Make sure the vendor list maintenance tab is not enabled
-		tabbedPane.setEnabledAt(4, false);			//Make sure the generate new report tab is not enabled
+//		tabbedPane.setEnabledAt(0, false);			//Make sure the report equipment problem tab is not enabled
+//		tabbedPane.setEnabledAt(2, false);			//Make sure the query equipment tab is  not enabled
+//		tabbedPane.setEnabledAt(3, false);			//Make sure the vendor list maintenance tab is not enabled
+//		tabbedPane.setEnabledAt(4, false);			//Make sure the generate new report tab is not enabled
+//	
 	}//end of EQUpdateProblem	
 	
 	//Method invoked when user wants to query the equipment database
@@ -92,10 +94,11 @@ public class EQ {
 			
 			tabbedPane.setEnabledAt(2, true);			//Make sure the query equipment tab is enabled
 			tabbedPane.setSelectedIndex(2);				//Make sure the query equipment tab is the one being displayed
-			tabbedPane.setEnabledAt(0, false);			//Make sure the report equipment problem tab is not enabled
-			tabbedPane.setEnabledAt(1, false);			//Make sure the update an equipment problem tab is  not enabled
-			tabbedPane.setEnabledAt(3, false);			//Make sure the vendor list maintenance tab is not enabled
-			tabbedPane.setEnabledAt(4, false);			//Make sure the generate new report tab is not enabled
+//			tabbedPane.setEnabledAt(0, false);			//Make sure the report equipment problem tab is not enabled
+//			tabbedPane.setEnabledAt(1, false);			//Make sure the update an equipment problem tab is  not enabled
+//			tabbedPane.setEnabledAt(3, false);			//Make sure the vendor list maintenance tab is not enabled
+//			tabbedPane.setEnabledAt(4, false);			//Make sure the generate new report tab is not enabled
+//		
 		}//end of EQQueryEquipment
 
 		//Method invoked when user wants to access the vendor list maintenance functionalities 
@@ -104,10 +107,11 @@ public class EQ {
 			
 			tabbedPane.setEnabledAt(3, true);			//Make sure the vendor list maintenance tab is enabled
 			tabbedPane.setSelectedIndex(3);				//Make sure the vendor list maintenance tab is the one being displayed
-			tabbedPane.setEnabledAt(0, false);			//Make sure the report equipment problem tab is not enabled
-			tabbedPane.setEnabledAt(1, false);			//Make sure the update an equipment problem tab is  not enabled
-			tabbedPane.setEnabledAt(2, false);			//Make sure the query equipment tab is not enabled
-			tabbedPane.setEnabledAt(4, false);			//Make sure the generate new report tab is not enabled
+//			tabbedPane.setEnabledAt(0, false);			//Make sure the report equipment problem tab is not enabled
+//			tabbedPane.setEnabledAt(1, false);			//Make sure the update an equipment problem tab is  not enabled
+//			tabbedPane.setEnabledAt(2, false);			//Make sure the query equipment tab is not enabled
+//			tabbedPane.setEnabledAt(4, false);			//Make sure the generate new report tab is not enabled
+//	
 		}//end of EQVendorListMaintenance
 
 		//Method invoked when user wants to generate a new report
@@ -116,10 +120,11 @@ public class EQ {
 			
 			tabbedPane.setEnabledAt(4, true);			//Make sure the generate new report tab is enabled
 			tabbedPane.setSelectedIndex(4);				//Make sure the generate new report tab is the one being displayed
-			tabbedPane.setEnabledAt(0, false);			//Make sure the report equipment problem tab is not enabled
-			tabbedPane.setEnabledAt(1, false);			//Make sure the update an equipment problem tab is  not enabled
-			tabbedPane.setEnabledAt(2, false);			//Make sure the query equipment tab is not enabled
-			tabbedPane.setEnabledAt(3, false);			//Make sure the vendor list maintenance tab is not enabled
+//			tabbedPane.setEnabledAt(0, false);			//Make sure the report equipment problem tab is not enabled
+//			tabbedPane.setEnabledAt(1, false);			//Make sure the update an equipment problem tab is  not enabled
+//			tabbedPane.setEnabledAt(2, false);			//Make sure the query equipment tab is not enabled
+//			tabbedPane.setEnabledAt(3, false);			//Make sure the vendor list maintenance tab is not enabled
+//		
 		}//end of EQGenerateNewReport
 
 		

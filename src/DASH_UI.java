@@ -191,6 +191,7 @@ public class DASH_UI {
 		btnRequestNewLab.setHorizontalAlignment(SwingConstants.LEFT);
 		btnRequestNewLab.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
 				ltSubsystem.LTRequestNewOrder();
 			}
 		});
