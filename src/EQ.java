@@ -290,16 +290,33 @@ public class EQ {
 		GenerateReportPanel.setLayout(null);
 		
 		JButton btnCreateAComplete = new JButton("Create A Complete Inventory Report");
+		btnCreateAComplete.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frmEquiptmentInventory.setVisible(false);
+				EQ_CompleteInventoryReport newCompleteReport = new EQ_CompleteInventoryReport();
+			}
+		});
 		btnCreateAComplete.setHorizontalAlignment(SwingConstants.LEADING);
 		btnCreateAComplete.setBounds(10, 10, 362, 21);
 		GenerateReportPanel.add(btnCreateAComplete);
 		
-		JButton btnCreateAReport = new JButton("Create A Report Of All Defective Equiptment");
+		JButton btnCreateAReport = new JButton("Generate A Report Of All Defective Equiptment");
+		btnCreateAReport.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				EQ_DefectiveEquipmentReport newDefectiveEquipmentReport = new EQ_DefectiveEquipmentReport();
+			}
+		});
 		btnCreateAReport.setHorizontalAlignment(SwingConstants.LEADING);
 		btnCreateAReport.setBounds(10, 41, 362, 21);
 		GenerateReportPanel.add(btnCreateAReport);
 		
 		JButton btnStatisticalReportOf = new JButton("Create A Statistical Report Of Equiptment Problems");
+		btnStatisticalReportOf.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frmEquiptmentInventory.setVisible(false);
+				EQ_StatisticalReport newStatisticalReport = new EQ_StatisticalReport();
+			}
+		});
 		btnStatisticalReportOf.setHorizontalAlignment(SwingConstants.LEADING);
 		btnStatisticalReportOf.setBounds(10, 72, 362, 21);
 		GenerateReportPanel.add(btnStatisticalReportOf);
