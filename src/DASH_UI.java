@@ -309,6 +309,33 @@ public class DASH_UI {
 		btnInformationOnThe.setBounds(0, 41, 330, 21);
 		IBpanel.add(btnInformationOnThe);
 		
+		JTabbedPane EQtabbedPane = new JTabbedPane(JTabbedPane.TOP);
+		DASHframe.getContentPane().add(EQtabbedPane, "name_1005764266522800");
+		
+		JPanel EQpanel = new JPanel();
+		EQtabbedPane.addTab("Equiptment Inventory & Maintenance ( EQ )", null, EQpanel, null);
+		EQpanel.setLayout(null);
+		
+		JButton btnReportAnEquiptment = new JButton("Report An Equiptment Problem");
+		btnReportAnEquiptment.setHorizontalAlignment(SwingConstants.LEFT);
+		btnReportAnEquiptment.setBounds(0, 10, 330, 21);
+		EQpanel.add(btnReportAnEquiptment);
+		
+		JButton btnVendorMaintenance = new JButton("Vendor List Maintenance");
+		btnVendorMaintenance.setHorizontalAlignment(SwingConstants.LEADING);
+		btnVendorMaintenance.setBounds(0, 74, 330, 21);
+		EQpanel.add(btnVendorMaintenance);
+		
+		JButton btnQueryTheEquiptment = new JButton("Query The Equiptment Invenotry Database");
+		btnQueryTheEquiptment.setHorizontalAlignment(SwingConstants.LEADING);
+		btnQueryTheEquiptment.setBounds(0, 43, 330, 21);
+		EQpanel.add(btnQueryTheEquiptment);
+		
+		JButton btnGenerateAReport_1_1 = new JButton("Generate A Report");
+		btnGenerateAReport_1_1.setHorizontalAlignment(SwingConstants.LEFT);
+		btnGenerateAReport_1_1.setBounds(0, 105, 330, 21);
+		EQpanel.add(btnGenerateAReport_1_1);
+		
 		JMenuBar menuBar = new JMenuBar();
 		DASHframe.setJMenuBar(menuBar);
 		
@@ -320,6 +347,7 @@ public class DASH_UI {
 				LTtabbedPane.setVisible(false);
 				PTtabbedPane.setVisible(false);
 				IBtabbedPane.setVisible(false);
+				EQtabbedPane.setVisible(false);
 			}
 		});
 		menuBar.add(btnEr);
@@ -331,6 +359,7 @@ public class DASH_UI {
 				LTtabbedPane.setVisible(false);
 				PTtabbedPane.setVisible(false);
 				IBtabbedPane.setVisible(false);
+				EQtabbedPane.setVisible(false);
 				SCHEDtabbedPane_1.setVisible(true);
 			}
 		});
@@ -344,6 +373,7 @@ public class DASH_UI {
 				SCHEDtabbedPane_1.setVisible(false);
 				PTtabbedPane.setVisible(false);
 				IBtabbedPane.setVisible(false);
+				EQtabbedPane.setVisible(false);
 			}
 		});
 		menuBar.add(btnNewButton_1);
@@ -356,6 +386,7 @@ public class DASH_UI {
 				ERtabbedPane.setVisible(false);
 				SCHEDtabbedPane_1.setVisible(false);
 				IBtabbedPane.setVisible(false);
+				EQtabbedPane.setVisible(false);
 				
 			}
 		});
@@ -368,12 +399,25 @@ public class DASH_UI {
 				LTtabbedPane.setVisible(false);
 				ERtabbedPane.setVisible(false);
 				SCHEDtabbedPane_1.setVisible(false);
-				PTtabbedPane.setVisible(false);			
+				PTtabbedPane.setVisible(false);	
+				EQtabbedPane.setVisible(false);
 			}
 		});
 		menuBar.add(btnIb);
 		
 		JButton btnEq = new JButton("EQ");
+		btnEq.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				EQtabbedPane.setVisible(true);
+				LTtabbedPane.setVisible(false);
+				ERtabbedPane.setVisible(false);
+				SCHEDtabbedPane_1.setVisible(false);
+				PTtabbedPane.setVisible(false);	
+				IBtabbedPane.setVisible(false);
+				
+				
+			}
+		});
 		menuBar.add(btnEq);
 		
 		JButton btnLogOut = new JButton("Log Out");
