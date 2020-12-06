@@ -41,7 +41,7 @@ public class WeekReport {
 
 	//  Database credentials
 	static final String USER = "root";
-	static final String PASS = "password";
+	static final String PASS = "root";
 
 	static int month = 0;
 	static Number day = 0;

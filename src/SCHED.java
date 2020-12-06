@@ -46,7 +46,7 @@ public class SCHED {
 
 	//  Database credentials
 	static final String USER = "root";
-	static final String PASS = "password";
+	static final String PASS = "root";
 
 	/**
 	 * Launch the application.
