@@ -440,11 +440,11 @@ public class SCHED {
 		comboBox_4_1_1.setBounds(10, 20, 150, 20);
 		panelType_1.add(comboBox_4_1_1);
 
-		JButton btnNewButton = new JButton("Book appointment");
+		JButton btnSchedPhysAppt = new JButton("Book appointment");
 
-		btnNewButton.setBounds(0, 0, 200, 20);
-		panelButton.add(btnNewButton);
-		btnNewButton.addActionListener(new ActionListener(){  
+		btnSchedPhysAppt.setBounds(0, 0, 200, 20);
+		panelButton.add(btnSchedPhysAppt);
+		btnSchedPhysAppt.addActionListener(new ActionListener(){  
 			public void actionPerformed(ActionEvent e){  
 				Appointment a = new Appointment(comboBox_4.getSelectedIndex(), comboBox_4_1.getSelectedItem().toString(), comboBox.getSelectedIndex(), (Integer) (((SpinnerNumberModel)spinner.getModel()).getNumber()), (Integer) (((SpinnerNumberModel)spinner_1.getModel()).getNumber()), comboBox_1.getSelectedIndex(), comboBox_3.getSelectedIndex(), (Integer) (((SpinnerNumberModel)spinner_3.getModel()).getNumber()), (Integer) (((SpinnerNumberModel)spinner_1_1.getModel()).getNumber()), comboBox_1_1.getSelectedIndex());
 				System.out.println(a.insertintoDB(a.startTime(), a.endTime()));
@@ -457,10 +457,10 @@ public class SCHED {
 		panelButton_1.setBounds(210, 154, 200, 50);
 		panelPatientSchedule.add(panelButton_1);
 
-		JButton btnNewButton_1 = new JButton("Book appointment");
-		btnNewButton_1.setBounds(0, 0, 200, 20);
-		panelButton_1.add(btnNewButton_1);
-		btnNewButton_1.addActionListener(new ActionListener(){  
+		JButton btnSchedPatientAppt = new JButton("Book appointment");
+		btnSchedPatientAppt.setBounds(0, 0, 200, 20);
+		panelButton_1.add(btnSchedPatientAppt);
+		btnSchedPatientAppt.addActionListener(new ActionListener(){  
 			public void actionPerformed(ActionEvent e){  
 				Appointment a = new Appointment(comboBox_4_1_2.getSelectedIndex(), comboBox_4_1_1.getSelectedItem().toString(), comboBox_2.getSelectedIndex(), (Integer) (((SpinnerNumberModel)spinner_2.getModel()).getNumber()), (Integer) (((SpinnerNumberModel)spinner_1_2.getModel()).getNumber()), comboBox_1_2.getSelectedIndex(), comboBox_2.getSelectedIndex(), (Integer) (((SpinnerNumberModel)spinner_2.getModel()).getNumber()), (Integer) (((SpinnerNumberModel)spinner_1_1_1.getModel()).getNumber()), comboBox_1_1_1.getSelectedIndex());
 				System.out.println(a.insertintoDB(a.startTime(), a.endTime()));
