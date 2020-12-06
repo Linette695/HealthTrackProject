@@ -65,7 +65,7 @@ public class EQ_QueryVendorInfo {
 		
 		tabbedPane.setEnabledAt(0, true);			//Make sure the query vendor info tab is enabled
 		tabbedPane.setSelectedIndex(0);				//Make sure the query vendor info tab is the one being displayed
-		tabbedPane.setEnabledAt(1, false);			//Make sure the add new vendor tab is not enabled
+		//tabbedPane.setEnabledAt(1, false);			//Make sure the add new vendor tab is not enabled
 		
 	}//end of eqQueryVendorList
 	
@@ -75,7 +75,7 @@ public class EQ_QueryVendorInfo {
 		
 		tabbedPane.setEnabledAt(1, true);			//Make sure the new vendor tab is enabled
 		tabbedPane.setSelectedIndex(1);				//Make sure the new vendor tab is the one being displayed
-		tabbedPane.setEnabledAt(0, false);			//Make sure the query vendor info tab is not enabled
+		//tabbedPane.setEnabledAt(0, false);			//Make sure the query vendor info tab is not enabled
 		
 	}//end of eqNewVendor
 
