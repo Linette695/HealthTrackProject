@@ -245,7 +245,7 @@ public class DASH_UI {
 		btnRetriveAPrescription.setBounds(0, 72, 209, 21);
 		PTPanel.add(btnRetriveAPrescription);
 		
-		JButton btnFillAnExistent = new JButton("Fill An Existent Prescription");
+		JButton btnFillAnExistent = new JButton("Fill An Existing Prescription");
 		btnFillAnExistent.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				ptSubsystem.PTFillAnExistentPrescription();
@@ -316,18 +316,18 @@ public class DASH_UI {
 		DASHframe.getContentPane().add(EQtabbedPane, "name_1005764266522800");
 		
 		JPanel EQpanel = new JPanel();
-		EQtabbedPane.addTab("Equiptment Inventory & Maintenance ( EQ )", null, EQpanel, null);
+		EQtabbedPane.addTab("Equipment Inventory & Maintenance ( EQ )", null, EQpanel, null);
 		EQpanel.setLayout(null);
 		
-		JButton btnReportAnEquiptment = new JButton("Report An Equiptment Problem");
-		btnReportAnEquiptment.addActionListener(new ActionListener() {
+		JButton btnReportAnEquipment = new JButton("Report An Equipment Problem");
+		btnReportAnEquipment.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				eqSubsystem.EQNewProblem();
 			}
 		});
-		btnReportAnEquiptment.setHorizontalAlignment(SwingConstants.LEFT);
-		btnReportAnEquiptment.setBounds(0, 10, 330, 21);
-		EQpanel.add(btnReportAnEquiptment);
+		btnReportAnEquipment.setHorizontalAlignment(SwingConstants.LEFT);
+		btnReportAnEquipment.setBounds(0, 10, 330, 21);
+		EQpanel.add(btnReportAnEquipment);
 		
 		JButton btnVendorMaintenance = new JButton("Vendor List Maintenance");
 		btnVendorMaintenance.addActionListener(new ActionListener() {
@@ -339,15 +339,15 @@ public class DASH_UI {
 		btnVendorMaintenance.setBounds(0, 101, 330, 21);
 		EQpanel.add(btnVendorMaintenance);
 		
-		JButton btnQueryTheEquiptment = new JButton("Query The Equiptment Invenotry Database");
-		btnQueryTheEquiptment.addActionListener(new ActionListener() {
+		JButton btnQueryTheEquipment = new JButton("Query The Equipment Inventory Database");
+		btnQueryTheEquipment.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				eqSubsystem.EQQueryEquipment();
 			}
 		});
-		btnQueryTheEquiptment.setHorizontalAlignment(SwingConstants.LEADING);
-		btnQueryTheEquiptment.setBounds(0, 70, 330, 21);
-		EQpanel.add(btnQueryTheEquiptment);
+		btnQueryTheEquipment.setHorizontalAlignment(SwingConstants.LEADING);
+		btnQueryTheEquipment.setBounds(0, 70, 330, 21);
+		EQpanel.add(btnQueryTheEquipment);
 		
 		JButton btnGenerateAReport_1_1 = new JButton("Generate A New Report");
 		btnGenerateAReport_1_1.addActionListener(new ActionListener() {
@@ -359,15 +359,15 @@ public class DASH_UI {
 		btnGenerateAReport_1_1.setBounds(0, 132, 330, 21);
 		EQpanel.add(btnGenerateAReport_1_1);
 		
-		JButton btnUpdateAnEquiptment = new JButton("Update An Equiptment Problem");
-		btnUpdateAnEquiptment.addActionListener(new ActionListener() {
+		JButton btnUpdateAnEquipment = new JButton("Update An Equipment Problem");
+		btnUpdateAnEquipment.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				eqSubsystem.EQUpdateProblem();
 			}
 		});
-		btnUpdateAnEquiptment.setHorizontalAlignment(SwingConstants.LEADING);
-		btnUpdateAnEquiptment.setBounds(0, 41, 330, 21);
-		EQpanel.add(btnUpdateAnEquiptment);
+		btnUpdateAnEquipment.setHorizontalAlignment(SwingConstants.LEADING);
+		btnUpdateAnEquipment.setBounds(0, 41, 330, 21);
+		EQpanel.add(btnUpdateAnEquipment);
 		
 		JMenuBar menuBar = new JMenuBar();
 		DASHframe.setJMenuBar(menuBar);
