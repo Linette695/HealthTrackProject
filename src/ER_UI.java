@@ -127,7 +127,7 @@ public class ER_UI {
 	private void initialize() {
 		frmCreateNewPatient = new JFrame();
 		frmCreateNewPatient.setTitle("Electronic Patient Record");
-		frmCreateNewPatient.setBounds(100, 100, 509, 394);
+		frmCreateNewPatient.setBounds(100, 100, 509, 420);
 		frmCreateNewPatient.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		GridBagLayout gridBagLayout = new GridBagLayout();
 		gridBagLayout.columnWidths = new int[]{0, 0};
