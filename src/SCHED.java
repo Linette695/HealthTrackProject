@@ -368,7 +368,7 @@ public class SCHED {
 		panelDate_1.add(lblNewLabel_4);
 
 		final JComboBox comboBox_2 = new JComboBox();
-		comboBox_2.setModel(new DefaultComboBoxModel(new String[] {"Jauary", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"}));
+		comboBox_2.setModel(new DefaultComboBoxModel(new String[] {"January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"}));
 		comboBox_2.setBounds(0, 20, 100, 20);
 		panelDate_1.add(comboBox_2);
 
