@@ -289,9 +289,9 @@ public class PT {
 		textField_2.setColumns(10);
 		
 		JLabel lblOr = new JLabel("OR");
-		lblOr.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		lblOr.setFont(new Font("Tahoma", Font.BOLD, 12));
 		lblOr.setHorizontalAlignment(SwingConstants.CENTER);
-		lblOr.setBounds(211, 12, 16, 13);
+		lblOr.setBounds(198, 12, 29, 14);
 		SearchPresctionsPanel.add(lblOr);
 		
 		JLabel lblPatientId_1 = new JLabel("Patient Name:");

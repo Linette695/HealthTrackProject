@@ -15,6 +15,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JSpinner;
 import javax.swing.SpinnerNumberModel;
+import java.awt.Font;
 
 public class IB {
 
@@ -168,6 +169,7 @@ public class IB {
 		BillAServicePanel.add(scrollPane);
 		
 		JButton btnReviewTransaction = new JButton("Review Transaction");
+		btnReviewTransaction.setFont(new Font("Tahoma", Font.BOLD, 11));
 		btnReviewTransaction.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				btnSubmitBill.setVisible(true);
@@ -177,6 +179,7 @@ public class IB {
 		BillAServicePanel.add(btnReviewTransaction);
 		
 		btnSubmitBill = new JButton("Submit Bill");
+		btnSubmitBill.setFont(new Font("Tahoma", Font.BOLD, 11));
 		btnSubmitBill.setVisible(false);
 		btnSubmitBill.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -188,6 +191,7 @@ public class IB {
 		BillAServicePanel.add(btnSubmitBill);
 		
 	    btnBackToDash = new JButton("Back To DASH");
+	    btnBackToDash.setFont(new Font("Tahoma", Font.BOLD, 11));
 	    btnBackToDash.setVisible(false);
 	    btnBackToDash.addActionListener(new ActionListener() {
 	    	public void actionPerformed(ActionEvent e) {
@@ -207,7 +211,8 @@ public class IB {
 		AvailableServicesPanel.add(scrollPane_1);
 		
 		JButton btnRefresh = new JButton("Refresh List");
-		btnRefresh.setBounds(112, 184, 200, 21);
+		btnRefresh.setFont(new Font("Tahoma", Font.BOLD, 11));
+		btnRefresh.setBounds(118, 190, 200, 21);
 		AvailableServicesPanel.add(btnRefresh);
 		
 		JPanel GenerateMonthlyInvoicePanel = new JPanel();
@@ -250,6 +255,7 @@ public class IB {
 		GenerateMonthlyInvoicePanel.add(spinnerYearIn);
 		
 		JButton btnGenerateInvoice = new JButton("Generate Invoice");
+		btnGenerateInvoice.setFont(new Font("Tahoma", Font.BOLD, 11));
 		btnGenerateInvoice.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
