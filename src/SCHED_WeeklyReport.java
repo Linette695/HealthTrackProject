@@ -61,7 +61,7 @@ public class SCHED_WeeklyReport {
 	 */
 	static ArrayList<String> physicians = new ArrayList<String>();
 	public SCHED_WeeklyReport() {
-		Scanner scnr = new Scanner(System.in);
+		//Scanner scnr = new Scanner(System.in);
 		Connection conn = null;
 		Statement stmt = null;
 		try{
