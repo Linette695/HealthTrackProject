@@ -70,9 +70,10 @@ public class Appointment {
 		//Scanner scnr = new Scanner(System.in);
 		Connection conn = null;
 		Statement stmt = null;
+		String returnStatement = "Error in event DB insertion";
 		try{
 			//STEP 2: Register JDBC driver
-			Class.forName("com.mysql.jdbc.Driver");
+			Class.forName(JDBC_DRIVER);
 
 			//STEP 3: Open a connection
 			System.out.println("Connecting to database...");
@@ -86,6 +87,8 @@ public class Appointment {
 			//STEP 6: Clean-up environment
 			stmt.close();
 			conn.close();
+			
+			returnStatement = "Inserted Values (" + testpatientid + "," + selectedPhysician + ", '" + selectedType + "', " + startTime() + ", " + endTime() + ")";
 		}catch(SQLException se){
 			//Handle errors for JDBC
 			se.printStackTrace();
@@ -107,6 +110,6 @@ public class Appointment {
 			}
 		}
 
-		return  "Inserted Values (" + testpatientid + "," + selectedPhysician + ", '" + selectedType + "', " + startTime() + ", " + endTime() + ");";
+		return returnStatement;
 	}
 }
