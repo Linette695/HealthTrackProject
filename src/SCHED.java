@@ -174,8 +174,8 @@ public class SCHED {
 		frmPhysicianScheduler.setVisible(true);
 		tabbedPane.setEnabledAt(0,true);			//Make sure the Schedule physician appointment tab is enabled
 		tabbedPane.setSelectedIndex(0); 			//Make sure the Schedule physician appointment tab is the visible tab
-		tabbedPane.setEnabledAt(1, false);			//Make sure the Schedule patient appointment  tab is disabled
-		tabbedPane.setEnabledAt(2, false);			//Make sure the Generate Report tab is disabled
+		//tabbedPane.setEnabledAt(1, false);			//Make sure the Schedule patient appointment  tab is disabled
+		//tabbedPane.setEnabledAt(2, false);			//Make sure the Generate Report tab is disabled
 	}//End of SCHEDScheduleNewPhysicianApp 
 
 	//Method invoked when user wants to schedule a new patient appointment 
@@ -183,8 +183,8 @@ public class SCHED {
 		frmPhysicianScheduler.setVisible(true);
 		tabbedPane.setEnabledAt(1, true);			//Make sure the Schedule patient appointment tab is enabled
 		tabbedPane.setSelectedIndex(1);				//Make sure the Schedule patient appointment tab is the visible tab
-		tabbedPane.setEnabledAt(0, false);			//Make sure the Schedule physician appointment tab is disabled
-		tabbedPane.setEnabledAt(2, false);			//Make sure the Generate Report tab is disabled
+		//tabbedPane.setEnabledAt(0, false);			//Make sure the Schedule physician appointment tab is disabled
+		//tabbedPane.setEnabledAt(2, false);			//Make sure the Generate Report tab is disabled
 	}//End of SCHEDScheduleNewPatientApp
 
 	//Method invoked when user wants to Generate a new report
@@ -192,8 +192,8 @@ public class SCHED {
 		frmPhysicianScheduler.setVisible(true);
 		tabbedPane.setEnabledAt(2, true);			//Make sure the new report tab is enabled
 		tabbedPane.setSelectedIndex(2);				//Make sure the Generate Report tab is the visible tab
-		tabbedPane.setEnabledAt(0, false);			//Make sure the Schedule physician appointment tab is disabled
-		tabbedPane.setEnabledAt(1, false);			//Make sure the Schedule patient appointment tab is disabled
+		//tabbedPane.setEnabledAt(0, false);			//Make sure the Schedule physician appointment tab is disabled
+		//tabbedPane.setEnabledAt(1, false);			//Make sure the Schedule patient appointment tab is disabled
 	}//End of SCHEDGenerateNewReport
 
 
