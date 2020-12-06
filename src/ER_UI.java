@@ -507,7 +507,7 @@ public class ER_UI {
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setBounds(0, 0, 400, 200);
 
-		DefaultListModel listModel = new DefaultListModel();
+		final DefaultListModel listModel = new DefaultListModel();
 		JList list = new JList(listModel);
 		//list.setBounds(0, 0, 400, 200);
 
