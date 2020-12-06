@@ -67,7 +67,7 @@ public class Appointment {
 	//stmt.executeUpdate(x)
 	public static String insertintoDB(String start, String end) {
 
-		Scanner scnr = new Scanner(System.in);
+		//Scanner scnr = new Scanner(System.in);
 		Connection conn = null;
 		Statement stmt = null;
 		try{
