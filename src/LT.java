@@ -16,6 +16,10 @@ import javax.swing.ListModel;
 import javax.swing.SwingConstants;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.FlowLayout;
+import javax.swing.JRadioButton;
+import javax.swing.JTextArea;
+import java.awt.Font;
 
 public class LT {
 
@@ -27,6 +31,10 @@ public class LT {
 	
 	/*GUI Variables*/
 	JTabbedPane tabbedPane;
+	private JTextField textField_1;
+	private JTextField textField_2;
+	private JTextField txtEnterResults;
+	private JRadioButton rdbtnNeedsImmediateAttention;
 	
 
 	/**
@@ -112,7 +120,7 @@ public class LT {
 		frmLabOrderTracking.getContentPane().setLayout(null);
 		
 		tabbedPane = new JTabbedPane(JTabbedPane.TOP);
-		tabbedPane.setBounds(0, 10, 426, 253);
+		tabbedPane.setBounds(0, 0, 426, 263);
 		frmLabOrderTracking.getContentPane().add(tabbedPane);
 		
 		JPanel CreateNewLabOrderPanel = new JPanel();
@@ -168,6 +176,11 @@ public class LT {
 		CreateNewLabOrderPanel.add(spinnerDayIn);
 		
 		JButton btnRequestNewOrder = new JButton("Request New Order");
+		btnRequestNewOrder.setFont(new Font("Tahoma", Font.BOLD, 11));
+		btnRequestNewOrder.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		btnRequestNewOrder.setBounds(139, 178, 154, 21);
 		CreateNewLabOrderPanel.add(btnRequestNewOrder);
 		
@@ -175,13 +188,69 @@ public class LT {
 		tabbedPane.addTab("Update A Lab Order", null, UpdateLabOrderpanel, null);
 		UpdateLabOrderpanel.setLayout(null);
 		
-		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(0, 0, 347, 171);
-		UpdateLabOrderpanel.add(scrollPane);
-		
-		JButton btnSelectOrder = new JButton("Select Order");
-		btnSelectOrder.setBounds(0, 182, 132, 21);
+		JButton btnSelectOrder = new JButton("Update Lab Order");
+		btnSelectOrder.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(rdbtnNeedsImmediateAttention.isSelected()) {
+					
+					LT_UrgentMessageToPhysician newUrgentMessage = new LT_UrgentMessageToPhysician();
+				}
+				else {
+					
+				}
+				
+			}
+		});
+		btnSelectOrder.setFont(new Font("Tahoma", Font.BOLD, 11));
+		btnSelectOrder.setBounds(138, 190, 149, 21);
 		UpdateLabOrderpanel.add(btnSelectOrder);
+		
+		JLabel lblSpecifyALab = new JLabel("Specify a lab order and enter it's results to update it.");
+		lblSpecifyALab.setBounds(0, 0, 411, 13);
+		UpdateLabOrderpanel.add(lblSpecifyALab);
+		
+		JLabel lblLabOrderId_1 = new JLabel("Lab Order ID:");
+		lblLabOrderId_1.setBounds(10, 21, 96, 13);
+		UpdateLabOrderpanel.add(lblLabOrderId_1);
+		
+		textField_1 = new JTextField();
+		textField_1.setText("Enter ID #");
+		textField_1.setColumns(10);
+		textField_1.setBounds(112, 18, 96, 19);
+		UpdateLabOrderpanel.add(textField_1);
+		
+		JLabel lblTechnicianId = new JLabel("Technician ID:");
+		lblTechnicianId.setBounds(234, 24, 81, 13);
+		UpdateLabOrderpanel.add(lblTechnicianId);
+		
+		textField_2 = new JTextField();
+		textField_2.setText("Enter ID #");
+		textField_2.setColumns(10);
+		textField_2.setBounds(315, 21, 96, 19);
+		UpdateLabOrderpanel.add(textField_2);
+		
+		JLabel lblEnterResults = new JLabel("Enter Results:");
+		lblEnterResults.setBounds(10, 60, 81, 13);
+		UpdateLabOrderpanel.add(lblEnterResults);
+		
+		txtEnterResults = new JTextField();
+		txtEnterResults.setText("Enter Results");
+		txtEnterResults.setColumns(10);
+		txtEnterResults.setBounds(101, 57, 310, 19);
+		UpdateLabOrderpanel.add(txtEnterResults);
+		
+		rdbtnNeedsImmediateAttention = new JRadioButton("Needs Immediate Attention");
+		rdbtnNeedsImmediateAttention.setBounds(101, 82, 186, 21);
+		UpdateLabOrderpanel.add(rdbtnNeedsImmediateAttention);
+		
+		JLabel lblComments = new JLabel("Comments: ");
+		lblComments.setBounds(10, 117, 96, 13);
+		UpdateLabOrderpanel.add(lblComments);
+		
+		JTextArea txtrEnterComments = new JTextArea();
+		txtrEnterComments.setText("Enter Comments");
+		txtrEnterComments.setBounds(70, 130, 318, 50);
+		UpdateLabOrderpanel.add(txtrEnterComments);
 		
 		JPanel GenerateReportPanel = new JPanel();
 		tabbedPane.addTab("Generate New Report", null, GenerateReportPanel, null);
@@ -222,7 +291,8 @@ public class LT {
 		AvailableLabsListPanel.add(btnDeletePatient);
 		
 		JButton btnRefresh = new JButton("Refresh List");
-		btnRefresh.setBounds(10, 190, 200, 21);
+		btnRefresh.setFont(new Font("Tahoma", Font.BOLD, 11));
+		btnRefresh.setBounds(103, 190, 200, 21);
 		AvailableLabsListPanel.add(btnRefresh);
 	}
 }

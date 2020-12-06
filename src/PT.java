@@ -16,6 +16,8 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.SwingConstants;
 import java.awt.Font;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class PT {
 
@@ -204,6 +206,7 @@ public class PT {
 		CreateNewPrescriptionPanel.add(txtEnterFrequency);
 		
 		JButton btnOrderNewPrescription = new JButton("Order New Prescription");
+		btnOrderNewPrescription.setFont(new Font("Tahoma", Font.BOLD, 11));
 		btnOrderNewPrescription.setBounds(121, 132, 192, 21);
 		CreateNewPrescriptionPanel.add(btnOrderNewPrescription);
 		
@@ -212,6 +215,7 @@ public class PT {
 		UpdateAPrescriptionPanel.setLayout(null);
 		
 		JButton btnSelectOrder = new JButton("Update Prescription");
+		btnSelectOrder.setFont(new Font("Tahoma", Font.BOLD, 11));
 		btnSelectOrder.setBounds(132, 130, 170, 21);
 		UpdateAPrescriptionPanel.add(btnSelectOrder);
 		
@@ -263,6 +267,7 @@ public class PT {
 		AvailableMedicationsPanel.add(scrollPane_1);
 		
 		JButton btnRefresh = new JButton("Refresh List");
+		btnRefresh.setFont(new Font("Tahoma", Font.BOLD, 11));
 		btnRefresh.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
@@ -284,12 +289,12 @@ public class PT {
 		textField_2.setColumns(10);
 		
 		JLabel lblOr = new JLabel("OR");
-		lblOr.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		lblOr.setFont(new Font("Tahoma", Font.BOLD, 12));
 		lblOr.setHorizontalAlignment(SwingConstants.CENTER);
-		lblOr.setBounds(211, 12, 16, 13);
+		lblOr.setBounds(198, 12, 29, 14);
 		SearchPresctionsPanel.add(lblOr);
 		
-		JLabel lblPatientId_1 = new JLabel("Patient name:");
+		JLabel lblPatientId_1 = new JLabel("Patient Name:");
 		lblPatientId_1.setBounds(250, 13, 88, 13);
 		SearchPresctionsPanel.add(lblPatientId_1);
 		
@@ -299,6 +304,7 @@ public class PT {
 		SearchPresctionsPanel.add(textField_3);
 		
 		JButton btnRetrivePrescription = new JButton("Retrive Prescription");
+		btnRetrivePrescription.setFont(new Font("Tahoma", Font.BOLD, 11));
 		btnRetrivePrescription.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
