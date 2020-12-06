@@ -167,7 +167,7 @@ public class LT {
 		CreateNewLabOrderPanel.add(spinnerYearIn);
 		
 		JComboBox cbMonthIn = new JComboBox();
-		cbMonthIn.setModel(new DefaultComboBoxModel(new String[] {"Jauary", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"}));
+		cbMonthIn.setModel(new DefaultComboBoxModel(new String[] {"January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"}));
 		cbMonthIn.setBounds(10, 103, 70, 21);
 		CreateNewLabOrderPanel.add(cbMonthIn);
 		
