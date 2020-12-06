@@ -245,7 +245,7 @@ public class IB {
 		GenerateMonthlyInvoicePanel.add(lblNewLabel_10);
 		
 		JComboBox cbMonthIn = new JComboBox();
-		cbMonthIn.setModel(new DefaultComboBoxModel(new String[] {"Jauary", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"}));
+		cbMonthIn.setModel(new DefaultComboBoxModel(new String[] {"January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"}));
 		cbMonthIn.setBounds(36, 72, 70, 21);
 		GenerateMonthlyInvoicePanel.add(cbMonthIn);
 		
