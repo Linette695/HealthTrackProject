@@ -31,7 +31,6 @@ public class LT {
 	
 	/*GUI Variables*/
 	JTabbedPane tabbedPane;
-	private JTextField textField;
 	private JTextField textField_1;
 	private JTextField textField_2;
 	private JTextField txtEnterResults;
@@ -177,6 +176,7 @@ public class LT {
 		CreateNewLabOrderPanel.add(spinnerDayIn);
 		
 		JButton btnRequestNewOrder = new JButton("Request New Order");
+		btnRequestNewOrder.setFont(new Font("Tahoma", Font.BOLD, 11));
 		btnRequestNewOrder.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
@@ -291,34 +291,8 @@ public class LT {
 		AvailableLabsListPanel.add(btnDeletePatient);
 		
 		JButton btnRefresh = new JButton("Refresh List");
-		btnRefresh.setBounds(10, 190, 200, 21);
+		btnRefresh.setFont(new Font("Tahoma", Font.BOLD, 11));
+		btnRefresh.setBounds(103, 190, 200, 21);
 		AvailableLabsListPanel.add(btnRefresh);
-		
-		JPanel PhyscisianMessagePanel = new JPanel();
-		tabbedPane.addTab("Message A Physician", null, PhyscisianMessagePanel, null);
-		PhyscisianMessagePanel.setLayout(null);
-		
-		JLabel lblPhysicianToMessage = new JLabel("Physician to message:");
-		lblPhysicianToMessage.setBounds(25, 22, 131, 13);
-		PhyscisianMessagePanel.add(lblPhysicianToMessage);
-		
-		JComboBox comboBox_5 = new JComboBox();
-		comboBox_5.setModel(new DefaultComboBoxModel(new String[] {"Physician #1", "Physician #2", "..."}));
-		comboBox_5.setBounds(166, 19, 131, 19);
-		PhyscisianMessagePanel.add(comboBox_5);
-		
-		JLabel lblSpecifyAPhysician = new JLabel("Specify a physician to send an urgent message to them.");
-		lblSpecifyAPhysician.setBounds(0, 0, 401, 13);
-		PhyscisianMessagePanel.add(lblSpecifyAPhysician);
-		
-		JLabel lblLabOrderId = new JLabel("Lab Order ID:");
-		lblLabOrderId.setBounds(25, 48, 84, 13);
-		PhyscisianMessagePanel.add(lblLabOrderId);
-		
-		textField = new JTextField();
-		textField.setText("Enter ID #");
-		textField.setColumns(10);
-		textField.setBounds(117, 45, 96, 19);
-		PhyscisianMessagePanel.add(textField);
 	}
 }
