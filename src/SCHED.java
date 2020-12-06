@@ -55,7 +55,7 @@ public class SCHED {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Scanner scnr = new Scanner(System.in);
+					//Scanner scnr = new Scanner(System.in);
 					Connection conn = null;
 					Statement stmt = null;
 					try{
