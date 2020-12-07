@@ -200,7 +200,7 @@ public class ER_UI {
 
 		JSpinner spinnerYear = new JSpinner();
 		spinnerYear.setBounds(326, 162, 55, 26);
-		spinnerYear.setModel(new SpinnerNumberModel(new Integer(2020), new Integer(2020), null, new Integer(1)));
+		spinnerYear.setModel(new SpinnerNumberModel(1900, 1900, 3000, 1));
 		
 		JSpinner spinnerMonth = new JSpinner();
 		spinnerMonth.setModel(new SpinnerNumberModel(1, 1, 12, 1));
