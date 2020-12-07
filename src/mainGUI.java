@@ -47,12 +47,6 @@ public class mainGUI implements ActionListener {
 		static JLabel userNameLabel;				//Label for "User name" instructions
 		static JLabel passwordLabel;				//Label for "password" instructions
 		
-		//MENU BARS
-		static JMenuBar logOnAsMenuBar;				//Menu bar to hold the "log on as" info
-		static JMenuBar usernameMenuBar;			//Menu bar to hold the "usertype" info
-		static JMenuBar passwordMenuBar;			//Menu bar to hold the "password" info
-		static JMenuBar enterMenuBar;				//Menu bar to hold the enter button info
-		
 		//BUTTONS
 		static JButton logInButton;					//Button to log in on welcome window
 		static JButton exitButton;					//Button for exit option on welcome window
@@ -79,7 +73,7 @@ public class mainGUI implements ActionListener {
 		static String passwordInputed;				//To hold the password inputed
 		//static Dashboard dashBoard;					//Variable for the dashboard of the GUI 
 		static DASH_UI DASHBoard;					//Variable for the dashboard of the GUI 
-		private JComboBox comboBox;
+		private JComboBox cbType;
 		
 	
 	/*Constructor*/
@@ -122,7 +116,6 @@ public class mainGUI implements ActionListener {
 				
 				//CREATE THE MAIN PANEL FOR THE LOG IN WINDOW
 				logInPanel = new JPanel();
-				logInPanel.setLayout(new GridLayout(7,2));
 				logInPanel.setBackground(Color.LIGHT_GRAY);
 				
 				//CREATE THE "LOG ON AS" SECTION
@@ -140,6 +133,59 @@ public class mainGUI implements ActionListener {
 				
 				//MAKE THE LOG IN PANEL VISIBLE
 				logInFrame.getContentPane().add(logInPanel);
+				
+				//CREATE "Enter" BUTTON
+				enterButton = new JButton("Enter");			//Creates the enter button
+				enterButton.setBounds(225, 225, 200, 45);
+				logInPanel.add(enterButton);
+				enterButton.setFont(buttonFont);			//Sets the font of the enter button label
+				enterButton.setActionCommand("Enter");		//Sets the trigger word "Enter" for when the eneter button is clicked
+				
+				
+				//CREATE THE INPUT BOX TO OBTAIN THE USER TYPE
+				usernameInput = new JTextField();
+				usernameInput.setBounds(150, 82, 200, 50);
+				logInPanel.add(usernameInput);
+				usernameInput.setBackground(Color.LIGHT_GRAY);
+				usernameInput.setCaretColor(Color.GREEN);
+				usernameInput.setFont(buttonFont);
+				usernameInput.setBorder(inputBorder);
+				usernameInput.setDisabledTextColor(Color.DARK_GRAY);
+				
+					//CREATE THE "User Name: " LABEL
+					userNameLabel = new JLabel("User name: ");
+					userNameLabel.setBounds(10, 80, 139, 50);
+					logInPanel.add(userNameLabel);
+					userNameLabel.setFont(instructionFont);
+					
+						//CREATE THE "Password: " LABEL
+						passwordLabel = new JLabel("Password: ");
+						passwordLabel.setBounds(10, 150, 124, 50);
+						logInPanel.add(passwordLabel);
+						passwordLabel.setFont(instructionFont);
+						
+							//CREATE THE PASSWORD INPUT BOX TO OBTAIN THE USER PASSWORD
+							passwordInput = new JPasswordField();
+							passwordInput.setBounds(150, 150, 200, 50);
+							logInPanel.add(passwordInput);
+							passwordInput.setBackground(Color.LIGHT_GRAY);
+							passwordInput.setCaretColor(Color.GREEN);
+							passwordInput.setFont(buttonFont);
+							passwordInput.setBorder(inputBorder);
+							passwordInput.setDisabledTextColor(Color.DARK_GRAY);
+							
+								//CREATE THE "LOG ON AS " LABEL
+								logOnAsLabel = new JLabel("Log on as: ");
+								logOnAsLabel.setBounds(10, 29, 129, 33);
+								logInPanel.add(logOnAsLabel);
+								logOnAsLabel.setFont(instructionFont);
+								
+								cbType = new JComboBox();
+								cbType.setBounds(150, 9, 200, 50);
+								logInPanel.add(cbType);
+								cbType.setFont(new Font("Tahoma", Font.PLAIN, 20));
+								cbType.setModel(new DefaultComboBoxModel(new String[] {"Physician", "Physician Assistant", "Nurse", "Lab Technician", "Pharmacist"}));
+				enterButton.addActionListener(this);
 				logInFrame.setVisible(true);
 				
 			}//End of runLogInWindow method
@@ -237,84 +283,16 @@ public class mainGUI implements ActionListener {
 			
 		/*HELPER METHODS TO CREATE THE LOG IN SCREEN*/
 			public void makeLogOnAsBar() {
-				//CREATE "LOG ON AS" MENU BAR
-						logOnAsMenuBar = new JMenuBar();
-						logOnAsMenuBar.setSize(700,100);
-						logOnAsMenuBar.setBackground(Color.LIGHT_GRAY);
-						logOnAsMenuBar.setBorder(menuBarBorder);
-						
-							//CREATE THE "LOG ON AS " LABEL
-							logOnAsLabel = new JLabel("Log on as: ");
-							logOnAsLabel.setFont(instructionFont);
-							
-							
-						logOnAsMenuBar.add( new JLabel("                   "));				//Add empty space for looks
-						logOnAsMenuBar.add(logOnAsLabel);
-						logInPanel.add(logOnAsMenuBar);				//Add the Log on as menu bar to the log in main panel
-						
-						comboBox = new JComboBox();
-						comboBox.setFont(new Font("Tahoma", Font.PLAIN, 20));
-						comboBox.setModel(new DefaultComboBoxModel(new String[] {"Physician", "Physician Assistant", "Nurse", "Lab Technician", "Pharmacist"}));
-						logOnAsMenuBar.add(comboBox);
+						logInPanel.setLayout(null);
 						
 				
 			}//End of makeLogOnBar method
 			
 			public void makeUserNameBar() {
 				
-				//CREATE THE "USER NAME" BAR
-				usernameMenuBar = new JMenuBar();
-				usernameMenuBar.setSize(700,100);
-				usernameMenuBar.setBackground(Color.LIGHT_GRAY);
-				usernameMenuBar.setBorder(menuBarBorder);
-				
-					//CREATE THE "User Name: " LABEL
-					userNameLabel = new JLabel("User name: ");
-					userNameLabel.setFont(instructionFont);
-					
-				
-					//CREATE THE INPUT BOX TO OBTAIN THE USER TYPE
-					usernameInput = new JTextField();
-					usernameInput.setBackground(Color.LIGHT_GRAY);
-					usernameInput.setCaretColor(Color.GREEN);
-					usernameInput.setFont(buttonFont);
-					usernameInput.setBorder(inputBorder);
-					usernameInput.setDisabledTextColor(Color.DARK_GRAY);
-					
-					
-				usernameMenuBar.add( new JLabel("                   "));	//Add empty space for looks
-				usernameMenuBar.add(userNameLabel);							//Add the description of where the user name is inputed
-				usernameMenuBar.add(usernameInput);							//Add the input box for where the user name is inputed
-				
-				logInPanel.add(usernameMenuBar);				//Add the user name bar to the log in panel
-				
 			}//End of makeUserNameBar method
 
 			public void makePasswordBar() {
-				//CREATE THE "Password" BAR
-				passwordMenuBar = new JMenuBar();
-				passwordMenuBar.setSize(700,100);
-				passwordMenuBar.setBackground(Color.LIGHT_GRAY);
-				passwordMenuBar.setBorder(menuBarBorder);
-				
-					//CREATE THE "Password: " LABEL
-					passwordLabel = new JLabel("Password: ");
-					passwordLabel.setFont(instructionFont);
-				
-					//CREATE THE PASSWORD INPUT BOX TO OBTAIN THE USER PASSWORD
-					passwordInput = new JPasswordField();
-					passwordInput.setBackground(Color.LIGHT_GRAY);
-					passwordInput.setCaretColor(Color.GREEN);
-					passwordInput.setFont(buttonFont);
-					passwordInput.setBorder(inputBorder);
-					passwordInput.setDisabledTextColor(Color.DARK_GRAY);
-					
-					
-				passwordMenuBar.add(new JLabel("                   "));			//Add empty space for looks
-				passwordMenuBar.add(passwordLabel);								//Add the description to let user know this is where the password is inputed
-				passwordMenuBar.add(passwordInput);								//Add the password input box 
-				
-				logInPanel.add(passwordMenuBar);								//Add the password bar to the log in panel
 				
 			}//End of makePasswordBar method
 			
@@ -361,24 +339,6 @@ public class mainGUI implements ActionListener {
 			}//End of welcomWindow method
 			
 			public void makeEnterBar() {
-				
-				//CREATE "Enter" MENU BAR
-				enterMenuBar = new JMenuBar();
-				enterMenuBar.setSize(700,100);
-				enterMenuBar.setBackground(Color.LIGHT_GRAY);
-				enterMenuBar.setBorder(menuBarBorder);
-				
-				//CREATE "Enter" BUTTON
-				enterButton = new JButton("Enter");			//Creates the enter button
-				enterButton.setFont(buttonFont);			//Sets the font of the enter button label
-				enterButton.setActionCommand("Enter");		//Sets the trigger word "Enter" for when the eneter button is clicked
-				enterButton.addActionListener(this);		//Sets the action listener of this class to listen for the "Enter" key word
-				
-				
-				enterMenuBar.add(enterButton);				//Add "Enter" button to the enter bar
-				
-				
-				logInPanel.add(enterMenuBar);				//Add the enter bar to the log in panel
 				
 			}//End of makeEnterBar method
 			
