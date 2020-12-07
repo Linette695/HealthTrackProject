@@ -1,0 +1,19 @@
+//Install mysql
+$ sudo apt-get update
+$ sudo apt-get install mysql-server
+
+//Starting the service and checking status
+$ sudo service mysql status
+$ sudo service mysql start
+
+//Set up loading testdb.sql
+$ mysql -u root -p
+mysql> CREATE DATABASE cs532;
+mysql> USE cs532;
+mysql> SOURCE cs532.sql;
+mysql> QUIT;
+
+//Connector error
+In Eclipse:
+	Project > Build Path > Configure Build Path
+	In "Libraries" tab press "Add External Jar" and select mysql-connector-java-5.1.49.jar
