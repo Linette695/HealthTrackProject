@@ -15,8 +15,9 @@ public class Appointment {
 	static final String DB_URL = "jdbc:mysql://localhost/cs532";
 
 	//  Database credentials
-	static final String USER = "root";
-	static final String PASS = "password";
+	static Credentials c = new Credentials();
+	static final String USER = c.user;
+	static final String PASS = c.passwd;
 
 	public static int patientID;
 	public static int selectedPhysician;

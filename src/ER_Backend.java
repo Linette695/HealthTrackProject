@@ -11,8 +11,9 @@ public class ER_Backend {
 	static final String DB_URL = "jdbc:mysql://localhost/cs532"; //change depending on database
 
 	//  Database credentials
-	static final String USER = "root";
-	static final String PASS = "root";
+	static Credentials c = new Credentials();
+	static final String USER = c.user;
+	static final String PASS = c.passwd;
 
 	//Using main only for isolated testing, comment out when using with UI
 	public static void main (String[] args) {

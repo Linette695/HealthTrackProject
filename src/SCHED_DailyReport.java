@@ -43,8 +43,9 @@ public class SCHED_DailyReport {
 		static final String DB_URL = "jdbc:mysql://localhost/cs532";
 
 		//  Database credentials
-		static final String USER = "root";
-		static final String PASS = "root";
+		static Credentials c = new Credentials();
+		static final String USER = c.user;
+		static final String PASS = c.passwd;
 		
 	/**
 	 * Create the application.

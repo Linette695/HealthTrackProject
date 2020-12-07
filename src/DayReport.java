@@ -40,8 +40,9 @@ public class DayReport {
 	static final String DB_URL = "jdbc:mysql://localhost/cs532";
 
 	//  Database credentials
-	static final String USER = "root";
-	static final String PASS = "password";
+	static Credentials c = new Credentials();
+	static final String USER = c.user;
+	static final String PASS = c.passwd;
 
 	static int month = 0;
 	static Number day = 0;
