@@ -20,6 +20,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import java.sql.*;
+import javax.swing.JComboBox;
+import javax.swing.DefaultComboBoxModel;
 
 public class mainGUI implements ActionListener {
 	
@@ -51,15 +53,9 @@ public class mainGUI implements ActionListener {
 		static JMenuBar passwordMenuBar;			//Menu bar to hold the "password" info
 		static JMenuBar enterMenuBar;				//Menu bar to hold the enter button info
 		
-		
-		//MENUS
-		static JMenu userTypeMenu;					//Menu to hold all the user types allowed to log in to the system
-		
 		//BUTTONS
 		static JButton logInButton;					//Button to log in on welcome window
 		static JButton exitButton;					//Button for exit option on welcome window
-		static JButton physicianButton;				//Button for physician user type
-		static JButton physicianAssitantButton;		//Button for physician assistant user type
 		static JButton enterButton;					//Button for entering log in information		
 		
 		//TEXT FIELDS
@@ -83,6 +79,7 @@ public class mainGUI implements ActionListener {
 		static String passwordInputed;				//To hold the password inputed
 		//static Dashboard dashBoard;					//Variable for the dashboard of the GUI 
 		static DASH_UI DASHBoard;					//Variable for the dashboard of the GUI 
+		private JComboBox comboBox;
 		
 	
 	/*Constructor*/
@@ -100,6 +97,8 @@ public class mainGUI implements ActionListener {
 	        
 			//Display the welcome page
 	        welcomeWindow();
+	        //runLogInWindow();
+	        
 			
 		}//End of constructor
 	
@@ -156,7 +155,7 @@ public class mainGUI implements ActionListener {
 				*/
 				System.out.printf("Will check login info once databse is connected \n");
 				//OBTAIN THE INPUTED INFORMATION
-				userTypeInputed = userTypeMenu.getText();			//Obtain the user type selected
+				//userTypeInputed = userTypeMenu.getText();			//Obtain the user type selected
 				userNameInputed = usernameInput.getText();			//Obtain the user name inputed
 				passwordInputed = new String(passwordInput.getPassword());		//Obtain the password inputed
 				
@@ -217,13 +216,13 @@ public class mainGUI implements ActionListener {
 				}//end of "Log in" trigger from the Log in button in the welcome window
 				
 				else if ("Physician".contentEquals(e.getActionCommand())) {
-					userTypeMenu.setText("Physician");						//Displays the option selected on the drop down menu
-					userTypeMenu.setPopupMenuVisible(false);				//Minimize/close the drop down options 
+					//userTypeMenu.setText("Physician");						//Displays the option selected on the drop down menu
+					//userTypeMenu.setPopupMenuVisible(false);				//Minimize/close the drop down options 
 				}//End of "Physician" trigger from when user selects physician as their user type
 				
 				else if("Physician Assistant".contentEquals(e.getActionCommand())) {
-					userTypeMenu.setText("Physician Assistant");
-					userTypeMenu.setPopupMenuVisible(false);				//Minimize/close the drop down options 
+					//userTypeMenu.setText("Physician Assistant");
+					//userTypeMenu.setPopupMenuVisible(false);				//Minimize/close the drop down options 
 				}//End of "Physician Assistant" trigger from when user selects Physician Assistant as their user type
 				
 				else if("Enter".contentEquals(e.getActionCommand())) {
@@ -247,34 +246,16 @@ public class mainGUI implements ActionListener {
 							//CREATE THE "LOG ON AS " LABEL
 							logOnAsLabel = new JLabel("Log on as: ");
 							logOnAsLabel.setFont(instructionFont);
-							//CREATE THE INPUT/DROP DOWN MENU FOR "LOG ON AS:"
-							userTypeMenu = new JMenu("Choose user type");		//Create the drop down menu
-							userTypeMenu.setSize(350, 100);
-							userTypeMenu.setFont(buttonFont);
-							userTypeMenu.setBorder(buttonBorder);
-							userTypeMenu.setBackground(Color.LIGHT_GRAY);
-							
-							
-							
-							physicianButton = new JButton("Physician");			//Creates the physician option button
-							physicianButton.setFont(buttonFont);
-							physicianButton.setActionCommand("Physician");
-							physicianButton.addActionListener(this);
-							
-							physicianAssitantButton = new JButton("Physician Assistant"); //Creates the physician assistant option button
-							physicianAssitantButton.setFont(buttonFont);
-							physicianAssitantButton.setActionCommand("Physician Assistant");
-							physicianAssitantButton.addActionListener(this);
-							
-							
-							userTypeMenu.add(physicianButton);		//Adds the physician option to drop down menu
-							userTypeMenu.add(physicianAssitantButton);		//Adds the physician assistant option to drop down menu
 							
 							
 						logOnAsMenuBar.add( new JLabel("                   "));				//Add empty space for looks
-						logOnAsMenuBar.add(logOnAsLabel);			//Add the "Log on as: " label
-						logOnAsMenuBar.add(userTypeMenu);			//Add the user type menu to the "Log on as" bar
+						logOnAsMenuBar.add(logOnAsLabel);
 						logInPanel.add(logOnAsMenuBar);				//Add the Log on as menu bar to the log in main panel
+						
+						comboBox = new JComboBox();
+						comboBox.setFont(new Font("Tahoma", Font.PLAIN, 20));
+						comboBox.setModel(new DefaultComboBoxModel(new String[] {"Physician", "Physician Assistant", "Nurse", "Lab Technician", "Pharmacist"}));
+						logOnAsMenuBar.add(comboBox);
 						
 				
 			}//End of makeLogOnBar method
