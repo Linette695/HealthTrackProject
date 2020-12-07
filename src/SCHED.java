@@ -38,6 +38,7 @@ public class SCHED {
 	private static JFrame frmPhysicianScheduler;
 	private JTextField txtNone;
 	private JTextField textField;
+	private JTextField txtPatientNum;
 
 	
 	// JDBC driver name and database URL
@@ -55,12 +56,12 @@ public class SCHED {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					//Scanner scnr = new Scanner(System.in);
+					Scanner scnr = new Scanner(System.in);
 					Connection conn = null;
 					Statement stmt = null;
 					try{
 						//STEP 2: Register JDBC driver
-						Class.forName(JDBC_DRIVER);
+						Class.forName("com.mysql.jdbc.Driver");
 
 						//STEP 3: Open a connection
 						System.out.println("Connecting to database...");
@@ -138,8 +139,8 @@ public class SCHED {
 			while(rs.next()){
 				String first = rs.getString("efirstname");
 				String last = rs.getString("elastname");
-				physicians.add(first + " " + last);  
-			}	
+				physicians.add(first + " " + last);
+			}
 
 			//STEP 6: Clean-up environment
 			rs.close();
@@ -176,9 +177,9 @@ public class SCHED {
 		tabbedPane.setSelectedIndex(0); 			//Make sure the Schedule physician appointment tab is the visible tab
 		//tabbedPane.setEnabledAt(1, false);			//Make sure the Schedule patient appointment  tab is disabled
 		//tabbedPane.setEnabledAt(2, false);			//Make sure the Generate Report tab is disabled
-	}//End of SCHEDScheduleNewPhysicianApp 
+	}//End of SCHEDScheduleNewPhysicianApp
 
-	//Method invoked when user wants to schedule a new patient appointment 
+	//Method invoked when user wants to schedule a new patient appointment
 	public void SCHEDScheduleNewPatientApp() {
 		frmPhysicianScheduler.setVisible(true);
 		tabbedPane.setEnabledAt(1, true);			//Make sure the Schedule patient appointment tab is enabled
@@ -297,12 +298,12 @@ public class SCHED {
 		final JComboBox comboBox_4 = new JComboBox(physicians.toArray());
 		comboBox_4.setBounds(0, 20, 150, 20);
 		panelPhysician.add(comboBox_4);
-		
+
 		JPanel panelButton = new JPanel();
 		panelButton.setBounds(210, 150, 200, 50);
 		panelPhysicianSchedule.add(panelButton);
 		panelButton.setLayout(null);
-		
+
 		txtNone = new JTextField();
 		txtNone.setText("none");
 		txtNone.setBounds(100, 20, 100, 20);
@@ -360,7 +361,7 @@ public class SCHED {
 
 		JPanel panelDate_1 = new JPanel();
 		panelDate_1.setLayout(null);
-		panelDate_1.setBounds(0, 0, 200, 50);
+		panelDate_1.setBounds(0, 0, 500, 50);
 		panelPatientSchedule.add(panelDate_1);
 
 		JLabel lblNewLabel_4 = new JLabel("Pick a month and day:");
@@ -440,16 +441,31 @@ public class SCHED {
 		comboBox_4_1_1.setBounds(10, 20, 150, 20);
 		panelType_1.add(comboBox_4_1_1);
 
+		///------------------------Create Patient Input ---------------------
+		JLabel lblEnterPatientNum = new JLabel("Enter patient ID:");
+		lblEnterPatientNum.setBounds(210, 0, 157, 20);
+
+		txtPatientNum = new JTextField();
+		txtPatientNum.setBounds(210, 20, 150, 20);
+		txtPatientNum.setText("Patient ID");
+		txtPatientNum.setColumns(10);
+
+		panelDate_1.add(lblEnterPatientNum);
+		panelDate_1.add(txtPatientNum);
+
+
+
+		//---------------------------------------------------------------
 		JButton btnSchedPhysAppt = new JButton("Book appointment");
 
 		btnSchedPhysAppt.setBounds(0, 0, 200, 20);
 		panelButton.add(btnSchedPhysAppt);
-		btnSchedPhysAppt.addActionListener(new ActionListener(){  
-			public void actionPerformed(ActionEvent e){  
-				Appointment a = new Appointment(comboBox_4.getSelectedIndex(), comboBox_4_1.getSelectedItem().toString(), comboBox.getSelectedIndex(), (Integer) (((SpinnerNumberModel)spinner.getModel()).getNumber()), (Integer) (((SpinnerNumberModel)spinner_1.getModel()).getNumber()), comboBox_1.getSelectedIndex(), comboBox_3.getSelectedIndex(), (Integer) (((SpinnerNumberModel)spinner_3.getModel()).getNumber()), (Integer) (((SpinnerNumberModel)spinner_1_1.getModel()).getNumber()), comboBox_1_1.getSelectedIndex());
-				System.out.println(a.insertintoDB(a.startTime(), a.endTime()));
-			}		
-		});  
+		btnSchedPhysAppt.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e){
+				Appointment a = new Appointment(0, comboBox_4.getSelectedIndex(), comboBox_4_1.getSelectedItem().toString(), comboBox.getSelectedIndex(), (Integer) (((SpinnerNumberModel)spinner.getModel()).getNumber()), (Integer) (((SpinnerNumberModel)spinner_1.getModel()).getNumber()), comboBox_1.getSelectedIndex(), comboBox_3.getSelectedIndex(), (Integer) (((SpinnerNumberModel)spinner_3.getModel()).getNumber()), (Integer) (((SpinnerNumberModel)spinner_1_1.getModel()).getNumber()), comboBox_1_1.getSelectedIndex());
+				System.out.println(a.insertintoDB());
+			}
+		});
 
 
 		JPanel panelButton_1 = new JPanel();
@@ -460,12 +476,20 @@ public class SCHED {
 		JButton btnSchedPatientAppt = new JButton("Book appointment");
 		btnSchedPatientAppt.setBounds(0, 0, 200, 20);
 		panelButton_1.add(btnSchedPatientAppt);
-		btnSchedPatientAppt.addActionListener(new ActionListener(){  
-			public void actionPerformed(ActionEvent e){  
-				Appointment a = new Appointment(comboBox_4_1_2.getSelectedIndex(), comboBox_4_1_1.getSelectedItem().toString(), comboBox_2.getSelectedIndex(), (Integer) (((SpinnerNumberModel)spinner_2.getModel()).getNumber()), (Integer) (((SpinnerNumberModel)spinner_1_2.getModel()).getNumber()), comboBox_1_2.getSelectedIndex(), comboBox_2.getSelectedIndex(), (Integer) (((SpinnerNumberModel)spinner_2.getModel()).getNumber()), (Integer) (((SpinnerNumberModel)spinner_1_1_1.getModel()).getNumber()), comboBox_1_1_1.getSelectedIndex());
-				System.out.println(a.insertintoDB(a.startTime(), a.endTime()));
-			}		
-		});  
+		btnSchedPatientAppt.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e){
+				int patientID;
+				try {
+					patientID = Integer.parseInt(txtPatientNum.getText());
+				}
+				catch (Exception ie){
+					patientID = 0;
+					ie.printStackTrace();
+				}
+				Appointment a = new Appointment(patientID, comboBox_4_1_2.getSelectedIndex(), comboBox_4_1_1.getSelectedItem().toString(), comboBox_2.getSelectedIndex(), (Integer) (((SpinnerNumberModel)spinner_2.getModel()).getNumber()), (Integer) (((SpinnerNumberModel)spinner_1_2.getModel()).getNumber()), comboBox_1_2.getSelectedIndex(), comboBox_2.getSelectedIndex(), (Integer) (((SpinnerNumberModel)spinner_2.getModel()).getNumber()), (Integer) (((SpinnerNumberModel)spinner_1_1_1.getModel()).getNumber()), comboBox_1_1_1.getSelectedIndex());
+				System.out.println(a.insertintoDB());
+			}
+		});
 
 		textField = new JTextField();
 		textField.setEditable(false);
@@ -487,7 +511,7 @@ public class SCHED {
 			public void actionPerformed(ActionEvent e) {
 				//frmPhysicianScheduler.setVisible(false);
 				SCHED_DailyReport newDailyReport = new SCHED_DailyReport();
-			
+
 			}
 		});
 		btnGenerateDailyReport.setBounds(10, 10, 184, 21);
@@ -498,7 +522,7 @@ public class SCHED {
 			public void actionPerformed(ActionEvent e) {
 				//frmPhysicianScheduler.setVisible(false);
 				SCHED_WeeklyReport newWeeklyReport = new SCHED_WeeklyReport();
-			
+
 			}
 		});
 		btnGenerateWeeklyReport.setBounds(10, 41, 184, 21);
