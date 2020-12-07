@@ -18,7 +18,7 @@ public class Appointment {
 	static final String USER = "root";
 	static final String PASS = "password";
 
-	public static int testpatientid = 0;
+	public static int patientID;
 	public static int selectedPhysician;
 	public static String selectedType;
 
@@ -34,7 +34,8 @@ public class Appointment {
 	public static int selectedendhour;
 	public static int selectedendminute = 22;
 
-	public Appointment(int physIndex, String stype, int smonth, int sday, int shour, int sminute, int emonth, int eday, int ehour, int eminute) {
+	public Appointment(int pid, int physIndex, String stype, int smonth, int sday, int shour, int sminute, int emonth, int eday, int ehour, int eminute) {
+		patientID = pid;
 		selectedPhysician = physIndex + 1;
 		selectedType = stype;
 		selectedstartmonth = smonth + 1;
@@ -44,7 +45,7 @@ public class Appointment {
 			selectedstartminute = 0;
 		} else {
 			selectedstartminute = 30;
-		}	
+		}
 		selectedendmonth = emonth + 1;
 		selectedendday = eday;
 		selectedendhour = ehour;
@@ -53,6 +54,7 @@ public class Appointment {
 		} else {
 			selectedendminute = 30;
 		}
+		System.out.println(patientID);
 	}
 
 
@@ -65,7 +67,7 @@ public class Appointment {
 	}
 
 	//stmt.executeUpdate(x)
-	public static String insertintoDB(String start, String end) {
+	public static String insertintoDB() {
 
 		//Scanner scnr = new Scanner(System.in);
 		Connection conn = null;
@@ -79,16 +81,16 @@ public class Appointment {
 			System.out.println("Connecting to database...");
 			conn = DriverManager.getConnection(DB_URL,USER,PASS);
 			stmt = conn.createStatement();
-			
-			String sql = "INSERT INTO events(patientid, doctorid, eventtype, start, end) VALUES (" + testpatientid + "," + selectedPhysician + ", '" + selectedType + "', " + startTime() + ", " + endTime() + ");";
-			
+
+			String sql = "INSERT INTO events(patientid, doctorid, eventtype, start, end) VALUES (" + patientID + "," + selectedPhysician + ", '" + selectedType + "', " + startTime() + ", " + endTime() + ");";
+
 			stmt.executeUpdate(sql);
 
 			//STEP 6: Clean-up environment
 			stmt.close();
 			conn.close();
-			
-			returnStatement = "Inserted Values (" + testpatientid + "," + selectedPhysician + ", '" + selectedType + "', " + startTime() + ", " + endTime() + ")";
+
+			returnStatement = "Inserted Values (" + patientID + "," + selectedPhysician + ", '" + selectedType + "', " + startTime() + ", " + endTime() + ")";
 		}catch(SQLException se){
 			//Handle errors for JDBC
 			se.printStackTrace();
