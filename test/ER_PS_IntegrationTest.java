@@ -157,8 +157,8 @@ class ER_PS_IntegrationTest {
         //confirm that patient does not exist and appointment with this patient does not exist
         ER_Backend.deletePatient(21);
         Assertions.assertEquals(null, ER_Backend.returnPatient(21).pfirstname);
-        updateDatabase("DELETE FROM events WHERE patientid=21");
-        String appointmentType = queryDatabaseString("SELECT * FROM events WHERE patientid=21", 4);
+        updateDatabase("DELETE FROM Events WHERE patientid=21");
+        String appointmentType = queryDatabaseString("SELECT * FROM Events WHERE patientid=21", 4);
         Assertions.assertEquals(null, appointmentType);
 
         Patient np = new Patient();
@@ -178,7 +178,7 @@ class ER_PS_IntegrationTest {
         //use this patient to schedule appointment
         Appointment app = new Appointment(np.pid, 2, "Vacation", 11, 2, 12,00, 11,2, 1, 00);
         app.insertintoDB();
-        appointmentType = queryDatabaseString("SELECT * FROM events WHERE patientid=21", 4);
+        appointmentType = queryDatabaseString("SELECT * FROM Events WHERE patientid=21", 4);
         Assertions.assertEquals("Vacation", appointmentType);
     }
 
@@ -187,13 +187,13 @@ class ER_PS_IntegrationTest {
         ER_Backend.deletePatient(21);
         Assertions.assertEquals(null, ER_Backend.returnPatient(21).pfirstname);
         updateDatabase("DELETE FROM events WHERE patientid=21");
-        String appointmentType = queryDatabaseString("SELECT * FROM events WHERE patientid=21", 4);
+        String appointmentType = queryDatabaseString("SELECT * FROM Events WHERE patientid=21", 4);
         Assertions.assertEquals(null, appointmentType);
 
         //should not be able to make new appt with non-existant patient
         Appointment app = new Appointment(21, 2, "Vacation", 11, 2, 12,00, 11,2, 1, 00);
         app.insertintoDB();
-        appointmentType = queryDatabaseString("SELECT * FROM events WHERE patientid=21", 4);
+        appointmentType = queryDatabaseString("SELECT * FROM Events WHERE patientid=21", 4);
         Assertions.assertEquals(null, appointmentType);
 
 

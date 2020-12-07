@@ -14,7 +14,7 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class AppointmentTest {
+class PS_Test {
 
     //setup variables to access database
     static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
@@ -188,10 +188,10 @@ class AppointmentTest {
         Appointment app = new Appointment(0, 1, "Vacation", 11, 2, 12,00, 11,2, 1, 00);
         app.insertintoDB();
 
-        String getMaxIDSQL = "SELECT MAX(eventid) FROM events";
+        String getMaxIDSQL = "SELECT MAX(eventid) FROM Events";
         Integer maxID = queryDatabaseInt(getMaxIDSQL, 1);
 
-        String getAppointmentSQL = "SELECT * FROM events WHERE eventid = " + Integer.toString(maxID);
+        String getAppointmentSQL = "SELECT * FROM Events WHERE eventid = " + Integer.toString(maxID);
 
         Integer patientID = queryDatabaseInt(getAppointmentSQL, 2);
         Integer drID = queryDatabaseInt(getAppointmentSQL, 3);
@@ -206,14 +206,14 @@ class AppointmentTest {
     void getPhysiciansSCHED_DailyTest(){
         SCHED_DailyReport dr;
         //check with empty database
-        updateDatabase("TRUNCATE TABLE physicians");
+        updateDatabase("TRUNCATE TABLE Physicians");
         dr = new SCHED_DailyReport();
         Assertions.assertTrue(dr.physicians.isEmpty());
 
 
-        updateDatabase("INSERT INTO physicians (eid, efirstname, elastname, cnumber) VALUES ('1', 'Jack', 'ONeill', '111111')");
-        updateDatabase("INSERT INTO physicians (eid, efirstname, elastname, cnumber) VALUES ('2', 'Sam', 'Carter', '222222')");
-        updateDatabase("INSERT INTO physicians (eid, efirstname, elastname, cnumber) VALUES ('3', 'Daniel', 'Jackson', '333333')");
+        updateDatabase("INSERT INTO Physicians (eid, efirstname, elastname, cnumber) VALUES ('1', 'Jack', 'ONeill', '111111')");
+        updateDatabase("INSERT INTO Physicians (eid, efirstname, elastname, cnumber) VALUES ('2', 'Sam', 'Carter', '222222')");
+        updateDatabase("INSERT INTO Physicians (eid, efirstname, elastname, cnumber) VALUES ('3', 'Daniel', 'Jackson', '333333')");
         List<String> drNames = new ArrayList<String>();
         drNames.add("Jack ONeill");
         drNames.add("Sam Carter");
@@ -227,14 +227,14 @@ class AppointmentTest {
     void getPhysiciansSCHED_WeeklyTest(){
         SCHED_WeeklyReport dr;
         //check with empty database
-        updateDatabase("TRUNCATE TABLE physicians");
+        updateDatabase("TRUNCATE TABLE Physicians");
         dr = new SCHED_WeeklyReport();
         Assertions.assertTrue(dr.physicians.isEmpty());
 
 
-        updateDatabase("INSERT INTO physicians (eid, efirstname, elastname, cnumber) VALUES ('1', 'Jack', 'ONeill', '111111')");
-        updateDatabase("INSERT INTO physicians (eid, efirstname, elastname, cnumber) VALUES ('2', 'Sam', 'Carter', '222222')");
-        updateDatabase("INSERT INTO physicians (eid, efirstname, elastname, cnumber) VALUES ('3', 'Daniel', 'Jackson', '333333')");
+        updateDatabase("INSERT INTO Physicians (eid, efirstname, elastname, cnumber) VALUES ('1', 'Jack', 'ONeill', '111111')");
+        updateDatabase("INSERT INTO Physicians (eid, efirstname, elastname, cnumber) VALUES ('2', 'Sam', 'Carter', '222222')");
+        updateDatabase("INSERT INTO Physicians (eid, efirstname, elastname, cnumber) VALUES ('3', 'Daniel', 'Jackson', '333333')");
         List<String> drNames = new ArrayList<String>();
         drNames.add("Jack ONeill");
         drNames.add("Sam Carter");
@@ -246,8 +246,8 @@ class AppointmentTest {
     @Test
     void getWeekReportTest(){
         //because this is displayed to console, needs to be manually evaluated
-        updateDatabase("INSERT INTO physicians (eid, efirstname, elastname, cnumber) VALUES ('0', 'George', 'Hammond', '0000000')");
-        updateDatabase("DELETE from events WHERE doctorid = 0");
+        updateDatabase("INSERT INTO Physicians (eid, efirstname, elastname, cnumber) VALUES ('0', 'George', 'Hammond', '0000000')");
+        updateDatabase("DELETE from Events WHERE doctorid = 0");
         WeekReport wr= new WeekReport(11,2,0,"George Hammond");
 
         //check when no appts present
@@ -265,13 +265,13 @@ class AppointmentTest {
     @Test
     void getDayReportTest(){
         //because this is displayed to console, needs to be manually evaluated
-        updateDatabase("DELETE from physicians WHERE eid = 0");
+        updateDatabase("DELETE from Physicians WHERE eid = 0");
         DayReport dr = new DayReport(11,2,0,"George Hammond");
 
         //check when no appts present
         dr.getfromDB();
 
-        updateDatabase("INSERT INTO physicians (eid, efirstname, elastname, cnumber) VALUES ('0', 'George', 'Hammond', '0000000')");
+        updateDatabase("INSERT INTO Physicians (eid, efirstname, elastname, cnumber) VALUES ('0', 'George', 'Hammond', '0000000')");
         Appointment app = new Appointment(0,0, "Vacation", 6, 6, 1,00, 6,6, 2, 00);
         app.insertintoDB();
         dr = new DayReport(7,6,0,"George Hammond");

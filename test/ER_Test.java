@@ -199,8 +199,8 @@ public class ER_Test {
     void medicalEncounterTest(){
         ER_Backend backend = new ER_Backend();
         //delete any ME and check that no such ME exists
-        updateDatabase("DELETE from medicalencounter WHERE pid = 21");
-        String checkDeletion = queryDatabaseString("SELECT * from medicalencounter WHERE pid = 21", 1);
+        updateDatabase("DELETE from MedicalEncounter WHERE pid = 21");
+        String checkDeletion = queryDatabaseString("SELECT * from MedicalEncounter WHERE pid = 21", 1);
         System.out.println(checkDeletion);
         Assertions.assertEquals(null, checkDeletion);
 
@@ -228,7 +228,7 @@ public class ER_Test {
     @Test
     void getMaxIDFullTableTest(){
         ER_Backend backend = new ER_Backend();
-        Integer maxID = queryDatabaseInt("SELECT MAX(pid) FROM patients", 1);
+        Integer maxID = queryDatabaseInt("SELECT MAX(pid) FROM Patients", 1);
         Assertions.assertEquals((int)maxID, backend.getMaxID());
 
         Patient np = new Patient();
@@ -292,7 +292,7 @@ public class ER_Test {
 
         Assertions.assertEquals(newMaxID, backend.getMaxID());
 
-        updateDatabase("TRUNCATE TABLE patients");
+        updateDatabase("TRUNCATE TABLE Patients");
 
         Assertions.assertEquals(0, backend.getMaxID());
     }

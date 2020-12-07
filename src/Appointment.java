@@ -83,7 +83,7 @@ public class Appointment {
 			conn = DriverManager.getConnection(DB_URL,USER,PASS);
 			stmt = conn.createStatement();
 
-			String sql = "INSERT INTO events(patientid, doctorid, eventtype, start, end) VALUES (" + patientID + "," + selectedPhysician + ", '" + selectedType + "', " + startTime() + ", " + endTime() + ");";
+			String sql = "INSERT INTO Events(patientid, doctorid, eventtype, start, end) VALUES (" + patientID + "," + selectedPhysician + ", '" + selectedType + "', " + startTime() + ", " + endTime() + ");";
 
 			stmt.executeUpdate(sql);
 

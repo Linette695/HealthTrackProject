@@ -485,7 +485,7 @@ public class SCHED {
 				}
 				catch (Exception ie){
 					patientID = 0;
-					ie.printStackTrace();
+					//ie.printStackTrace();
 				}
 				Appointment a = new Appointment(patientID, comboBox_4_1_2.getSelectedIndex(), comboBox_4_1_1.getSelectedItem().toString(), comboBox_2.getSelectedIndex(), (Integer) (((SpinnerNumberModel)spinner_2.getModel()).getNumber()), (Integer) (((SpinnerNumberModel)spinner_1_2.getModel()).getNumber()), comboBox_1_2.getSelectedIndex(), comboBox_2.getSelectedIndex(), (Integer) (((SpinnerNumberModel)spinner_2.getModel()).getNumber()), (Integer) (((SpinnerNumberModel)spinner_1_1_1.getModel()).getNumber()), comboBox_1_1_1.getSelectedIndex());
 				System.out.println(a.insertintoDB());

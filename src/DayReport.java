@@ -71,7 +71,7 @@ public class DayReport {
 			conn = DriverManager.getConnection(DB_URL,USER,PASS);
 			stmt = conn.createStatement();
 			
-			String sql = "SELECT * from events where doctorid = " + physID + " and start BETWEEN '2020-" + month + "-" + day + " 00:00:00' AND '2020-" + month + "-" + day + " 23:59:59';";
+			String sql = "SELECT * from Events where doctorid = " + physID + " and start BETWEEN '2020-" + month + "-" + day + " 00:00:00' AND '2020-" + month + "-" + day + " 23:59:59';";
 
 			ResultSet rs = stmt.executeQuery(sql);
 			
