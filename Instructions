@@ -1,20 +1,6 @@
-Way 1:
-//Starting the service and checking status
-$ sudo service mysql status
-$ sudo service mysql start
+Before starting:
+//Install the latest version of JRE
 
-//Set up loading testdb.sql
-$ mysql -u root -p
-mysql> CREATE DATABASE cs532;
-mysql> USE cs532;
-mysql> SOURCE cs532.sql;
-mysql> QUIT;
-
-Run Executable/HealthTrack.jar
-
-+++++++++++++++++++++++++++++
-
-Way 2:
 //Install mysql
 $ sudo apt-get update
 $ sudo apt-get install mysql-server
@@ -23,15 +9,23 @@ $ sudo apt-get install mysql-server
 $ sudo service mysql status
 $ sudo service mysql start
 
-//Set up loading testdb.sql
+//Set up the database
 $ mysql -u root -p
 mysql> CREATE DATABASE cs532;
 mysql> USE cs532;
 mysql> SOURCE cs532.sql;
 mysql> QUIT;
 
-//Change username and password in Credentials.java
+//Change credentials in Credentials.java to username: root, password: ...
+//depending on what you put in your set up of MySQL
++++++++++++++++++++++++++++++
 
+Way 1:
+Run Executable/HealthTrack.jar by double-clicking
+
++++++++++++++++++++++++++++++
+
+Way 2:
 //Connector error
 In Eclipse:
 	Project > Build Path > Configure Build Path
