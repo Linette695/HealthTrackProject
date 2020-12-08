@@ -1,3 +1,7 @@
+Way 1:
+Run Executable/HealthTrack.jar
+
+Way 2:
 //Install mysql
 $ sudo apt-get update
 $ sudo apt-get install mysql-server
