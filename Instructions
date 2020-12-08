@@ -1,5 +1,18 @@
 Way 1:
+//Starting the service and checking status
+$ sudo service mysql status
+$ sudo service mysql start
+
+//Set up loading testdb.sql
+$ mysql -u root -p
+mysql> CREATE DATABASE cs532;
+mysql> USE cs532;
+mysql> SOURCE cs532.sql;
+mysql> QUIT;
+
 Run Executable/HealthTrack.jar
+
++++++++++++++++++++++++++++++
 
 Way 2:
 //Install mysql
