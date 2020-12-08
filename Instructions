@@ -13,12 +13,13 @@ mysql> USE cs532;
 mysql> SOURCE cs532.sql;
 mysql> QUIT;
 
-Run using Eclipse from src/mainGUI.java
+//Change username and password in Credentials.java
 
 //Connector error
 In Eclipse:
 	Project > Build Path > Configure Build Path
 	In "Libraries" tab press "Add External Jar" and select mysql-connector-java-5.1.49.jar
 
-//Adding JUnit 5.4.0
+//Adding JUnit 5.4.0 as a library org.junit.jupiter:junit-jupiter:5.4.2
 
+Run using Eclipse from src/mainGUI.java
